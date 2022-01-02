@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		1336DDC8278096C10084DEFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDC7278096C10084DEFF /* AppDelegate.swift */; };
 		1336DDCA278096C10084DEFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDC9278096C10084DEFF /* SceneDelegate.swift */; };
-		1336DDCC278096C10084DEFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDCB278096C10084DEFF /* ViewController.swift */; };
 		1336DDCF278096C10084DEFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1336DDCD278096C10084DEFF /* Main.storyboard */; };
 		1336DDD1278096C20084DEFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1336DDD0278096C20084DEFF /* Assets.xcassets */; };
 		1336DDD4278096C20084DEFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1336DDD2278096C20084DEFF /* LaunchScreen.storyboard */; };
+		1336DDDC27809F440084DEFF /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDDB27809F440084DEFF /* loginViewController.swift */; };
+		1336DDDE2780A04B0084DEFF /* wordsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDDD2780A04B0084DEFF /* wordsListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1336DDC4278096C10084DEFF /* wordcheck-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wordcheck-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1336DDC7278096C10084DEFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1336DDC9278096C10084DEFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1336DDCB278096C10084DEFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1336DDCE278096C10084DEFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1336DDD0278096C20084DEFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1336DDD3278096C20084DEFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1336DDD5278096C20084DEFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1336DDDB27809F440084DEFF /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		1336DDDD2780A04B0084DEFF /* wordsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				1336DDC7278096C10084DEFF /* AppDelegate.swift */,
+				1336DDDB27809F440084DEFF /* loginViewController.swift */,
+				1336DDDD2780A04B0084DEFF /* wordsListViewController.swift */,
 				1336DDC9278096C10084DEFF /* SceneDelegate.swift */,
-				1336DDCB278096C10084DEFF /* ViewController.swift */,
 				1336DDCD278096C10084DEFF /* Main.storyboard */,
 				1336DDD0278096C20084DEFF /* Assets.xcassets */,
 				1336DDD2278096C20084DEFF /* LaunchScreen.storyboard */,
@@ -138,8 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1336DDCC278096C10084DEFF /* ViewController.swift in Sources */,
+				1336DDDC27809F440084DEFF /* loginViewController.swift in Sources */,
 				1336DDC8278096C10084DEFF /* AppDelegate.swift in Sources */,
+				1336DDDE2780A04B0084DEFF /* wordsListViewController.swift in Sources */,
 				1336DDCA278096C10084DEFF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
