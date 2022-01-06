@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  wordcheck-ios
-//
-//  Created by JihoMac on 2022/01/01.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
