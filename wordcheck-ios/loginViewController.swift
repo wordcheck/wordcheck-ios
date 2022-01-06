@@ -8,11 +8,12 @@ class loginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        let backButton = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: navigationController, action: nil)
+        navigationItem.leftBarButtonItem = backButton
     }
 
     @IBAction func nickName(_ sender: Any) {
-
+        
     }
     @IBAction func passWord(_ sender: Any) {
     }
@@ -24,8 +25,6 @@ class loginViewController: UIViewController {
             "password" : passWord.text!
         ]
         
-        print("--> \(nickName.text!), \(passWord.text!)")
-        
         AF.request(loginURL, method: .post, parameters: parameters).responseJSON { response in
             switch response.result {
             case .success(let obj):
@@ -34,7 +33,11 @@ class loginViewController: UIViewController {
                     let getData = try JSONDecoder().decode(accountToken.self, from: dataJSON)
                     guard let msg = getData.msg else { return }
                     if msg == "success" {
-                        //print("좋아용")
+                        let wordsListViewController = self.storyboard?.instantiateViewController(withIdentifier: "wordsListViewController") as! wordsListViewController
+                        
+                        self.navigationController?.pushViewController(wordsListViewController, animated: true)
+                        
+                        self.dismiss(animated: false, completion: nil)
                     }
                 } catch {
                     print(error.localizedDescription)
@@ -45,26 +48,15 @@ class loginViewController: UIViewController {
 
         }
     }
+    
+    @IBAction func signupButton(_ sender: Any) {
+        
+    }
+    
 }
 
 struct accountToken: Codable {
     let account_token: String?
     let msg: String?
     let nickname: String?
-}
-
-class loginAPI {
-    
-    static func nickNameCheck(_ nickname: String) -> Void {
-
-    }
-    
-    static func normalLogin() -> Void {
-
-    }
-    
-    static func normalSignup() -> Void {
-        
-    }
-    
 }
