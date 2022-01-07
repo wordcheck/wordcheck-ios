@@ -39,12 +39,10 @@ class signupViewController: UIViewController {
                 do {
                     let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
                     let getData = try JSONDecoder().decode(accountToken.self, from: dataJSON)
-                    guard let token = getData.account_token, let msg = getData.msg else { return }
-                    if getData.msg == "success" {
-                        print("--> \(token)")
-                    } else {
-                        print("\(msg)")
-                    }
+                    guard let token = getData.account_token else { return }
+                    // print("--> \(token)")
+                    // 토큰 전달하면됨
+                    // 기분 좋다
                 } catch {
                     print(error.localizedDescription)
                 }
