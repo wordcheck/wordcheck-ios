@@ -30,7 +30,7 @@ class loginViewController: UIViewController {
             case .success(let obj):
                 do {
                     let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
-                    let getData = try JSONDecoder().decode(accountToken.self, from: dataJSON)
+                    let getData = try JSONDecoder().decode(loginToken.self, from: dataJSON)
                     guard let msg = getData.msg else { return }
                     if msg == "success" {
                         let wordsListViewController = self.storyboard?.instantiateViewController(withIdentifier: "wordsListViewController") as! wordsListViewController
@@ -50,12 +50,16 @@ class loginViewController: UIViewController {
     }
     
     @IBAction func signupButton(_ sender: Any) {
+        let signupViewController = self.storyboard?.instantiateViewController(withIdentifier: "signupViewController") as! signupViewController
         
+        self.navigationController?.pushViewController(signupViewController, animated: true)
+        
+        self.dismiss(animated: false, completion: nil)
     }
     
 }
 
-struct accountToken: Codable {
+struct loginToken: Codable {
     let account_token: String?
     let msg: String?
     let nickname: String?

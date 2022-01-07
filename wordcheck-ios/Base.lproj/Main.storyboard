@@ -50,7 +50,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="nickname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VBU-og-rdK">
                                 <rect key="frame" x="127" y="317" width="160" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="dO1-im-bKl"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="dO1-im-bKl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -84,6 +84,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.072463768116" y="197.54464285714286"/>
+        </scene>
+        <!--Signup View Controller-->
+        <scene sceneID="iFb-K6-siA">
+            <objects>
+                <viewController storyboardIdentifier="signupViewController" id="nNj-Zv-fdR" customClass="signupViewController" customModule="wordcheck_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pWf-z3-4Iy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqI-T3-kZo">
+                                <rect key="frame" x="155.5" y="154" width="103" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="nickname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQu-AV-aNw">
+                                <rect key="frame" x="127" y="261" width="160" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="XIC-6A-avX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nickName:" destination="nNj-Zv-fdR" eventType="editingDidEnd" id="eCv-md-FjT"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U1B-Ri-Yk4">
+                                <rect key="frame" x="127" y="303" width="160" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="Tc2-5e-2lH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="passWord:" destination="nNj-Zv-fdR" eventType="editingDidEnd" id="251-Ji-WlO"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="secret code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z2l-VT-UDS">
+                                <rect key="frame" x="127" y="345" width="160" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="nd6-XI-z6D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="secretCode:" destination="nNj-Zv-fdR" eventType="editingDidEnd" id="tCu-kz-ZIl"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZa-W2-l5K">
+                                <rect key="frame" x="170.5" y="404" width="73" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sign up"/>
+                                <connections>
+                                    <action selector="signUpButton:" destination="nNj-Zv-fdR" eventType="touchUpInside" id="xSf-eY-teC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lkf-P4-5TS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="U1B-Ri-Yk4" firstAttribute="centerX" secondItem="Lkf-P4-5TS" secondAttribute="centerX" id="6SD-Ur-wYk"/>
+                            <constraint firstItem="LZa-W2-l5K" firstAttribute="top" secondItem="z2l-VT-UDS" secondAttribute="bottom" constant="25" id="6qT-9q-sdT"/>
+                            <constraint firstItem="pqI-T3-kZo" firstAttribute="centerX" secondItem="Lkf-P4-5TS" secondAttribute="centerX" id="91N-lP-Ry2"/>
+                            <constraint firstItem="fQu-AV-aNw" firstAttribute="top" secondItem="pqI-T3-kZo" secondAttribute="bottom" constant="71" id="AeJ-le-jXK"/>
+                            <constraint firstItem="fQu-AV-aNw" firstAttribute="centerX" secondItem="Lkf-P4-5TS" secondAttribute="centerX" id="D4n-PV-W2R"/>
+                            <constraint firstItem="z2l-VT-UDS" firstAttribute="top" secondItem="U1B-Ri-Yk4" secondAttribute="bottom" constant="8" symbolic="YES" id="L2n-Ib-b6k"/>
+                            <constraint firstItem="z2l-VT-UDS" firstAttribute="centerX" secondItem="Lkf-P4-5TS" secondAttribute="centerX" id="M0o-7G-hn0"/>
+                            <constraint firstItem="LZa-W2-l5K" firstAttribute="centerX" secondItem="Lkf-P4-5TS" secondAttribute="centerX" id="Qlb-ip-Omq"/>
+                            <constraint firstItem="pqI-T3-kZo" firstAttribute="top" secondItem="Lkf-P4-5TS" secondAttribute="top" constant="110" id="XAL-bM-xrb"/>
+                            <constraint firstItem="U1B-Ri-Yk4" firstAttribute="top" secondItem="fQu-AV-aNw" secondAttribute="bottom" constant="8" symbolic="YES" id="Zjy-rv-slO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nickName" destination="fQu-AV-aNw" id="S5Z-Mi-Low"/>
+                        <outlet property="passWord" destination="U1B-Ri-Yk4" id="mAg-XO-OEa"/>
+                        <outlet property="secretCode" destination="z2l-VT-UDS" id="3sZ-L4-ED5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tYb-3f-q4G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1922" y="198"/>
         </scene>
         <!--Words List View Controller-->
         <scene sceneID="PPM-Sk-SBi">
@@ -135,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vro-4S-qkQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="198"/>
+            <point key="canvasLocation" x="1920" y="923"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yQB-YM-Zmo">
