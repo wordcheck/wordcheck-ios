@@ -16,6 +16,7 @@ class loginViewController: UIViewController {
         
     }
     @IBAction func passWord(_ sender: Any) {
+        
     }
     
     @IBAction func loginButton(_ sender: Any) {
@@ -31,8 +32,12 @@ class loginViewController: UIViewController {
                 do {
                     let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
                     let getData = try JSONDecoder().decode(loginToken.self, from: dataJSON)
-                    guard let msg = getData.msg else { return }
-                    if msg == "success" {
+                    guard let token = getData.account_token else { return }
+                    if token != "" {
+                        print("--> \(token)")
+                        // account_token 받아옴
+                        // wordsListViewController로 전달
+                        
                         let wordsListViewController = self.storyboard?.instantiateViewController(withIdentifier: "wordsListViewController") as! wordsListViewController
                         
                         self.navigationController?.pushViewController(wordsListViewController, animated: true)

@@ -26,23 +26,47 @@ class signupViewController: UIViewController {
     }
     
     @IBAction func signUpButton(_ sender: Any) {
-        let signupURL = "http://52.78.37.13/api/accounts/normal_signup/"
-        let parameters: Parameters = [
-            "nickname" : nickName.text!,
-            "password" : passWord.text!,
-            "secret_code": secretCode.text!
+        let nicknamecheckURL = "http://52.78.37.13/api/accounts/nickname_check/"
+        var parameters: Parameters = [
+            "nickname" : nickName.text!
         ]
-        
-        AF.request(signupURL, method: .post, parameters: parameters).responseJSON { response in
+        AF.request(nicknamecheckURL, method: .post, parameters: parameters).responseJSON {
+            response in
             switch response.result {
             case .success(let obj):
                 do {
                     let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
-                    let getData = try JSONDecoder().decode(accountToken.self, from: dataJSON)
-                    guard let token = getData.account_token else { return }
-                    // print("--> \(token)")
-                    // 토큰 전달하면됨
-                    // 기분 좋다
+                    let getData = try JSONDecoder().decode(nicknameCheck.self, from: dataJSON)
+                    guard let msg = getData.msg else { return }
+                    // status code로 처리
+                    // print("\(msg)")
+                    if msg == "success" {
+                        let signupURL = "http://52.78.37.13/api/accounts/normal_signup/"
+                        parameters = [
+                            "nickname" : self.nickName.text!,
+                            "password" : self.passWord.text!,
+                            "secret_code": self.secretCode.text!
+                        ]
+                        
+                        AF.request(signupURL, method: .post, parameters: parameters).responseJSON { response in
+                            switch response.result {
+                            case .success(let obj):
+                                do {
+                                    let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                                    let getData = try JSONDecoder().decode(accountToken.self, from: dataJSON)
+                                    guard let token = getData.account_token, let msg = getData.msg else { return }
+                                    // print("--> \(msg)\n\(token)")
+                                    // 로그인 해달라고 알림
+                                } catch {
+                                    print(error.localizedDescription)
+                                }
+                            default:
+                                return
+                            }
+                        }
+                    } else {
+                        // 중복된 아이디라 알림
+                    }
                 } catch {
                     print(error.localizedDescription)
                 }
@@ -63,6 +87,10 @@ class signupViewController: UIViewController {
     }
     */
 
+}
+
+struct nicknameCheck: Codable {
+    let msg: String?
 }
 
 struct accountToken: Codable {
