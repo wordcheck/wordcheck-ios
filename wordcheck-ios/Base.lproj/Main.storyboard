@@ -194,8 +194,15 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contentLabel" destination="2TY-bJ-U78" id="XRZ-0o-5JI"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="4eZ-GL-B99" id="Ibg-Kx-Y0I"/>
+                                    <outlet property="delegate" destination="4eZ-GL-B99" id="uVV-Sk-Cx7"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZJ-81-mZx">
                                 <rect key="frame" x="364" y="49" width="30" height="30"/>

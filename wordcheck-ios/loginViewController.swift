@@ -34,7 +34,6 @@ class loginViewController: UIViewController {
                     let getData = try JSONDecoder().decode(loginToken.self, from: dataJSON)
                     guard let token = getData.account_token else { return }
                     if token != "" {
-                        print("--> \(token)")
                         // account_token 받아옴
                         // wordsListViewController로 전달
                         
