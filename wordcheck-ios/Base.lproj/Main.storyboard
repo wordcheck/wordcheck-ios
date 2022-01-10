@@ -179,7 +179,7 @@
                                 <rect key="frame" x="0.0" y="143" width="414" height="669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="wordCell" id="eOo-hM-nS3" customClass="WordCell" customModule="wordcheck_ios" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contentCell" id="eOo-hM-nS3" customClass="WordCell" customModule="wordcheck_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eOo-hM-nS3" id="xgg-F8-i1z">
@@ -222,6 +222,9 @@
                                 <state key="normal" image="plus" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                 </state>
+                                <connections>
+                                    <action selector="wordsListAddButton:" destination="4eZ-GL-B99" eventType="touchUpInside" id="an6-SO-m9r"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eo8-lk-f4i"/>
@@ -236,10 +239,69 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hG9-PT-dE7"/>
+                    <connections>
+                        <segue destination="00e-j8-bPI" kind="showDetail" identifier="showDetail" id="dNh-R9-xqq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vro-4S-qkQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1966.6666666666667" y="197.54464285714286"/>
+        </scene>
+        <!--Words Detail List View Controller-->
+        <scene sceneID="KMV-y8-IfM">
+            <objects>
+                <viewController id="00e-j8-bPI" customClass="wordsDetailListViewController" customModule="wordcheck_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c69-R6-L3b">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vbM-Ec-xHW">
+                                <rect key="frame" x="0.0" y="80" width="414" height="723"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="wordCell" rowHeight="100" id="gDF-Tq-x6s" customClass="DetailCell" customModule="wordcheck_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gDF-Tq-x6s" id="0Ax-tx-Rix">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUY-OG-tzd">
+                                                    <rect key="frame" x="181.5" y="11" width="51.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kUY-OG-tzd" firstAttribute="top" secondItem="0Ax-tx-Rix" secondAttribute="top" constant="11" id="ArX-0o-ryD"/>
+                                                <constraint firstItem="kUY-OG-tzd" firstAttribute="centerX" secondItem="0Ax-tx-Rix" secondAttribute="centerX" id="ViF-Ib-Exf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="spellingLabel" destination="kUY-OG-tzd" id="UqN-8K-pVo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="00e-j8-bPI" id="uuT-TP-sq0"/>
+                                    <outlet property="delegate" destination="00e-j8-bPI" id="0b4-vQ-xcp"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="D5b-9v-8S7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="D5b-9v-8S7" firstAttribute="bottom" secondItem="vbM-Ec-xHW" secondAttribute="bottom" constant="5" id="5Pk-K7-gkR"/>
+                            <constraint firstItem="D5b-9v-8S7" firstAttribute="trailing" secondItem="vbM-Ec-xHW" secondAttribute="trailing" id="8tr-d2-7uc"/>
+                            <constraint firstItem="vbM-Ec-xHW" firstAttribute="leading" secondItem="D5b-9v-8S7" secondAttribute="leading" id="U1R-3O-3sy"/>
+                            <constraint firstItem="vbM-Ec-xHW" firstAttribute="top" secondItem="D5b-9v-8S7" secondAttribute="top" constant="80" id="x9l-SH-ZxU"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4hh-FZ-v6i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2951" y="198"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yQB-YM-Zmo">

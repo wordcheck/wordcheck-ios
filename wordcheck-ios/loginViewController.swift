@@ -44,9 +44,8 @@ class loginViewController: UIViewController {
                     guard let token = getData.account_token else { return }
                     if token != "" {
                         // account_token 받아옴
-                        // wordsListViewController로 전달
                         let header: HTTPHeaders = [
-                            "Authorization": token
+                            "Authorization": token // 토큰은 로컬에 저장하기로
                         ]
                         AF.request("http://52.78.37.13/api/words/", method: .get, headers: header).responseJSON { response in
                             switch response.result {
@@ -56,8 +55,6 @@ class loginViewController: UIViewController {
                                     let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
                                     let getData = try JSONDecoder().decode([Words].self, from: dataJSON)
                                     self.contentsList = getData
-//                                    print(self.contentsList)
-//                                    print(self.contentsList.count)
                                 } catch {
                                     print(error.localizedDescription)
                                 }
@@ -67,11 +64,7 @@ class loginViewController: UIViewController {
                             }
                             self.performSegue(withIdentifier: "getWords", sender: self.contentsList)
                         }
-                        
-//                        let wordsListViewController = self.storyboard?.instantiateViewController(withIdentifier: "wordsListViewController") as! wordsListViewController
-//
-//                        self.navigationController?.pushViewController(wordsListViewController, animated: true)
-//                        self.dismiss(animated: false, completion: nil)
+
                     }
                 } catch {
                     print(error.localizedDescription)

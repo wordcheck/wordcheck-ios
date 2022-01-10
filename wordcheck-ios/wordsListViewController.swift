@@ -2,13 +2,20 @@ import UIKit
 import Alamofire
 import SwiftUI
 
-// account_token 이용해서 words get
-// words를 tableView로 표시
-
 class wordsListViewController: UIViewController {
     
-    //var accountToken: String = ""
     var contentsList: [Words] = []
+    var detailList: [WordsDetail] = []
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // DetailViewController 데이터 줄꺼에요
+        if segue.identifier == "showDetail" {
+            let vc = segue.destination as? wordsDetailListViewController
+            if let detail = sender as? [WordsDetail] {
+                vc?.detailList = detail
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +23,10 @@ class wordsListViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func wordsListAddButton(_ sender: Any) {
+        // 목차 추가
     }
     
 }
@@ -31,7 +42,7 @@ extension wordsListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "wordCell", for: indexPath) as? WordCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "contentCell", for: indexPath) as? WordCell else {
             return UITableViewCell()
         }
         cell.contentLabel.text = contentsList[indexPath.row].contents
@@ -41,6 +52,39 @@ extension wordsListViewController: UITableViewDataSource {
 }
 
 extension wordsListViewController : UITableViewDelegate {
+    // 단어 클릭하면 detail list 보여주기
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let header: HTTPHeaders = [
+            // 토큰은 로컬로 처리하기
+            "Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuaWNrbmFtZSI6ImppaG8xIn0.T3oI95w17JUZ5a2DTUsMzVjLFFQwngsf7xrFWXdDfn0"
+        ]
+        
+        let parameters: Parameters = [
+            "contents": contentsList[indexPath.row].contents!
+        ]
+        AF.request("http://52.78.37.13/api/words/detail_list", method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).responseJSON { response in
+            switch response.result {
+            case .success(let obj):
+                // 단어 처리
+                do {
+                    // todo - [WordsDetail] parsing 처리 !
+                    let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                    let getData = try JSONDecoder().decode([WordsDetail].self, from: dataJSON)
+                    self.detailList = getData
+                    print(self.detailList)
+                    print(self.detailList.count)
+                } catch {
+                    print(error.localizedDescription)
+                }
+
+            default:
+                return
+            }
+        }
+        print(detailList)
+        performSegue(withIdentifier: "showDetail", sender: detailList)
+    }
     
 }
 
@@ -48,6 +92,16 @@ struct Words: Codable {
     let contents: String?
 }
 
+struct WordsDetail: Codable {
+    let id: Int?
+    let contents: String?
+    let spelling: String?
+    let categoty: String?
+    let meaning: String?
+    let remember: String?
+    let wrong_count: Int?
+    let account: Int?
+}
 class WordCell: UITableViewCell {
     @IBOutlet weak var contentLabel: UILabel!
 }
