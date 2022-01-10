@@ -7,6 +7,7 @@ class signupViewController: UIViewController {
     @IBOutlet weak var passWord: UITextField!
     @IBOutlet weak var secretCode: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +34,7 @@ class signupViewController: UIViewController {
         AF.request(nicknamecheckURL, method: .post, parameters: parameters).responseJSON {
             response in
             switch response.result {
-            case .success(let obj):
+            case .success:
                 let signupURL = "http://52.78.37.13/api/accounts/normal_signup/"
                 parameters = [
                     "nickname" : self.nickName.text!,

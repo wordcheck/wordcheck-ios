@@ -5,11 +5,20 @@ class loginViewController: UIViewController {
     
     @IBOutlet weak var nickName: UITextField!
     @IBOutlet weak var passWord: UITextField!
+
+    var contentsList: [Words] = []
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "getWords" {
+            let vc = segue.destination as? wordsListViewController
+            if let contents = sender as? [Words] {
+                vc?.contentsList = contents
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backButton = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: navigationController, action: nil)
-        navigationItem.leftBarButtonItem = backButton
     }
 
     @IBAction func nickName(_ sender: Any) {
@@ -35,13 +44,27 @@ class loginViewController: UIViewController {
                     guard let token = getData.account_token else { return }
                     if token != "" {
                         // account_token 받아옴
-                        // wordsListViewController로 전달
-                        
-                        let wordsListViewController = self.storyboard?.instantiateViewController(withIdentifier: "wordsListViewController") as! wordsListViewController
-                        
-                        self.navigationController?.pushViewController(wordsListViewController, animated: true)
-                        
-                        self.dismiss(animated: false, completion: nil)
+                        let header: HTTPHeaders = [
+                            "Authorization": token // 토큰은 로컬에 저장하기로
+                        ]
+                        AF.request("http://52.78.37.13/api/words/", method: .get, headers: header).responseJSON { response in
+                            switch response.result {
+                            case .success(let obj):
+                                // 단어 처리
+                                do {
+                                    let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                                    let getData = try JSONDecoder().decode([Words].self, from: dataJSON)
+                                    self.contentsList = getData
+                                } catch {
+                                    print(error.localizedDescription)
+                                }
+
+                            default:
+                                return
+                            }
+                            self.performSegue(withIdentifier: "getWords", sender: self.contentsList)
+                        }
+
                     }
                 } catch {
                     print(error.localizedDescription)
@@ -57,7 +80,6 @@ class loginViewController: UIViewController {
         let signupViewController = self.storyboard?.instantiateViewController(withIdentifier: "signupViewController") as! signupViewController
         
         self.navigationController?.pushViewController(signupViewController, animated: true)
-        
         self.dismiss(animated: false, completion: nil)
     }
     
