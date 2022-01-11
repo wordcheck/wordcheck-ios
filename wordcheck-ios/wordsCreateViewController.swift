@@ -25,7 +25,8 @@ class wordsCreateViewController: UIViewController {
             "category": categoryInput.text!,
             "meaning": meaningInput.text!
         ]
-        AF.request("http://52.78.37.13/api/words/", method: .post, parameters: parameters, headers: header).responseJSON { response in
+        
+        AF.request("http://52.78.37.13/api/words/", method: .post, parameters: parameters, headers: header).validate(statusCode: 200..<500).response { response in
             switch response.result {
             case .success:
                 // 성공했다 알림
@@ -33,8 +34,8 @@ class wordsCreateViewController: UIViewController {
                 let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
                 alert.addAction(confirm)
                 self.present(alert, animated: true, completion: nil)
-
-            default:
+                
+            case .failure:
                 return
             }
         }
