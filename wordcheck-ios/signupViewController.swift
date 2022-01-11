@@ -51,10 +51,17 @@ class signupViewController: UIViewController {
                             guard let token = getData.account_token else { return }
                             print("--> \(token)")
                             // 로그인 해달라고 알림
+                            let alert = UIAlertController(title: "알림", message: "생성한 아이디로 로그인 해주세요", preferredStyle: UIAlertController.Style.alert)
+                            self.present(alert, animated: true, completion: nil)
+                            self.dismiss(animated: false, completion: nil)
                         } catch {
                             print(error.localizedDescription)
                         }
                     default:
+                        let alert = UIAlertController(title: "알림", message: "닉네임 중복", preferredStyle: UIAlertController.Style.alert)
+                        let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+                        alert.addAction(confirm)
+                        self.present(alert, animated: true, completion: nil)
                         return
                     }
                 }
@@ -65,16 +72,6 @@ class signupViewController: UIViewController {
 
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

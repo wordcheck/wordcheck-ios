@@ -28,6 +28,10 @@ class wordsListViewController: UIViewController {
         // 목차 추가
     }
     
+    @IBAction func wordsCreateButton(_ sender: Any) {
+        performSegue(withIdentifier: "createWord", sender: nil)
+    }
+    
 }
 
 extension wordsListViewController: UITableViewDataSource {
@@ -83,20 +87,6 @@ extension wordsListViewController : UITableViewDelegate {
     
 }
 
-struct Words: Codable {
-    let contents: String?
-}
-
-struct WordsDetail: Codable {
-    let id: Int?
-    let contents: String?
-    let spelling: String?
-    let category: String?
-    let meaning: String?
-    let remember: Bool?
-    let wrong_count: Int?
-    let account: Int?
-}
 class WordCell: UITableViewCell {
     @IBOutlet weak var contentLabel: UILabel!
 }
