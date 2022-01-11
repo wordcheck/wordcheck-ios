@@ -5,7 +5,6 @@ import SwiftUI
 class wordsListViewController: UIViewController {
     
     var contentsList: [Words] = []
-    var detailList: [WordsDetail] = []
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // DetailViewController 데이터 줄꺼에요
@@ -63,7 +62,7 @@ extension wordsListViewController : UITableViewDelegate {
         let parameters: Parameters = [
             "contents": contentsList[indexPath.row].contents!
         ]
-        AF.request("http://52.78.37.13/api/words/detail_list", method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).responseJSON { response in
+        AF.request("http://52.78.37.13/api/words/detail_list/", method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).responseJSON { response in
             switch response.result {
             case .success(let obj):
                 // 단어 처리
@@ -71,9 +70,7 @@ extension wordsListViewController : UITableViewDelegate {
                     // todo - [WordsDetail] parsing 처리 !
                     let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
                     let getData = try JSONDecoder().decode([WordsDetail].self, from: dataJSON)
-                    self.detailList = getData
-                    print(self.detailList)
-                    print(self.detailList.count)
+                    self.performSegue(withIdentifier: "showDetail", sender: getData)
                 } catch {
                     print(error.localizedDescription)
                 }
@@ -82,8 +79,6 @@ extension wordsListViewController : UITableViewDelegate {
                 return
             }
         }
-        print(detailList)
-        performSegue(withIdentifier: "showDetail", sender: detailList)
     }
     
 }
@@ -96,9 +91,9 @@ struct WordsDetail: Codable {
     let id: Int?
     let contents: String?
     let spelling: String?
-    let categoty: String?
+    let category: String?
     let meaning: String?
-    let remember: String?
+    let remember: Bool?
     let wrong_count: Int?
     let account: Int?
 }

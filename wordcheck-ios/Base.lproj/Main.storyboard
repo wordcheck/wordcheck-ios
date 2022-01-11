@@ -255,34 +255,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vbM-Ec-xHW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vbM-Ec-xHW">
                                 <rect key="frame" x="0.0" y="80" width="414" height="723"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="wordCell" rowHeight="100" id="gDF-Tq-x6s" customClass="DetailCell" customModule="wordcheck_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="wordCell" rowHeight="200" id="gDF-Tq-x6s" customClass="DetailCell" customModule="wordcheck_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gDF-Tq-x6s" id="0Ax-tx-Rix">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUY-OG-tzd">
-                                                    <rect key="frame" x="181.5" y="11" width="51.5" height="24"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spelling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUY-OG-tzd">
+                                                    <rect key="frame" x="150.5" y="11" width="113.5" height="36"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyY-ra-o06">
+                                                    <rect key="frame" x="176.5" y="52" width="61" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meaning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUi-xQ-ZOh">
+                                                    <rect key="frame" x="169" y="88" width="76" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="hUi-xQ-ZOh" secondAttribute="bottom" constant="88" id="2Yb-qH-QBY"/>
+                                                <constraint firstItem="hUi-xQ-ZOh" firstAttribute="centerX" secondItem="0Ax-tx-Rix" secondAttribute="centerX" id="4O3-dI-XVX"/>
                                                 <constraint firstItem="kUY-OG-tzd" firstAttribute="top" secondItem="0Ax-tx-Rix" secondAttribute="top" constant="11" id="ArX-0o-ryD"/>
+                                                <constraint firstItem="dyY-ra-o06" firstAttribute="top" secondItem="kUY-OG-tzd" secondAttribute="bottom" constant="5" id="OKl-Md-1Kt"/>
                                                 <constraint firstItem="kUY-OG-tzd" firstAttribute="centerX" secondItem="0Ax-tx-Rix" secondAttribute="centerX" id="ViF-Ib-Exf"/>
+                                                <constraint firstItem="dyY-ra-o06" firstAttribute="centerX" secondItem="0Ax-tx-Rix" secondAttribute="centerX" id="uIk-7r-zgo"/>
+                                                <constraint firstItem="hUi-xQ-ZOh" firstAttribute="top" secondItem="dyY-ra-o06" secondAttribute="bottom" constant="18" id="wjp-jZ-RNV"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="categoryLabel" destination="dyY-ra-o06" id="2bc-va-1MJ"/>
+                                            <outlet property="meaningLabel" destination="hUi-xQ-ZOh" id="yDl-pK-vtK"/>
                                             <outlet property="spellingLabel" destination="kUY-OG-tzd" id="UqN-8K-pVo"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="00e-j8-bPI" id="uuT-TP-sq0"/>
                                     <outlet property="delegate" destination="00e-j8-bPI" id="0b4-vQ-xcp"/>
