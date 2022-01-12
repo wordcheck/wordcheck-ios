@@ -4,16 +4,8 @@ import SwiftUI
 
 class wordsListViewController: UIViewController {
     
-    var contentsList: [Words] = []
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            let vc = segue.destination as? wordsDetailListViewController
-            if let detail = sender as? [WordsDetail] {
-                vc?.detailList = detail
-            }
-        }
-    }
+    var token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
+    var contentsList = Storage.retrive("contents_list.json", from: .documents, as: [Content].self) ?? []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +37,7 @@ extension wordsListViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let header: HTTPHeaders = [
-            // ! 토큰은 로컬로 처리하기
-            "Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuaWNrbmFtZSI6ImppaG8xIn0.T3oI95w17JUZ5a2DTUsMzVjLFFQwngsf7xrFWXdDfn0"
+            "Authorization": token
         ]
         
         let parameters: Parameters = [
@@ -57,7 +48,8 @@ extension wordsListViewController : UITableViewDelegate {
             switch response.result {
             case .success:
                 guard let detailList = response.value else { return }
-                self.performSegue(withIdentifier: "showDetail", sender: detailList)
+                Storage.store(detailList, to: .documents, as: "words_detail.json")
+                self.performSegue(withIdentifier: "showDetail", sender: nil)
                 
             case .failure:
                 return

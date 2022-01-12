@@ -27,9 +27,6 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="passWord:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="aIR-Yg-Mww"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQA-Sh-TzY">
                                 <rect key="frame" x="177" y="426" width="60" height="31"/>
@@ -192,7 +189,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzg-SW-WNk">
-                                <rect key="frame" x="169" y="410" width="76.5" height="31"/>
+                                <rect key="frame" x="169" y="406" width="76.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="단어 생성"/>
                                 <connections>
@@ -212,7 +209,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KQf-MK-QyG" firstAttribute="top" secondItem="egL-Fm-Kcs" secondAttribute="bottom" constant="10" id="4b2-uT-EMH"/>
-                            <constraint firstItem="Fzg-SW-WNk" firstAttribute="top" secondItem="kFX-O1-JWT" secondAttribute="bottom" constant="54" id="B83-uh-xXJ"/>
+                            <constraint firstItem="Fzg-SW-WNk" firstAttribute="top" secondItem="kFX-O1-JWT" secondAttribute="bottom" constant="50" id="B83-uh-xXJ"/>
                             <constraint firstItem="Fzg-SW-WNk" firstAttribute="centerX" secondItem="p4z-ha-iPi" secondAttribute="centerX" id="DRV-La-BF4"/>
                             <constraint firstItem="yyF-47-FQ3" firstAttribute="top" secondItem="KQf-MK-QyG" secondAttribute="bottom" constant="10" id="Qg2-lg-Bsr"/>
                             <constraint firstItem="egL-Fm-Kcs" firstAttribute="centerX" secondItem="p4z-ha-iPi" secondAttribute="centerX" id="Wdz-PO-eji"/>
@@ -225,6 +222,7 @@
                             <constraint firstItem="KQf-MK-QyG" firstAttribute="centerX" secondItem="p4z-ha-iPi" secondAttribute="centerX" id="v2w-5I-s43"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="r7Z-CN-ukT"/>
                     <connections>
                         <outlet property="categoryInput" destination="yyF-47-FQ3" id="Ubi-ls-VFI"/>
                         <outlet property="contentsInput" destination="egL-Fm-Kcs" id="aAh-EE-lBY"/>
@@ -235,6 +233,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20K-8s-YlB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1967" y="901"/>
+        </scene>
+        <!--Words Update View Controller-->
+        <scene sceneID="usy-Gj-IUm">
+            <objects>
+                <viewController id="TYD-bK-EsB" customClass="wordsUpdateViewController" customModule="wordcheck_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MrW-QI-HEi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-oA-S3f">
+                                <rect key="frame" x="130.5" y="80" width="153" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="단어" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3U-hW-mfp">
+                                <rect key="frame" x="117" y="190" width="180" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="qdu-mC-9yW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="품사" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qhc-U3-gkI">
+                                <rect key="frame" x="117" y="234" width="180" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="zqL-Wn-82W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="뜻" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cyN-P3-F8G">
+                                <rect key="frame" x="117" y="278" width="180" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="11i-F3-X44"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiR-2y-AyI">
+                                <rect key="frame" x="169" y="362" width="76.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="단어 수정"/>
+                                <connections>
+                                    <action selector="updateButton:" destination="TYD-bK-EsB" eventType="touchUpInside" id="JH9-W6-h4a"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xns-10-pSi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="w3U-hW-mfp" firstAttribute="top" secondItem="yaf-oA-S3f" secondAttribute="bottom" constant="80" id="2yz-s8-Ir5"/>
+                            <constraint firstItem="yaf-oA-S3f" firstAttribute="centerX" secondItem="Xns-10-pSi" secondAttribute="centerX" id="7Me-tr-Uds"/>
+                            <constraint firstItem="qhc-U3-gkI" firstAttribute="centerX" secondItem="Xns-10-pSi" secondAttribute="centerX" id="A5l-zB-inf"/>
+                            <constraint firstItem="w3U-hW-mfp" firstAttribute="centerX" secondItem="Xns-10-pSi" secondAttribute="centerX" id="AKL-EP-Hc8"/>
+                            <constraint firstItem="yaf-oA-S3f" firstAttribute="top" secondItem="Xns-10-pSi" secondAttribute="top" constant="80" id="Ptp-Ip-HBn"/>
+                            <constraint firstItem="FiR-2y-AyI" firstAttribute="top" secondItem="cyN-P3-F8G" secondAttribute="bottom" constant="50" id="aHv-JR-A8m"/>
+                            <constraint firstItem="cyN-P3-F8G" firstAttribute="top" secondItem="qhc-U3-gkI" secondAttribute="bottom" constant="10" id="fXd-Qm-Vgj"/>
+                            <constraint firstItem="cyN-P3-F8G" firstAttribute="centerX" secondItem="Xns-10-pSi" secondAttribute="centerX" id="psY-wz-sVf"/>
+                            <constraint firstItem="qhc-U3-gkI" firstAttribute="top" secondItem="w3U-hW-mfp" secondAttribute="bottom" constant="10" id="rFf-9U-IKN"/>
+                            <constraint firstItem="FiR-2y-AyI" firstAttribute="centerX" secondItem="Xns-10-pSi" secondAttribute="centerX" id="ybX-7L-KyH"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cFF-OQ-F0i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2951" y="901"/>
         </scene>
         <!--Words List View Controller-->
         <scene sceneID="PPM-Sk-SBi">
@@ -294,8 +359,7 @@
                                 </state>
                                 <connections>
                                     <action selector="wordsCreateButton:" destination="4eZ-GL-B99" eventType="touchUpInside" id="ZcB-M3-bNo"/>
-                                    <action selector="wordsListAddButton:" destination="4eZ-GL-B99" eventType="touchUpInside" id="an6-SO-m9r"/>
-                                    <segue destination="2qW-IY-5IL" kind="presentation" identifier="createWord" id="njv-AC-RcC"/>
+                                    <segue destination="2qW-IY-5IL" kind="showDetail" identifier="createWord" id="njv-AC-RcC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -356,7 +420,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcZ-ME-knM">
-                                                    <rect key="frame" x="352" y="14" width="42" height="24"/>
+                                                    <rect key="frame" x="376.5" y="14" width="17.5" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="xmark" catalog="system"/>
@@ -371,7 +435,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="XcZ-ME-knM" secondAttribute="trailing" constant="20" symbolic="YES" id="JHy-G5-vsP"/>
                                                 <constraint firstItem="dyY-ra-o06" firstAttribute="top" secondItem="kUY-OG-tzd" secondAttribute="bottom" constant="5" id="OKl-Md-1Kt"/>
                                                 <constraint firstItem="kUY-OG-tzd" firstAttribute="centerX" secondItem="0Ax-tx-Rix" secondAttribute="centerX" id="ViF-Ib-Exf"/>
-                                                <constraint firstItem="XcZ-ME-knM" firstAttribute="leading" secondItem="kUY-OG-tzd" secondAttribute="trailing" constant="88" id="eNs-2r-DYJ"/>
                                                 <constraint firstAttribute="bottom" secondItem="hUi-xQ-ZOh" secondAttribute="bottom" constant="84" id="qxL-yT-R9R"/>
                                                 <constraint firstItem="XcZ-ME-knM" firstAttribute="top" secondItem="0Ax-tx-Rix" secondAttribute="top" constant="14" id="sOG-Dk-omd"/>
                                                 <constraint firstItem="dyY-ra-o06" firstAttribute="centerX" secondItem="0Ax-tx-Rix" secondAttribute="centerX" id="uIk-7r-zgo"/>
@@ -404,6 +467,7 @@
                     <navigationItem key="navigationItem" id="LMZ-W1-x5u"/>
                     <connections>
                         <outlet property="tableView" destination="vbM-Ec-xHW" id="2T0-Eo-TZY"/>
+                        <segue destination="TYD-bK-EsB" kind="presentation" identifier="updateWord" id="QnL-Sz-uhQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hh-FZ-v6i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
