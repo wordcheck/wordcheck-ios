@@ -8,15 +8,15 @@ class wordsCreateViewController: UIViewController {
     @IBOutlet weak var categoryInput: UITextField!  // ! category select로 처리하기
     @IBOutlet weak var meaningInput: UITextField!
     
+    var token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func wordsCreateButton(_ sender: Any) {
-        // words post api
         let header: HTTPHeaders = [
-            // 토큰은 로컬로 처리하기
-            "Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuaWNrbmFtZSI6ImppaG8xIn0.T3oI95w17JUZ5a2DTUsMzVjLFFQwngsf7xrFWXdDfn0"
+            "Authorization": token
         ]
         
         let parameters: Parameters = [
@@ -29,11 +29,14 @@ class wordsCreateViewController: UIViewController {
         AF.request("http://52.78.37.13/api/words/", method: .post, parameters: parameters, headers: header).validate(statusCode: 200..<500).response { response in
             switch response.result {
             case .success:
-                // 성공했다 알림
                 let alert = UIAlertController(title: "알림", message: "단어 추가 성공", preferredStyle: UIAlertController.Style.alert)
                 let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
                 alert.addAction(confirm)
-                self.present(alert, animated: true, completion: nil)
+                DispatchQueue.main.async(execute: {
+                    self.present(alert, animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: nil)
+                })
+                
                 
             case .failure:
                 return

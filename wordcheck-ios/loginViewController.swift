@@ -5,27 +5,14 @@ class loginViewController: UIViewController {
     
     @IBOutlet weak var nickName: UITextField!
     @IBOutlet weak var passWord: UITextField!
-
-    var contentsList: [Words] = []
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "getWords" {
-            let vc = segue.destination as? wordsListViewController
-            if let contents = sender as? [Words] {
-                vc?.contentsList = contents
-            }
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Storage.clear(.documents)
     }
 
     @IBAction func nickName(_ sender: Any) {
-        
-    }
-    @IBAction func passWord(_ sender: Any) {
-        
+        // 실시간 닉네임 중복 체크
     }
     
     @IBAction func loginButton(_ sender: Any) {
@@ -38,21 +25,21 @@ class loginViewController: UIViewController {
             case .success:
                 guard let token = response.value?.account_token else { return }
                 if(token != "") {
-                    // account_token 받아옴
-                    // ! 토큰은 로컬에 저장하기로
+                    Storage.store(token, to: .documents, as: "account_token.json")
                     let header: HTTPHeaders = [
                         "Authorization": token
                     ]
-                    AF.request("http://52.78.37.13/api/words/", method: .get, headers: header).validate(statusCode: 200..<500).responseDecodable(of: [Words].self) { response in
+                    AF.request("http://52.78.37.13/api/words/", method: .get, headers: header).validate(statusCode: 200..<500).responseDecodable(of: [Content].self) { response in
                         switch response.result {
                         case .success:
                             guard let list = response.value else { return }
-                            self.contentsList = list
+                            Storage.store(list, to: .documents, as: "contents_list.json")
                                     
                         case .failure:
                             return
                         }
-                        self.performSegue(withIdentifier: "getWords", sender: self.contentsList)
+                        self.performSegue(withIdentifier: "getWords", sender: nil)
+                        self.dismiss(animated: false, completion: nil)
                     }
                 }
 
