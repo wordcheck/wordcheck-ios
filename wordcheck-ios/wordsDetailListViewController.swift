@@ -7,7 +7,7 @@ class wordsDetailListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
-    var detailList = Storage.retrive("words_detail.json", from: .documents, as: [WordsDetail].self) ?? []
+    var detailList = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "updateWord" {
@@ -21,7 +21,7 @@ class wordsDetailListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
 }
 
 extension wordsDetailListViewController: UITableViewDataSource {
@@ -37,6 +37,10 @@ extension wordsDetailListViewController: UITableViewDataSource {
         cell.spellingLabel.text = self.detailList[indexPath.row].spelling
         cell.categoryLabel.text = self.detailList[indexPath.row].category
         cell.meaningLabel.text = self.detailList[indexPath.row].meaning
+        
+        cell.updateButtonTapHandler = {
+            self.performSegue(withIdentifier: "updateWord", sender: indexPath.row)
+        }
         
         cell.deleteButtonTapHandler = {
             let header: HTTPHeaders = [
@@ -57,9 +61,7 @@ extension wordsDetailListViewController: UITableViewDataSource {
                         self.tableView.reloadData()
                     }
                     alert.addAction(confirm)
-                    DispatchQueue.main.async(execute: {
-                        self.present(alert, animated: true, completion: nil)
-                    })
+                    self.present(alert, animated: true, completion: nil)
 
                 case .failure:
                     return
@@ -72,9 +74,8 @@ extension wordsDetailListViewController: UITableViewDataSource {
 }
 
 extension wordsDetailListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        print("[\(indexPath.row)]")
-        performSegue(withIdentifier: "updateWord", sender: indexPath.row)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       // print("[\(detailList[indexPath.row].id)]")
     }
 }
 
