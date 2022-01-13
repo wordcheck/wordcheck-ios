@@ -1,6 +1,6 @@
 import UIKit
 
-struct Content: Codable {
+struct Content: Codable, Equatable {
     let contents: String?
 }
 

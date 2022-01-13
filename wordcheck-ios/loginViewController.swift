@@ -33,7 +33,7 @@ class loginViewController: UIViewController {
                         switch response.result {
                         case .success:
                             guard let list = response.value else { return }
-                            Storage.store(list, to: .documents, as: "contents_list.json")
+                            Storage.store(list, to: .caches, as: "contents_list.json")
                                     
                         case .failure:
                             return

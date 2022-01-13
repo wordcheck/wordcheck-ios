@@ -1,5 +1,6 @@
 import UIKit
 import Alamofire
+import DropDown
 
 class wordsCreateViewController: UIViewController {
 
@@ -9,16 +10,32 @@ class wordsCreateViewController: UIViewController {
     @IBOutlet weak var meaningInput: UITextField!
     
     var token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
+    var contentsList = Storage.retrive("cotents_list.json", from: .caches, as: [Content].self) ?? []
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidLoad()
+    }
+    
+    @IBAction func categoryClick(_ sender: Any) {
+        let dropDown = DropDown()
+        DropDown.appearance().backgroundColor = UIColor.white
+        dropDown.anchorView = categoryInput
+        dropDown.direction = .bottom
+        dropDown.dataSource = ["명사", "대명사", "동사", "부사", "형용사", "전치사", "접속사", "감탄사"]
+        dropDown.selectionAction = { [] (index: Int, item: String) in
+            self.categoryInput.text = item
+        }
+        dropDown.show()
+    }
+    
     @IBAction func wordsCreateButton(_ sender: Any) {
         let header: HTTPHeaders = [
             "Authorization": token
         ]
-        
         let parameters: Parameters = [
             "contents": contentsInput.text!,
             "spelling": spellingInput.text!,
@@ -30,13 +47,11 @@ class wordsCreateViewController: UIViewController {
             switch response.result {
             case .success:
                 let alert = UIAlertController(title: "알림", message: "단어 추가 성공", preferredStyle: UIAlertController.Style.alert)
-                let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+                let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
+                    self.dismiss(animated: false, completion: nil)
+                }
                 alert.addAction(confirm)
-                DispatchQueue.main.async(execute: {
-                    self.present(alert, animated: true, completion: nil)
-                    self.dismiss(animated: true, completion: nil)
-                })
-                
+                self.present(alert, animated: true, completion: nil)
                 
             case .failure:
                 return

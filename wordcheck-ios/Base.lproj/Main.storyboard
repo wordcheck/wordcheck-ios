@@ -17,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORDCHECK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="net-v2-bMa">
-                                <rect key="frame" x="129" y="188" width="156" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="125.5" y="188" width="163" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -29,7 +29,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQA-Sh-TzY">
-                                <rect key="frame" x="177" y="426" width="60" height="31"/>
+                                <rect key="frame" x="167" y="445" width="80" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="7nQ-pH-QAA"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                 <connections>
@@ -37,7 +40,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDp-Yd-Icr">
-                                <rect key="frame" x="170.5" y="465" width="73" height="31"/>
+                                <rect key="frame" x="167" y="484" width="80" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="tSA-ta-Pzh"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign up"/>
                                 <connections>
@@ -60,7 +66,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VBU-og-rdK" firstAttribute="top" secondItem="net-v2-bMa" secondAttribute="bottom" constant="99" id="3So-2E-2vx"/>
-                            <constraint firstItem="fQA-Sh-TzY" firstAttribute="top" secondItem="ISX-xl-oam" secondAttribute="bottom" constant="21" id="3zC-MO-rA3"/>
                             <constraint firstItem="VBU-og-rdK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5zH-3a-Kv7"/>
                             <constraint firstItem="net-v2-bMa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8Bu-sh-aeI"/>
                             <constraint firstItem="ISX-xl-oam" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XKw-HJ-Lex"/>
@@ -68,6 +73,7 @@
                             <constraint firstItem="KDp-Yd-Icr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="diU-1q-KND"/>
                             <constraint firstItem="ISX-xl-oam" firstAttribute="width" secondItem="VBU-og-rdK" secondAttribute="width" id="fy3-zq-3Rk"/>
                             <constraint firstItem="ISX-xl-oam" firstAttribute="top" secondItem="VBU-og-rdK" secondAttribute="bottom" constant="20" id="ri7-8i-mNx"/>
+                            <constraint firstItem="fQA-Sh-TzY" firstAttribute="top" secondItem="ISX-xl-oam" secondAttribute="bottom" constant="40" id="s32-Fo-jZ3"/>
                             <constraint firstItem="KDp-Yd-Icr" firstAttribute="top" secondItem="fQA-Sh-TzY" secondAttribute="bottom" constant="8" symbolic="YES" id="vOV-Ff-WyS"/>
                             <constraint firstItem="net-v2-bMa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="vi9-lM-SNF"/>
                         </constraints>
@@ -76,12 +82,12 @@
                     <connections>
                         <outlet property="nickName" destination="VBU-og-rdK" id="1yY-MD-7oC"/>
                         <outlet property="passWord" destination="ISX-xl-oam" id="3c2-ql-5Wo"/>
-                        <segue destination="4eZ-GL-B99" kind="show" identifier="getWords" id="vgJ-cN-9Uu"/>
+                        <segue destination="lU8-b0-PvD" kind="show" identifier="getWords" id="vgJ-cN-9Uu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055.072463768116" y="197.54464285714286"/>
+            <point key="canvasLocation" x="1154" y="198"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="iFb-K6-siA">
@@ -148,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYb-3f-q4G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055" y="901"/>
+            <point key="canvasLocation" x="1154" y="960"/>
         </scene>
         <!--Words Create View Controller-->
         <scene sceneID="sCl-de-PUT">
@@ -203,6 +209,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="categoryClick:" destination="2qW-IY-5IL" eventType="touchDown" id="7hi-NA-Qya"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p4z-ha-iPi"/>
@@ -232,7 +241,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20K-8s-YlB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1967" y="901"/>
+            <point key="canvasLocation" x="4629" y="-1460"/>
+        </scene>
+        <!--Test-->
+        <scene sceneID="nvk-n1-dHU">
+            <objects>
+                <viewController id="gwA-J4-3pf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VrD-mY-V5V">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="eOa-AZ-bhP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Test" image="graduationcap" catalog="system" id="apj-vY-Mb5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i9V-ev-j6p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3583" y="198"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="oJp-Xs-lTj">
+            <objects>
+                <viewController id="tWr-sj-Cvc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jiI-wb-vvX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="c5s-xL-pBE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="JVj-xf-RFR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sWS-3m-abS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3583" y="1062"/>
         </scene>
         <!--Words Update View Controller-->
         <scene sceneID="usy-Gj-IUm">
@@ -263,6 +304,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="categoryClick:" destination="TYD-bK-EsB" eventType="touchDown" id="qQ0-nq-gZc"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="뜻" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cyN-P3-F8G">
                                 <rect key="frame" x="117" y="278" width="180" height="34"/>
@@ -296,12 +340,17 @@
                             <constraint firstItem="FiR-2y-AyI" firstAttribute="centerX" secondItem="Xns-10-pSi" secondAttribute="centerX" id="ybX-7L-KyH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="categoryInput" destination="qhc-U3-gkI" id="yz8-WX-TwW"/>
+                        <outlet property="meaningInput" destination="cyN-P3-F8G" id="7Hk-HU-jZw"/>
+                        <outlet property="spellingInput" destination="w3U-hW-mfp" id="yEI-w6-OLN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cFF-OQ-F0i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2951" y="901"/>
+            <point key="canvasLocation" x="5832" y="-672"/>
         </scene>
-        <!--Words List View Controller-->
+        <!--Words-->
         <scene sceneID="PPM-Sk-SBi">
             <objects>
                 <viewController storyboardIdentifier="wordsListViewController" id="4eZ-GL-B99" customClass="wordsListViewController" customModule="wordcheck_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -310,7 +359,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2ft-tW-5pl">
-                                <rect key="frame" x="0.0" y="143" width="414" height="669"/>
+                                <rect key="frame" x="0.0" y="143" width="414" height="620"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contentCell" rowHeight="50" id="eOo-hM-nS3" customClass="WordCell" customModule="wordcheck_ios" customModuleProvider="target">
@@ -359,7 +408,6 @@
                                 </state>
                                 <connections>
                                     <action selector="wordsCreateButton:" destination="4eZ-GL-B99" eventType="touchUpInside" id="ZcB-M3-bNo"/>
-                                    <segue destination="2qW-IY-5IL" kind="showDetail" identifier="createWord" id="njv-AC-RcC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -374,14 +422,17 @@
                             <constraint firstItem="JZJ-81-mZx" firstAttribute="trailing" secondItem="IHa-6g-kC0" secondAttribute="trailingMargin" id="qvk-6a-cCF"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Words" image="book" catalog="system" id="XZ8-Ka-Pcu"/>
                     <navigationItem key="navigationItem" id="hG9-PT-dE7"/>
                     <connections>
+                        <outlet property="tableView" destination="2ft-tW-5pl" id="iXC-ve-DFO"/>
                         <segue destination="00e-j8-bPI" kind="show" identifier="showDetail" id="dNh-R9-xqq"/>
+                        <segue destination="2qW-IY-5IL" kind="presentation" identifier="createWord" id="JKZ-qI-wRv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vro-4S-qkQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1966.6666666666667" y="197.54464285714286"/>
+            <point key="canvasLocation" x="3583" y="-672"/>
         </scene>
         <!--Words Detail List View Controller-->
         <scene sceneID="KMV-y8-IfM">
@@ -428,10 +479,20 @@
                                                         <action selector="deleteButton:" destination="gDF-Tq-x6s" eventType="touchUpInside" id="PnX-IU-dvI"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDt-kt-ldW">
+                                                    <rect key="frame" x="341" y="14" width="18" height="22"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="pencil" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="updateButton:" destination="gDF-Tq-x6s" eventType="touchUpInside" id="Jf9-PC-SU6"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hUi-xQ-ZOh" firstAttribute="centerX" secondItem="0Ax-tx-Rix" secondAttribute="centerX" id="4O3-dI-XVX"/>
+                                                <constraint firstItem="XcZ-ME-knM" firstAttribute="leading" secondItem="jDt-kt-ldW" secondAttribute="trailing" constant="17.5" id="6XF-3w-1lZ"/>
                                                 <constraint firstItem="kUY-OG-tzd" firstAttribute="top" secondItem="0Ax-tx-Rix" secondAttribute="top" constant="15" id="ArX-0o-ryD"/>
+                                                <constraint firstItem="jDt-kt-ldW" firstAttribute="top" secondItem="0Ax-tx-Rix" secondAttribute="top" constant="14" id="Bgv-6t-YtX"/>
                                                 <constraint firstAttribute="trailing" secondItem="XcZ-ME-knM" secondAttribute="trailing" constant="20" symbolic="YES" id="JHy-G5-vsP"/>
                                                 <constraint firstItem="dyY-ra-o06" firstAttribute="top" secondItem="kUY-OG-tzd" secondAttribute="bottom" constant="5" id="OKl-Md-1Kt"/>
                                                 <constraint firstItem="kUY-OG-tzd" firstAttribute="centerX" secondItem="0Ax-tx-Rix" secondAttribute="centerX" id="ViF-Ib-Exf"/>
@@ -467,12 +528,12 @@
                     <navigationItem key="navigationItem" id="LMZ-W1-x5u"/>
                     <connections>
                         <outlet property="tableView" destination="vbM-Ec-xHW" id="2T0-Eo-TZY"/>
-                        <segue destination="TYD-bK-EsB" kind="presentation" identifier="updateWord" id="QnL-Sz-uhQ"/>
+                        <segue destination="TYD-bK-EsB" kind="presentation" identifier="updateWord" id="lp9-av-g0H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hh-FZ-v6i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2951" y="198"/>
+            <point key="canvasLocation" x="4629" y="-672"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yQB-YM-Zmo">
@@ -492,8 +553,33 @@
             </objects>
             <point key="canvasLocation" x="144.92753623188406" y="197.54464285714286"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="CpA-TV-Fm9">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lU8-b0-PvD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="JAR-5q-F4F"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j2M-ad-3IH">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="4eZ-GL-B99" kind="relationship" relationship="viewControllers" id="cyJ-x5-gMu"/>
+                        <segue destination="gwA-J4-3pf" kind="relationship" relationship="viewControllers" id="Wj2-Gb-czf"/>
+                        <segue destination="tWr-sj-Cvc" kind="relationship" relationship="viewControllers" id="XQe-h0-ulw"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3wj-Dh-mt7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2177" y="198"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="book" catalog="system" width="128" height="99"/>
+        <image name="graduationcap" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">

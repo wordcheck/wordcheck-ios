@@ -3,15 +3,18 @@ import Alamofire
 import SwiftUI
 
 class wordsListViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
     
     var token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
-    var contentsList = Storage.retrive("contents_list.json", from: .documents, as: [Content].self) ?? []
+    var contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.reloadData()
     }
     
     @IBAction func wordsCreateButton(_ sender: Any) {
+        // ! 생성하면 갱신되게 처리
         performSegue(withIdentifier: "createWord", sender: nil)
     }
     
@@ -48,7 +51,7 @@ extension wordsListViewController : UITableViewDelegate {
             switch response.result {
             case .success:
                 guard let detailList = response.value else { return }
-                Storage.store(detailList, to: .documents, as: "words_detail.json")
+                Storage.store(detailList, to: .caches, as: "words_detail.json")
                 self.performSegue(withIdentifier: "showDetail", sender: nil)
                 
             case .failure:

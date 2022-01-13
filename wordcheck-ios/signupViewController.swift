@@ -36,7 +36,7 @@ class signupViewController: UIViewController {
                     switch response.result {
                     case .success:
                         // ! 가입하면 로그인되게 처리하기
-                        guard let token = response.value?.account_token else { return }
+//                        guard let token = response.value?.account_token else { return }
                         
                         let alert = UIAlertController(title: "알림", message: "로그인 해주세요", preferredStyle: UIAlertController.Style.alert)
                         let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
@@ -51,7 +51,7 @@ class signupViewController: UIViewController {
                     }
                 }
                 
-            case .failure:
+            default:
                 let alert = UIAlertController(title: "알림", message: "중복된 닉네임 입니다", preferredStyle: UIAlertController.Style.alert)
                 let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
                 alert.addAction(confirm)
