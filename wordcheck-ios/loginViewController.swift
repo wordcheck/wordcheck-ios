@@ -64,14 +64,14 @@ struct loginToken: Codable {
     let msg: String?
     let nickname: String?
     
-    enum CodingKeys: CodingKey {
-        case account_token, msg, nickname
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        account_token = (try? values.decode(String.self, forKey: .account_token)) ?? nil
-        msg = (try? values.decode(String.self, forKey: .msg)) ?? nil
-        nickname = (try? values.decode(String.self, forKey: .nickname)) ?? nil
-    }
+//    enum CodingKeys: CodingKey {
+//        case account_token, msg, nickname
+//    }
+//    
+//    init(from decoder: Decoder) throws {
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+//        account_token = (try? values.decode(String.self, forKey: .account_token)) ?? nil
+//        msg = (try? values.decode(String.self, forKey: .msg)) ?? nil
+//        nickname = (try? values.decode(String.self, forKey: .nickname)) ?? nil
+//    }
 }

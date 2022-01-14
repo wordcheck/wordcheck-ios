@@ -7,53 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0004725A81B24C9724FF59003A582C27 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C3FCE3241DD0B4DCDF173B03E1EEEE /* SwipeView.swift */; };
-		0228C8D381BB0A03471F7035F634FA1C /* Pods-wordcheck-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA140EE29139EB1A59767F1649835435 /* Pods-wordcheck-ios-dummy.m */; };
-		06C7AABA62962B4D465BE80652442C93 /* CardAnimationOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360697801E8DDFD883622FDABC923D6 /* CardAnimationOptions.swift */; };
-		07A88B4C1D23BEA2CFE213F64489138F /* TapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074815733625BD6B1BCB1DCAED1D3A5B /* TapGestureRecognizer.swift */; };
-		09D16D4AE31859A69AECB9FDE44BA877 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F50FB1CF95547FFE3518966F588E4A7 /* CGPoint+Extensions.swift */; };
-		13671F065692296CC92840473B7E5E3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		15404C20E9D1B0E3EC83EF35E157AD0D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F184FC69EC9C2184365189456E0763 /* UIView+Extensions.swift */; };
-		2254657647EE46AC112857C5643A5E17 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7FB36C1976B87DCBB3B5A028D43A53 /* StringUtils.swift */; };
-		335921E6A2D58B4D5869676851FD34B4 /* SwipeCardStackDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5797FFAEE3608E99ADC9627E8CE18 /* SwipeCardStackDelegate.swift */; };
+		05A063F96E35157A9490136F1520DA82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		2BF47C80E4B10045EF797132F158ABBD /* Pods-wordcheck-ios-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D8817A0968F3E842A73BE9A5811DCB0 /* Pods-wordcheck-ios-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34D86F4481D9328BF45B637B906B3122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		4019CDECA2979BE7508340C565B5C0D3 /* CardStackStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E870074000D31891C04456E148CC0AB5 /* CardStackStateManager.swift */; };
-		46FA3994970FB1E2A2AE195754F6DA09 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A393DBECFCAA74AF17EEA551AAF63B9 /* Array+Extensions.swift */; };
-		515E22E4255B6073C1897BDDB091A2B8 /* DropDown+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388E5213C8B84EF5426E0D3C1CB57633 /* DropDown+Appearance.swift */; };
-		54030902C202234E1AD0D757E79B63E3 /* CardStackAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40501D86DC551C1FE04D1DE47A31F720 /* CardStackAnimator.swift */; };
-		552CF1BD7CE2A8213133DADBD01E65C6 /* CardAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71F93164A93DC88321573AAB1509392 /* CardAnimator.swift */; };
-		61B8195A2A9C88EDEC0E5B796667D06D /* SwipeCardStackDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3EB16C2F25468418EB43E80745F99C /* SwipeCardStackDataSource.swift */; };
-		64F9279B93FEC6038CD8B2036A665AEE /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB492361DB87215016AB6A89A70845 /* Animator.swift */; };
-		66E91EBAB7A6E1830B20C0EEF6E5106F /* SwipeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC357ACBD0CE47E55213DCC441EAF4A8 /* SwipeCard.swift */; };
-		68E1653C561E14BBEAC9CF4873570D58 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E57272B4FCD5EA40EACFD52EE8FACF /* DropDownCell.xib */; };
-		74012B832FAF67F8D62A2B27CDAFE8B5 /* DPDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE576AA42F7948257A68337984777BA2 /* DPDConstants.swift */; };
-		74CF40AB937EB1FA73ABADBEBD866D6B /* Shuffle-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F5C93777733E32A148D9F102C36FABEE /* Shuffle-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84459C4824533C9C4FD12AFC941F3CE1 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85C2AC843D2D002C9FA42439D3AD5 /* DropDown.swift */; };
-		85D9316BFDC018B3323E870A81CA82FB /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8F2248FD63B7045B1C420C2EBD8AFD /* CGVector+Extensions.swift */; };
-		89A72A55273CE358DC4E7600F785C37B /* DPDKeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = E704ED3C895C15FB247F40A6D481AC13 /* DPDKeyboardListener.swift */; };
-		8CEB2E7A91EDA87F9B14794478CFBCDF /* Pods-wordcheck-ios-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D8817A0968F3E842A73BE9A5811DCB0 /* Pods-wordcheck-ios-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		907338727C09F65DB75AA7AB9E10C3B4 /* DropDown-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 919314DD547AD48CC38C2ED445830087 /* DropDown-dummy.m */; };
-		A275F89C6848DABFC323A6D531F944A4 /* CardStackAnimationOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60512825FB0B816C17F2C2FEAE320A8E /* CardStackAnimationOptions.swift */; };
-		A56C2CED79E4BE117796F302DD638D58 /* Shuffle-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3F77A399DEAE490783EAE4167B7DE5 /* Shuffle-iOS-dummy.m */; };
-		AD81BC5E5F8CB535A1FD3D9B5746DDAB /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB74E91E5ADEC89DB89E8529620751B5 /* SwipeDirection.swift */; };
-		B73E510E851686F8184E26986A470458 /* DPDUIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA241F9E36BF407F314B6A85E25356A /* DPDUIView+Extension.swift */; };
-		BDC10974A8641F01C5665C61EA37A153 /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F657E22B97C6E5753EADB90A84AED /* DropDownCell.swift */; };
-		BFF2C2AF0119E5252908D432B727A0E4 /* SwipeCardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF1C01EDD60E09BBA590A4609DAEE1 /* SwipeCardStack.swift */; };
-		C1DB9DD3FAD600DFD49EF43CD6D5973A /* PanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9D26C2D28671D4F5DD961DD0C8C23C /* PanGestureRecognizer.swift */; };
-		D0288F6CCDA843A32C3EE9C8729883CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		E0A8C46EEE733B55971B1CC5ED65C9AA /* DropDown-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D29913D0F4AA5F8664FFE89EF1B15F43 /* DropDown-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FAE578EA38D734E9959068AC5CC89BEA /* SwipeCardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CA6D5EDCC84ECAE346AFAF100CE67B /* SwipeCardDelegate.swift */; };
+		515E22E4255B6073C1897BDDB091A2B8 /* DropDown+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87586FE2C9DECB6AE7FCA3238E4A1B8 /* DropDown+Appearance.swift */; };
+		68E1653C561E14BBEAC9CF4873570D58 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEBC6D732E1B0C41C6A8D03A8C81CF47 /* DropDownCell.xib */; };
+		74012B832FAF67F8D62A2B27CDAFE8B5 /* DPDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3761A77A038E79C8451C03293CDA4FC0 /* DPDConstants.swift */; };
+		84459C4824533C9C4FD12AFC941F3CE1 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC1AD54C344AFD4E184B9586BFE267 /* DropDown.swift */; };
+		89A72A55273CE358DC4E7600F785C37B /* DPDKeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB2377069976EC65992A59335066D3 /* DPDKeyboardListener.swift */; };
+		907338727C09F65DB75AA7AB9E10C3B4 /* DropDown-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AF17E1BF2597D8F37F69DB34CA024E5C /* DropDown-dummy.m */; };
+		B73E510E851686F8184E26986A470458 /* DPDUIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451F84589A96D52448FD74E261268404 /* DPDUIView+Extension.swift */; };
+		BDC10974A8641F01C5665C61EA37A153 /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EA092CDFBD4C66A29A9CDEA1DE78E1 /* DropDownCell.swift */; };
+		E0A8C46EEE733B55971B1CC5ED65C9AA /* DropDown-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F8F61850F82D6CC477FAF8326336FD5A /* DropDown-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEC988C678730E121D531DA66275A43C /* Pods-wordcheck-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA140EE29139EB1A59767F1649835435 /* Pods-wordcheck-ios-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4D8D56732ED8C80A82700034767F344B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6CE4608D13EB4E75FE6B40D38210294E;
-			remoteInfo = "Shuffle-iOS";
-		};
-		B33AA60B6C20A7CBB6270089B1E21F59 /* PBXContainerItemProxy */ = {
+		296361C86760568486BC623BD07201C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -63,77 +33,41 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		074815733625BD6B1BCB1DCAED1D3A5B /* TapGestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapGestureRecognizer.swift; path = Sources/Shuffle/Classes/Internal/TapGestureRecognizer.swift; sourceTree = "<group>"; };
-		0A393DBECFCAA74AF17EEA551AAF63B9 /* Array+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Extensions.swift"; path = "Sources/Shuffle/Classes/Internal/Array+Extensions.swift"; sourceTree = "<group>"; };
 		0A567886A58CF91A1BD79476D337BF83 /* Pods-wordcheck-ios-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-wordcheck-ios-Info.plist"; sourceTree = "<group>"; };
-		0F50FB1CF95547FFE3518966F588E4A7 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CGPoint+Extensions.swift"; path = "Sources/Shuffle/Classes/Internal/CGPoint+Extensions.swift"; sourceTree = "<group>"; };
-		2354E32A764D8616EFD7CD95041307EC /* DropDown.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DropDown.modulemap; sourceTree = "<group>"; };
+		2F8A529C653A26F8D0B57E1CD7B2B5E6 /* DropDown-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DropDown-Info.plist"; sourceTree = "<group>"; };
 		2FCB92E53F0B3E5044C4BD38BB5DD0C0 /* Pods-wordcheck-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-wordcheck-ios.release.xcconfig"; sourceTree = "<group>"; };
+		2FCC1AD54C344AFD4E184B9586BFE267 /* DropDown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropDown.swift; path = DropDown/src/DropDown.swift; sourceTree = "<group>"; };
 		34688B6247B80E477A036EF1495D0E88 /* Pods-wordcheck-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-wordcheck-ios.debug.xcconfig"; sourceTree = "<group>"; };
-		37E57272B4FCD5EA40EACFD52EE8FACF /* DropDownCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DropDownCell.xib; path = DropDown/resources/DropDownCell.xib; sourceTree = "<group>"; };
-		388E5213C8B84EF5426E0D3C1CB57633 /* DropDown+Appearance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DropDown+Appearance.swift"; path = "DropDown/src/DropDown+Appearance.swift"; sourceTree = "<group>"; };
-		3E3F77A399DEAE490783EAE4167B7DE5 /* Shuffle-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Shuffle-iOS-dummy.m"; sourceTree = "<group>"; };
-		40501D86DC551C1FE04D1DE47A31F720 /* CardStackAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardStackAnimator.swift; path = Sources/Shuffle/Classes/SwipeCardStack/CardStackAnimator.swift; sourceTree = "<group>"; };
-		4360697801E8DDFD883622FDABC923D6 /* CardAnimationOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardAnimationOptions.swift; path = Sources/Shuffle/Classes/SwipeCard/CardAnimationOptions.swift; sourceTree = "<group>"; };
+		3761A77A038E79C8451C03293CDA4FC0 /* DPDConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DPDConstants.swift; path = DropDown/helpers/DPDConstants.swift; sourceTree = "<group>"; };
+		451F84589A96D52448FD74E261268404 /* DPDUIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DPDUIView+Extension.swift"; path = "DropDown/helpers/DPDUIView+Extension.swift"; sourceTree = "<group>"; };
 		4C14DCD5E6DFCE6F38495297F75D92E0 /* Pods-wordcheck-ios.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-wordcheck-ios.modulemap"; sourceTree = "<group>"; };
-		50C3FCE3241DD0B4DCDF173B03E1EEEE /* SwipeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeView.swift; path = Sources/Shuffle/Classes/SwipeCard/SwipeView.swift; sourceTree = "<group>"; };
 		53F8E3ABBDDD008A237D1BF0EF552FC4 /* Pods-wordcheck-ios-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-wordcheck-ios-acknowledgements.plist"; sourceTree = "<group>"; };
 		5D8817A0968F3E842A73BE9A5811DCB0 /* Pods-wordcheck-ios-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-wordcheck-ios-umbrella.h"; sourceTree = "<group>"; };
-		60512825FB0B816C17F2C2FEAE320A8E /* CardStackAnimationOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardStackAnimationOptions.swift; path = Sources/Shuffle/Classes/SwipeCardStack/CardStackAnimationOptions.swift; sourceTree = "<group>"; };
-		67CA4E00B46B130554F6D84370272CB9 /* Shuffle-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Shuffle-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		682880C5491F12A5D860D796C96E0C07 /* DropDown.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DropDown.debug.xcconfig; sourceTree = "<group>"; };
-		6962E2C9B37F84CFAE079EC300B594A1 /* Shuffle-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Shuffle-iOS.modulemap"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7D50E87387AB798CCBCB16CB80841248 /* DropDown-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DropDown-prefix.pch"; sourceTree = "<group>"; };
-		7FA241F9E36BF407F314B6A85E25356A /* DPDUIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DPDUIView+Extension.swift"; path = "DropDown/helpers/DPDUIView+Extension.swift"; sourceTree = "<group>"; };
-		882A8732B7CBF37C165DA2ECD6855B58 /* DropDown-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DropDown-Info.plist"; sourceTree = "<group>"; };
-		8C9D26C2D28671D4F5DD961DD0C8C23C /* PanGestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanGestureRecognizer.swift; path = Sources/Shuffle/Classes/Internal/PanGestureRecognizer.swift; sourceTree = "<group>"; };
-		8D7FB36C1976B87DCBB3B5A028D43A53 /* StringUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringUtils.swift; path = Sources/Shuffle/Classes/Internal/StringUtils.swift; sourceTree = "<group>"; };
+		730D85BE0320FD50EA665A82042E5742 /* DropDown-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DropDown-prefix.pch"; sourceTree = "<group>"; };
 		8DA7A91D1F49DF8D71776A751E38AA08 /* Pods-wordcheck-ios */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-wordcheck-ios"; path = Pods_wordcheck_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		919314DD547AD48CC38C2ED445830087 /* DropDown-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DropDown-dummy.m"; sourceTree = "<group>"; };
-		98CCEE46E69286B4DCAC2646CB4507D5 /* Shuffle-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Shuffle-iOS-Info.plist"; sourceTree = "<group>"; };
-		99E85C2AC843D2D002C9FA42439D3AD5 /* DropDown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropDown.swift; path = DropDown/src/DropDown.swift; sourceTree = "<group>"; };
-		9B6725B782188F18CB76A740433F14E4 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A12F657E22B97C6E5753EADB90A84AED /* DropDownCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropDownCell.swift; path = DropDown/src/DropDownCell.swift; sourceTree = "<group>"; };
-		A71F93164A93DC88321573AAB1509392 /* CardAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardAnimator.swift; path = Sources/Shuffle/Classes/SwipeCard/CardAnimator.swift; sourceTree = "<group>"; };
-		AC3EB16C2F25468418EB43E80745F99C /* SwipeCardStackDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeCardStackDataSource.swift; path = Sources/Shuffle/Classes/SwipeCardStack/SwipeCardStackDataSource.swift; sourceTree = "<group>"; };
-		ADFF1C01EDD60E09BBA590A4609DAEE1 /* SwipeCardStack.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeCardStack.swift; path = Sources/Shuffle/Classes/SwipeCardStack/SwipeCardStack.swift; sourceTree = "<group>"; };
+		8DBB2377069976EC65992A59335066D3 /* DPDKeyboardListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DPDKeyboardListener.swift; path = DropDown/helpers/DPDKeyboardListener.swift; sourceTree = "<group>"; };
+		93EA092CDFBD4C66A29A9CDEA1DE78E1 /* DropDownCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropDownCell.swift; path = DropDown/src/DropDownCell.swift; sourceTree = "<group>"; };
+		9B6725B782188F18CB76A740433F14E4 /* DropDown */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DropDown; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C15EB8657063755722D9C7DC8D72885 /* DropDown.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DropDown.release.xcconfig; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A87586FE2C9DECB6AE7FCA3238E4A1B8 /* DropDown+Appearance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DropDown+Appearance.swift"; path = "DropDown/src/DropDown+Appearance.swift"; sourceTree = "<group>"; };
+		AF17E1BF2597D8F37F69DB34CA024E5C /* DropDown-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DropDown-dummy.m"; sourceTree = "<group>"; };
 		BB06C760D6D066A25E89D2D7788EF113 /* Pods-wordcheck-ios-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-wordcheck-ios-frameworks.sh"; sourceTree = "<group>"; };
-		BE576AA42F7948257A68337984777BA2 /* DPDConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DPDConstants.swift; path = DropDown/helpers/DPDConstants.swift; sourceTree = "<group>"; };
-		C1CA6D5EDCC84ECAE346AFAF100CE67B /* SwipeCardDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeCardDelegate.swift; path = Sources/Shuffle/Classes/SwipeCard/SwipeCardDelegate.swift; sourceTree = "<group>"; };
-		C2AB492361DB87215016AB6A89A70845 /* Animator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Animator.swift; path = Sources/Shuffle/Classes/Internal/Animator.swift; sourceTree = "<group>"; };
 		C8DCBA69069AC6F88BE6C4D8CE15EF82 /* Pods-wordcheck-ios-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-wordcheck-ios-acknowledgements.markdown"; sourceTree = "<group>"; };
-		CA8F2248FD63B7045B1C420C2EBD8AFD /* CGVector+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CGVector+Extensions.swift"; path = "Sources/Shuffle/Classes/Internal/CGVector+Extensions.swift"; sourceTree = "<group>"; };
-		D29913D0F4AA5F8664FFE89EF1B15F43 /* DropDown-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DropDown-umbrella.h"; sourceTree = "<group>"; };
 		DA140EE29139EB1A59767F1649835435 /* Pods-wordcheck-ios-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-wordcheck-ios-dummy.m"; sourceTree = "<group>"; };
-		DEF8C95E55800A761957E36F0F44D4C9 /* DropDown.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DropDown.release.xcconfig; sourceTree = "<group>"; };
-		E704ED3C895C15FB247F40A6D481AC13 /* DPDKeyboardListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DPDKeyboardListener.swift; path = DropDown/helpers/DPDKeyboardListener.swift; sourceTree = "<group>"; };
-		E870074000D31891C04456E148CC0AB5 /* CardStackStateManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardStackStateManager.swift; path = Sources/Shuffle/Classes/SwipeCardStack/CardStackStateManager.swift; sourceTree = "<group>"; };
-		E9812D407E696CB4669BC90C5F990C5B /* Shuffle-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Shuffle-iOS-prefix.pch"; sourceTree = "<group>"; };
-		EC357ACBD0CE47E55213DCC441EAF4A8 /* SwipeCard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeCard.swift; path = Sources/Shuffle/Classes/SwipeCard/SwipeCard.swift; sourceTree = "<group>"; };
-		EE17B537C0CAE7E4E936EC956FDE6032 /* Shuffle-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Shuffle-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		EF6D82A590C3AFFDB84FB22D5172CC1B /* Shuffle_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shuffle_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3F184FC69EC9C2184365189456E0763 /* UIView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "Sources/Shuffle/Classes/Internal/UIView+Extensions.swift"; sourceTree = "<group>"; };
-		F5C93777733E32A148D9F102C36FABEE /* Shuffle-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Shuffle-iOS-umbrella.h"; sourceTree = "<group>"; };
-		FB74E91E5ADEC89DB89E8529620751B5 /* SwipeDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeDirection.swift; path = Sources/Shuffle/Classes/SwipeDirection.swift; sourceTree = "<group>"; };
-		FBE5797FFAEE3608E99ADC9627E8CE18 /* SwipeCardStackDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeCardStackDelegate.swift; path = Sources/Shuffle/Classes/SwipeCardStack/SwipeCardStackDelegate.swift; sourceTree = "<group>"; };
+		DCD9DE78A7260CA1D999340CF0124D1D /* DropDown.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DropDown.modulemap; sourceTree = "<group>"; };
+		E5834E7BD925BD3ED29331C1938CC0B7 /* DropDown.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DropDown.debug.xcconfig; sourceTree = "<group>"; };
+		EEBC6D732E1B0C41C6A8D03A8C81CF47 /* DropDownCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DropDownCell.xib; path = DropDown/resources/DropDownCell.xib; sourceTree = "<group>"; };
+		F8F61850F82D6CC477FAF8326336FD5A /* DropDown-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DropDown-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3F681EC880E7B6DA06C72D388FECA48A /* Frameworks */ = {
+		477E73DC9AC7A5D23D7910C478E56AFA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13671F065692296CC92840473B7E5E3E /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		540561D8FC3512350A68B9E1C9460611 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D0288F6CCDA843A32C3EE9C8729883CC /* Foundation.framework in Frameworks */,
+				05A063F96E35157A9490136F1520DA82 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,13 +82,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03BAE2379D93A44150A3DA3425C1C351 /* Pods */ = {
+		03D114B328A63C934E528549C2DCFE8D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C1D767E7BC14C6CAB6A004EE1B3D3530 /* DropDown */,
-				368B55F9843C371AD8D16168361BDB2F /* Shuffle-iOS */,
+				DCD9DE78A7260CA1D999340CF0124D1D /* DropDown.modulemap */,
+				AF17E1BF2597D8F37F69DB34CA024E5C /* DropDown-dummy.m */,
+				2F8A529C653A26F8D0B57E1CD7B2B5E6 /* DropDown-Info.plist */,
+				730D85BE0320FD50EA665A82042E5742 /* DropDown-prefix.pch */,
+				F8F61850F82D6CC477FAF8326336FD5A /* DropDown-umbrella.h */,
+				E5834E7BD925BD3ED29331C1938CC0B7 /* DropDown.debug.xcconfig */,
+				9C15EB8657063755722D9C7DC8D72885 /* DropDown.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DropDown";
+			sourceTree = "<group>";
+		};
+		057ED11B9D5977F85CBBBEF7C3E69DDB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1340602042F82FB2F98974EB1B0C2387 /* DropDown */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		1340602042F82FB2F98974EB1B0C2387 /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				3761A77A038E79C8451C03293CDA4FC0 /* DPDConstants.swift */,
+				8DBB2377069976EC65992A59335066D3 /* DPDKeyboardListener.swift */,
+				451F84589A96D52448FD74E261268404 /* DPDUIView+Extension.swift */,
+				2FCC1AD54C344AFD4E184B9586BFE267 /* DropDown.swift */,
+				A87586FE2C9DECB6AE7FCA3238E4A1B8 /* DropDown+Appearance.swift */,
+				93EA092CDFBD4C66A29A9CDEA1DE78E1 /* DropDownCell.swift */,
+				C59647B6F3C67ED72D999C113D892AF0 /* Resources */,
+				03D114B328A63C934E528549C2DCFE8D /* Support Files */,
+			);
+			name = DropDown;
+			path = DropDown;
 			sourceTree = "<group>";
 		};
 		32607306074D10031ECFF41CE2590B5C /* Pods-wordcheck-ios */ = {
@@ -174,49 +138,6 @@
 			path = "Target Support Files/Pods-wordcheck-ios";
 			sourceTree = "<group>";
 		};
-		368B55F9843C371AD8D16168361BDB2F /* Shuffle-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				C2AB492361DB87215016AB6A89A70845 /* Animator.swift */,
-				0A393DBECFCAA74AF17EEA551AAF63B9 /* Array+Extensions.swift */,
-				4360697801E8DDFD883622FDABC923D6 /* CardAnimationOptions.swift */,
-				A71F93164A93DC88321573AAB1509392 /* CardAnimator.swift */,
-				60512825FB0B816C17F2C2FEAE320A8E /* CardStackAnimationOptions.swift */,
-				40501D86DC551C1FE04D1DE47A31F720 /* CardStackAnimator.swift */,
-				E870074000D31891C04456E148CC0AB5 /* CardStackStateManager.swift */,
-				0F50FB1CF95547FFE3518966F588E4A7 /* CGPoint+Extensions.swift */,
-				CA8F2248FD63B7045B1C420C2EBD8AFD /* CGVector+Extensions.swift */,
-				8C9D26C2D28671D4F5DD961DD0C8C23C /* PanGestureRecognizer.swift */,
-				8D7FB36C1976B87DCBB3B5A028D43A53 /* StringUtils.swift */,
-				EC357ACBD0CE47E55213DCC441EAF4A8 /* SwipeCard.swift */,
-				C1CA6D5EDCC84ECAE346AFAF100CE67B /* SwipeCardDelegate.swift */,
-				ADFF1C01EDD60E09BBA590A4609DAEE1 /* SwipeCardStack.swift */,
-				AC3EB16C2F25468418EB43E80745F99C /* SwipeCardStackDataSource.swift */,
-				FBE5797FFAEE3608E99ADC9627E8CE18 /* SwipeCardStackDelegate.swift */,
-				FB74E91E5ADEC89DB89E8529620751B5 /* SwipeDirection.swift */,
-				50C3FCE3241DD0B4DCDF173B03E1EEEE /* SwipeView.swift */,
-				074815733625BD6B1BCB1DCAED1D3A5B /* TapGestureRecognizer.swift */,
-				F3F184FC69EC9C2184365189456E0763 /* UIView+Extensions.swift */,
-				4208DD651C748F54497D98A070FFA09E /* Support Files */,
-			);
-			path = "Shuffle-iOS";
-			sourceTree = "<group>";
-		};
-		4208DD651C748F54497D98A070FFA09E /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				6962E2C9B37F84CFAE079EC300B594A1 /* Shuffle-iOS.modulemap */,
-				3E3F77A399DEAE490783EAE4167B7DE5 /* Shuffle-iOS-dummy.m */,
-				98CCEE46E69286B4DCAC2646CB4507D5 /* Shuffle-iOS-Info.plist */,
-				E9812D407E696CB4669BC90C5F990C5B /* Shuffle-iOS-prefix.pch */,
-				F5C93777733E32A148D9F102C36FABEE /* Shuffle-iOS-umbrella.h */,
-				67CA4E00B46B130554F6D84370272CB9 /* Shuffle-iOS.debug.xcconfig */,
-				EE17B537C0CAE7E4E936EC956FDE6032 /* Shuffle-iOS.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Shuffle-iOS";
-			sourceTree = "<group>";
-		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,42 +146,21 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		A355A7FB7C447E7038541FE1F7BBBB5F /* Support Files */ = {
+		C59647B6F3C67ED72D999C113D892AF0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2354E32A764D8616EFD7CD95041307EC /* DropDown.modulemap */,
-				919314DD547AD48CC38C2ED445830087 /* DropDown-dummy.m */,
-				882A8732B7CBF37C165DA2ECD6855B58 /* DropDown-Info.plist */,
-				7D50E87387AB798CCBCB16CB80841248 /* DropDown-prefix.pch */,
-				D29913D0F4AA5F8664FFE89EF1B15F43 /* DropDown-umbrella.h */,
-				682880C5491F12A5D860D796C96E0C07 /* DropDown.debug.xcconfig */,
-				DEF8C95E55800A761957E36F0F44D4C9 /* DropDown.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/DropDown";
-			sourceTree = "<group>";
-		};
-		C0EB25E262F4B2E9660A3519A0861E34 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				37E57272B4FCD5EA40EACFD52EE8FACF /* DropDownCell.xib */,
+				EEBC6D732E1B0C41C6A8D03A8C81CF47 /* DropDownCell.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		C1D767E7BC14C6CAB6A004EE1B3D3530 /* DropDown */ = {
+		CDDBF8630850A4B90E5C0D069A7DA46F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE576AA42F7948257A68337984777BA2 /* DPDConstants.swift */,
-				E704ED3C895C15FB247F40A6D481AC13 /* DPDKeyboardListener.swift */,
-				7FA241F9E36BF407F314B6A85E25356A /* DPDUIView+Extension.swift */,
-				99E85C2AC843D2D002C9FA42439D3AD5 /* DropDown.swift */,
-				388E5213C8B84EF5426E0D3C1CB57633 /* DropDown+Appearance.swift */,
-				A12F657E22B97C6E5753EADB90A84AED /* DropDownCell.swift */,
-				C0EB25E262F4B2E9660A3519A0861E34 /* Resources */,
-				A355A7FB7C447E7038541FE1F7BBBB5F /* Support Files */,
+				9B6725B782188F18CB76A740433F14E4 /* DropDown */,
+				8DA7A91D1F49DF8D71776A751E38AA08 /* Pods-wordcheck-ios */,
 			);
-			path = DropDown;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -268,8 +168,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				03BAE2379D93A44150A3DA3425C1C351 /* Pods */,
-				D28D6648DB82F38F9379AB5A21AABB10 /* Products */,
+				057ED11B9D5977F85CBBBEF7C3E69DDB /* Pods */,
+				CDDBF8630850A4B90E5C0D069A7DA46F /* Products */,
 				DA28187C5C2EE9A318DDEE86E9E7404F /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -280,16 +180,6 @@
 				578452D2E740E91742655AC8F1636D1F /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D28D6648DB82F38F9379AB5A21AABB10 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9B6725B782188F18CB76A740433F14E4 /* DropDown.framework */,
-				8DA7A91D1F49DF8D71776A751E38AA08 /* Pods-wordcheck-ios */,
-				EF6D82A590C3AFFDB84FB22D5172CC1B /* Shuffle_iOS.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		DA28187C5C2EE9A318DDEE86E9E7404F /* Targets Support Files */ = {
@@ -303,6 +193,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		8ED4759B2F436E2EEA7CEF8BC468C700 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BF47C80E4B10045EF797132F158ABBD /* Pods-wordcheck-ios-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97CE91431E229797751455423C79CA4F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -311,61 +209,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A1D058458C00F38A01D4246C350EA273 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8CEB2E7A91EDA87F9B14794478CFBCDF /* Pods-wordcheck-ios-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B9A73301CE0C68E7497C47E268065279 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				74CF40AB937EB1FA73ABADBEBD866D6B /* Shuffle-iOS-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		1F5ADA2653C691FE872FDC0DEF5305F3 /* Pods-wordcheck-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B54043E0BC4D0D4F9E485A2B20C1A82 /* Build configuration list for PBXNativeTarget "Pods-wordcheck-ios" */;
+			buildConfigurationList = FBAD00EE6BE8AC89D4E2CE5AD9F67033 /* Build configuration list for PBXNativeTarget "Pods-wordcheck-ios" */;
 			buildPhases = (
-				A1D058458C00F38A01D4246C350EA273 /* Headers */,
-				91931569661E3F4633BB43EA3D2F93AD /* Sources */,
-				3F681EC880E7B6DA06C72D388FECA48A /* Frameworks */,
-				007B73B75DCA78D37C2125EB7C2F25F5 /* Resources */,
+				8ED4759B2F436E2EEA7CEF8BC468C700 /* Headers */,
+				D751CAD46488901E8ECD6A2BC1C3FE4A /* Sources */,
+				477E73DC9AC7A5D23D7910C478E56AFA /* Frameworks */,
+				91C721081E755BA454A7F2FBF13744C2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5F9E758C96BDAEFD8EC04F8244B84C85 /* PBXTargetDependency */,
-				C9694471A56CB479FD4BA54B52300296 /* PBXTargetDependency */,
+				B9FEB516F559C2AC5039FBF487DB9109 /* PBXTargetDependency */,
 			);
 			name = "Pods-wordcheck-ios";
 			productName = Pods_wordcheck_ios;
 			productReference = 8DA7A91D1F49DF8D71776A751E38AA08 /* Pods-wordcheck-ios */;
-			productType = "com.apple.product-type.framework";
-		};
-		6CE4608D13EB4E75FE6B40D38210294E /* Shuffle-iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 35D57BD2DBA6D2B5467B4281A6B3A931 /* Build configuration list for PBXNativeTarget "Shuffle-iOS" */;
-			buildPhases = (
-				B9A73301CE0C68E7497C47E268065279 /* Headers */,
-				ACD1430F4958CA6AD442FC4B93A39D4F /* Sources */,
-				540561D8FC3512350A68B9E1C9460611 /* Frameworks */,
-				80E7F060AEF507A81DE404E64D2C6B7D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Shuffle-iOS";
-			productName = Shuffle_iOS;
-			productReference = EF6D82A590C3AFFDB84FB22D5172CC1B /* Shuffle_iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E9F9401E9C74C0C393164FD8D86D0068 /* DropDown */ = {
@@ -383,7 +246,7 @@
 			);
 			name = DropDown;
 			productName = DropDown;
-			productReference = 9B6725B782188F18CB76A740433F14E4 /* DropDown.framework */;
+			productReference = 9B6725B782188F18CB76A740433F14E4 /* DropDown */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -393,7 +256,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -404,26 +267,18 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = D28D6648DB82F38F9379AB5A21AABB10 /* Products */;
+			productRefGroup = CDDBF8630850A4B90E5C0D069A7DA46F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				E9F9401E9C74C0C393164FD8D86D0068 /* DropDown */,
 				1F5ADA2653C691FE872FDC0DEF5305F3 /* Pods-wordcheck-ios */,
-				6CE4608D13EB4E75FE6B40D38210294E /* Shuffle-iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		007B73B75DCA78D37C2125EB7C2F25F5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80E7F060AEF507A81DE404E64D2C6B7D /* Resources */ = {
+		91C721081E755BA454A7F2FBF13744C2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -455,135 +310,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91931569661E3F4633BB43EA3D2F93AD /* Sources */ = {
+		D751CAD46488901E8ECD6A2BC1C3FE4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0228C8D381BB0A03471F7035F634FA1C /* Pods-wordcheck-ios-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ACD1430F4958CA6AD442FC4B93A39D4F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				64F9279B93FEC6038CD8B2036A665AEE /* Animator.swift in Sources */,
-				46FA3994970FB1E2A2AE195754F6DA09 /* Array+Extensions.swift in Sources */,
-				06C7AABA62962B4D465BE80652442C93 /* CardAnimationOptions.swift in Sources */,
-				552CF1BD7CE2A8213133DADBD01E65C6 /* CardAnimator.swift in Sources */,
-				A275F89C6848DABFC323A6D531F944A4 /* CardStackAnimationOptions.swift in Sources */,
-				54030902C202234E1AD0D757E79B63E3 /* CardStackAnimator.swift in Sources */,
-				4019CDECA2979BE7508340C565B5C0D3 /* CardStackStateManager.swift in Sources */,
-				09D16D4AE31859A69AECB9FDE44BA877 /* CGPoint+Extensions.swift in Sources */,
-				85D9316BFDC018B3323E870A81CA82FB /* CGVector+Extensions.swift in Sources */,
-				C1DB9DD3FAD600DFD49EF43CD6D5973A /* PanGestureRecognizer.swift in Sources */,
-				A56C2CED79E4BE117796F302DD638D58 /* Shuffle-iOS-dummy.m in Sources */,
-				2254657647EE46AC112857C5643A5E17 /* StringUtils.swift in Sources */,
-				66E91EBAB7A6E1830B20C0EEF6E5106F /* SwipeCard.swift in Sources */,
-				FAE578EA38D734E9959068AC5CC89BEA /* SwipeCardDelegate.swift in Sources */,
-				BFF2C2AF0119E5252908D432B727A0E4 /* SwipeCardStack.swift in Sources */,
-				61B8195A2A9C88EDEC0E5B796667D06D /* SwipeCardStackDataSource.swift in Sources */,
-				335921E6A2D58B4D5869676851FD34B4 /* SwipeCardStackDelegate.swift in Sources */,
-				AD81BC5E5F8CB535A1FD3D9B5746DDAB /* SwipeDirection.swift in Sources */,
-				0004725A81B24C9724FF59003A582C27 /* SwipeView.swift in Sources */,
-				07A88B4C1D23BEA2CFE213F64489138F /* TapGestureRecognizer.swift in Sources */,
-				15404C20E9D1B0E3EC83EF35E157AD0D /* UIView+Extensions.swift in Sources */,
+				EEC988C678730E121D531DA66275A43C /* Pods-wordcheck-ios-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5F9E758C96BDAEFD8EC04F8244B84C85 /* PBXTargetDependency */ = {
+		B9FEB516F559C2AC5039FBF487DB9109 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DropDown;
 			target = E9F9401E9C74C0C393164FD8D86D0068 /* DropDown */;
-			targetProxy = B33AA60B6C20A7CBB6270089B1E21F59 /* PBXContainerItemProxy */;
-		};
-		C9694471A56CB479FD4BA54B52300296 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Shuffle-iOS";
-			target = 6CE4608D13EB4E75FE6B40D38210294E /* Shuffle-iOS */;
-			targetProxy = 4D8D56732ED8C80A82700034767F344B /* PBXContainerItemProxy */;
+			targetProxy = 296361C86760568486BC623BD07201C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0E2175F0D9F93726E7612DBB1CDADA4B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34688B6247B80E477A036EF1495D0E88 /* Pods-wordcheck-ios.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		2A1961D53DE6F7C63CE26F13D3497D92 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2FCB92E53F0B3E5044C4BD38BB5DD0C0 /* Pods-wordcheck-ios.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		4214E6946993DF02ED98D89047C64016 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -650,10 +396,12 @@
 			};
 			name = Debug;
 		};
-		6EA0E4776AD61A138FDDF8892876385D /* Release */ = {
+		A56A0C4B58E9C40D64047069A0A23B56 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE17B537C0CAE7E4E936EC956FDE6032 /* Shuffle-iOS.release.xcconfig */;
+			baseConfigurationReference = 2FCB92E53F0B3E5044C4BD38BB5DD0C0 /* Pods-wordcheck-ios.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -662,22 +410,23 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Shuffle-iOS/Shuffle-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Shuffle-iOS/Shuffle-iOS-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/Shuffle-iOS/Shuffle-iOS.modulemap";
-				PRODUCT_MODULE_NAME = Shuffle_iOS;
-				PRODUCT_NAME = Shuffle_iOS;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -685,43 +434,9 @@
 			};
 			name = Release;
 		};
-		93A79A634C1122666151A52FD32FB908 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 67CA4E00B46B130554F6D84370272CB9 /* Shuffle-iOS.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Shuffle-iOS/Shuffle-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Shuffle-iOS/Shuffle-iOS-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Shuffle-iOS/Shuffle-iOS.modulemap";
-				PRODUCT_MODULE_NAME = Shuffle_iOS;
-				PRODUCT_NAME = Shuffle_iOS;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		C24518E891FAA59668669823639498EB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEF8C95E55800A761957E36F0F44D4C9 /* DropDown.release.xcconfig */;
+			baseConfigurationReference = 9C15EB8657063755722D9C7DC8D72885 /* DropDown.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -734,7 +449,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DropDown/DropDown-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DropDown/DropDown-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -816,9 +531,46 @@
 			};
 			name = Release;
 		};
+		D6B2F87B14E22FCDAC1129710C7A3A82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34688B6247B80E477A036EF1495D0E88 /* Pods-wordcheck-ios.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		E2CDE7BD114C532701D2E79C5CB4CAA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 682880C5491F12A5D860D796C96E0C07 /* DropDown.debug.xcconfig */;
+			baseConfigurationReference = E5834E7BD925BD3ED29331C1938CC0B7 /* DropDown.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -831,7 +583,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DropDown/DropDown-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DropDown/DropDown-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -853,15 +605,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		35D57BD2DBA6D2B5467B4281A6B3A931 /* Build configuration list for PBXNativeTarget "Shuffle-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				93A79A634C1122666151A52FD32FB908 /* Debug */,
-				6EA0E4776AD61A138FDDF8892876385D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -871,20 +614,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4B54043E0BC4D0D4F9E485A2B20C1A82 /* Build configuration list for PBXNativeTarget "Pods-wordcheck-ios" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0E2175F0D9F93726E7612DBB1CDADA4B /* Debug */,
-				2A1961D53DE6F7C63CE26F13D3497D92 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		53052E6CBA1E65D6EF818199E617AC68 /* Build configuration list for PBXNativeTarget "DropDown" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2CDE7BD114C532701D2E79C5CB4CAA8 /* Debug */,
 				C24518E891FAA59668669823639498EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBAD00EE6BE8AC89D4E2CE5AD9F67033 /* Build configuration list for PBXNativeTarget "Pods-wordcheck-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6B2F87B14E22FCDAC1129710C7A3A82 /* Debug */,
+				A56A0C4B58E9C40D64047069A0A23B56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

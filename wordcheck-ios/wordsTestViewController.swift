@@ -1,61 +1,72 @@
 import UIKit
 import Alamofire
-import Shuffle_iOS
 import SwiftUI
 
 class wordsTestViewController: UIViewController {
-    let cardStack = SwipeCardStack()
-    let cardImages = [
-        UIImage(named: "cardImage1"),
-        UIImage(named: "cardImage2"),
-        UIImage(named: "cardImage3")
+    @IBOutlet weak var contentLabel: UILabel!
+    
+    var content = ""
+    let testList = Storage.retrive("words_test.json", from: .caches, as: [WordsDetail].self) ?? []
+    var wordData: [WordCard] = [
     ]
+    var stackContainer: StackContainerView!
+    
+    //MARK: - Init
+    
+    override func loadView() {
+        view = UIView()
+        view.backgroundColor = .white
+        stackContainer = StackContainerView()
+        view.addSubview(stackContainer)
+        configureStackContainer()
+        stackContainer.translatesAutoresizingMaskIntoConstraints = false
+        configureNavigationBarButtonItem()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(cardStack)
-        cardStack.frame = view.safeAreaLayoutGuide.layoutFrame
+        // 좀 더 좋은 방법 찾아보기
+        for i in 0..<testList.count {
+            guard let spell = testList[i].spelling, let cate = testList[i].category, let mean = testList[i].meaning else { return }
+            wordData.append(WordCard(spelling: spell, category: cate, meaning: mean))
+        }
+        stackContainer.dataSource = self
     }
 
-    func card(fromImage image: UIImage) -> SwipeCard {
-      let card = SwipeCard()
-      card.swipeDirections = [.left, .right]
-      card.content = UIImageView(image: image)
-      
-      let leftOverlay = UIView()
-      leftOverlay.backgroundColor = .green
-      
-      let rightOverlay = UIView()
-      rightOverlay.backgroundColor = .red
-      
-      card.setOverlays([.left: leftOverlay, .right: rightOverlay])
-      
-      return card
+//MARK: - Configurations
+    func configureStackContainer() {
+        stackContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        stackContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -60).isActive = true
+        stackContainer.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        stackContainer.heightAnchor.constraint(equalToConstant: 400).isActive = true
     }
     
-    func cardStack(_ cardStack: SwipeCardStack, cardForIndexAt index: Int) -> SwipeCard {
-      return card(fromImage: cardImages[index]!)
+    func configureNavigationBarButtonItem() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(resetTapped))
+    }
+    
+    //MARK: - Handlers
+    @objc func resetTapped() {
+        stackContainer.reloadData()
     }
 
-    func numberOfCards(in cardStack: SwipeCardStack) -> Int {
-      return cardImages.count
+}
+
+extension wordsTestViewController : SwipeCardsDataSource {
+
+    func numberOfCardsToShow() -> Int {
+        return wordData.count
     }
     
-    //cardStack.dataSource = self
-    
-    func cardStack(_ cardStack: SwipeCardStack, didSelectCardAt index: Int) {
-        
+    func card(at index: Int) -> SwipeCardView {
+        let card = SwipeCardView()
+        card.dataSource = wordData[index]
+        return card
     }
     
-    func cardStack(_ cardStack: SwipeCardStack, didSwipeCardAt index: Int, with direction: SwipeDirection) {
-        
+    func emptyView() -> UIView? {
+        return nil
     }
     
-    func cardStack(_ cardStack: SwipeCardStack, didUndoCardAt index: Int, from direction: SwipeDirection) {
-        
-    }
-    
-    func didSwipeAllCards(_ cardStack: SwipeCardStack) {
-        
-    }
+
 }
