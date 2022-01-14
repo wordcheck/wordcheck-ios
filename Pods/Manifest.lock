@@ -1,20 +1,16 @@
 PODS:
   - DropDown (2.3.13)
-  - Shuffle-iOS (0.5.0)
 
 DEPENDENCIES:
   - DropDown (~> 2.3.2)
-  - Shuffle-iOS
 
 SPEC REPOS:
   trunk:
     - DropDown
-    - Shuffle-iOS
 
 SPEC CHECKSUMS:
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
-  Shuffle-iOS: ff33658fb1e5eebd6a4724c156473e63754be9cb
 
-PODFILE CHECKSUM: ec651f1946af299ffebf9e9d808c336423e7720a
+PODFILE CHECKSUM: a9b9e9de97efada51f333e85c7c388892e6b6c9d
 
 COCOAPODS: 1.11.2
