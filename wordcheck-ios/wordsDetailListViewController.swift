@@ -20,8 +20,13 @@ class wordsDetailListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
     }
 
+    @objc func loadList(notification: Notification) {
+        self.detailList = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
+        self.tableView.reloadData()
+    }
 }
 
 extension wordsDetailListViewController: UITableViewDataSource {

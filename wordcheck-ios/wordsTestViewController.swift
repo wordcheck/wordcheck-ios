@@ -3,8 +3,6 @@ import Alamofire
 import SwiftUI
 
 class wordsTestViewController: UIViewController {
-    @IBOutlet weak var contentLabel: UILabel!
-    
     var content = ""
     let testList = Storage.retrive("words_test.json", from: .caches, as: [WordsDetail].self) ?? []
     var wordData: [WordCard] = [
@@ -25,6 +23,7 @@ class wordsTestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = content
         // 좀 더 좋은 방법 찾아보기
         for i in 0..<testList.count {
             guard let spell = testList[i].spelling, let cate = testList[i].category, let mean = testList[i].meaning else { return }
@@ -37,8 +36,8 @@ class wordsTestViewController: UIViewController {
     func configureStackContainer() {
         stackContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stackContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -60).isActive = true
-        stackContainer.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        stackContainer.heightAnchor.constraint(equalToConstant: 400).isActive = true
+        stackContainer.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        stackContainer.heightAnchor.constraint(equalToConstant: 450).isActive = true
     }
     
     func configureNavigationBarButtonItem() {

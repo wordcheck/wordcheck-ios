@@ -10,6 +10,11 @@ class wordsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+    }
+    
+    @objc func loadList(notification: Notification) {
+        self.contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
         self.tableView.reloadData()
     }
     
