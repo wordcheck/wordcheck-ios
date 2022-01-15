@@ -51,10 +51,11 @@ class loginViewController: UIViewController {
     }
     
     @IBAction func signupButton(_ sender: Any) {
-        let signupViewController = self.storyboard?.instantiateViewController(withIdentifier: "signupViewController") as! signupViewController
-        
-        self.navigationController?.pushViewController(signupViewController, animated: true)
-        self.dismiss(animated: false, completion: nil)
+//        let signupViewController = self.storyboard?.instantiateViewController(withIdentifier: "signupViewController") as! signupViewController
+//        self.navigationController?.pushViewController(signupViewController, animated: true)
+//        self.dismiss(animated: false, completion: nil)
+        performSegue(withIdentifier: "signUp", sender: nil)
+        dismiss(animated: true, completion: nil)
     }
     
 }
@@ -63,15 +64,4 @@ struct loginToken: Codable {
     let account_token: String?
     let msg: String?
     let nickname: String?
-    
-//    enum CodingKeys: CodingKey {
-//        case account_token, msg, nickname
-//    }
-//    
-//    init(from decoder: Decoder) throws {
-//        let values = try decoder.container(keyedBy: CodingKeys.self)
-//        account_token = (try? values.decode(String.self, forKey: .account_token)) ?? nil
-//        msg = (try? values.decode(String.self, forKey: .msg)) ?? nil
-//        nickname = (try? values.decode(String.self, forKey: .nickname)) ?? nil
-//    }
 }

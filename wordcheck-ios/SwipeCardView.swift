@@ -9,7 +9,7 @@ class SwipeCardView : UIView {
     var spell = UILabel()
     var category = UILabel()
     var meaning = UILabel()
-    var moreButton = UIButton()
+//    var moreButton = UIButton()
     
     var delegate : SwipeCardsDelegate?
 
@@ -32,9 +32,9 @@ class SwipeCardView : UIView {
         super.init(frame: .zero)
         configureShadowView()
         configureSwipeView()
-        configureLabelView()
-        //configureImageView()
-        configureButton()
+        configureSpellLabelView()
+//        configureImageView()
+//        configureButton()
         addPanGestureOnCards()
         configureTapGesture()
     }
@@ -74,19 +74,18 @@ class SwipeCardView : UIView {
         swipeView.topAnchor.constraint(equalTo: shadowView.topAnchor).isActive = true
     }
     
-    func configureLabelView() {
-        swipeView.addSubview(meaning)
-        meaning.backgroundColor = .white
-        meaning.textColor = .black
-        meaning.textAlignment = .center
-        meaning.font = UIFont.systemFont(ofSize: 18)
-        meaning.translatesAutoresizingMaskIntoConstraints = false
-        meaning.topAnchor.constraint(equalTo: shadowView.topAnchor).isActive = true
-        meaning.leftAnchor.constraint(equalTo: swipeView.leftAnchor).isActive = true
-        meaning.rightAnchor.constraint(equalTo: swipeView.rightAnchor).isActive = true
-        meaning.bottomAnchor.constraint(equalTo: swipeView.bottomAnchor).isActive = true
-        meaning.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
+    func configureSpellLabelView() {
+        swipeView.addSubview(spell)
+        spell.backgroundColor = .white
+        spell.textColor = .black
+        spell.textAlignment = .center
+        spell.font = UIFont.systemFont(ofSize: 40, weight: .bold)
+        spell.translatesAutoresizingMaskIntoConstraints = false
+        spell.topAnchor.constraint(equalTo: shadowView.topAnchor).isActive = true
+        spell.leftAnchor.constraint(equalTo: swipeView.leftAnchor).isActive = true
+        spell.rightAnchor.constraint(equalTo: swipeView.rightAnchor).isActive = true
+        spell.bottomAnchor.constraint(equalTo: swipeView.bottomAnchor).isActive = true
+        //spell.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
 //    func configureImageView() {
@@ -101,24 +100,22 @@ class SwipeCardView : UIView {
 //        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
 //    }
     
-    func configureButton() {
-        meaning.addSubview(moreButton)
-        moreButton.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(named: "plus-tab")?.withRenderingMode(.alwaysTemplate)
-        moreButton.setImage(image, for: .normal)
-        moreButton.tintColor = UIColor.red
-        
-        moreButton.rightAnchor.constraint(equalTo: meaning.rightAnchor, constant: -15).isActive = true
-        moreButton.centerYAnchor.constraint(equalTo: meaning.centerYAnchor).isActive = true
-        moreButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        moreButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    
-    }
+//    func configureButton() {
+//        spell.addSubview(moreButton)
+//        moreButton.translatesAutoresizingMaskIntoConstraints = false
+//        let image = UIImage(named: "plus-tab")?.withRenderingMode(.alwaysTemplate)
+//        moreButton.setImage(image, for: .normal)
+//        moreButton.tintColor = UIColor.red
+//
+//        moreButton.rightAnchor.constraint(equalTo: spell.rightAnchor, constant: -15).isActive = true
+//        moreButton.centerYAnchor.constraint(equalTo: spell.centerYAnchor).isActive = true
+//        moreButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+//        moreButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//    }
 
     func configureTapGesture() {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapGesture)))
     }
-    
     
     func addPanGestureOnCards() {
         self.isUserInteractionEnabled = true
@@ -134,13 +131,13 @@ class SwipeCardView : UIView {
         let centerOfParentContainer = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         card.center = CGPoint(x: centerOfParentContainer.x + point.x, y: centerOfParentContainer.y + point.y)
         
-        let distanceFromCenter = ((UIScreen.main.bounds.width / 2) - card.center.x)
+        //let distanceFromCenter = ((UIScreen.main.bounds.width / 2) - card.center.x)
         divisor = ((UIScreen.main.bounds.width / 2) / 0.61)
        
         switch sender.state {
         case .ended:
             // right
-            if card.center.x > 400 {
+            if card.center.x > 370 {
                 delegate?.swipeDidEnd(on: card)
                 UIView.animate(withDuration: 0.2) {
                     card.center = CGPoint(x: centerOfParentContainer.x + point.x + 200, y: centerOfParentContainer.y + point.y + 75)
@@ -150,7 +147,7 @@ class SwipeCardView : UIView {
                 print("Swiping Right!")
                 return
             // left
-            } else if card.center.x < -65 {
+            } else if card.center.x < -35 {
                 delegate?.swipeDidEnd(on: card)
                 UIView.animate(withDuration: 0.2) {
                     card.center = CGPoint(x: centerOfParentContainer.x + point.x - 200, y: centerOfParentContainer.y + point.y + 75)
@@ -175,6 +172,8 @@ class SwipeCardView : UIView {
     }
     
     @objc func handleTapGesture(sender: UITapGestureRecognizer){
+        // ! 카드 뒤집어지는 animation -> spell, category, meaning 보여주기
+        print("Tapped!\n[\(self.spell.text!), \(self.category.text!), \(self.meaning.text!)]")
     }
     
   

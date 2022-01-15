@@ -16,10 +16,6 @@ class wordsCreateViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidLoad()
-    }
-    
     @IBAction func categoryClick(_ sender: Any) {
         let dropDown = DropDown()
         DropDown.appearance().backgroundColor = UIColor.white
@@ -48,6 +44,7 @@ class wordsCreateViewController: UIViewController {
             case .success:
                 let alert = UIAlertController(title: "알림", message: "단어 추가 성공", preferredStyle: UIAlertController.Style.alert)
                 let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
+                    Storage.store(self.contentsList, to: .caches, as: "content_list.json")
                     self.dismiss(animated: false, completion: nil)
                 }
                 alert.addAction(confirm)

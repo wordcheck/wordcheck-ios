@@ -50,6 +50,7 @@ class signupViewController: UIViewController {
                         self.present(alert, animated: true, completion: nil)
                     }
                 }
+                self.dismiss(animated: false, completion: nil)
                 
             default:
                 let alert = UIAlertController(title: "알림", message: "중복된 닉네임 입니다", preferredStyle: UIAlertController.Style.alert)
