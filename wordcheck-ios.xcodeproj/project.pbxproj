@@ -93,20 +93,14 @@
 		1336DDC6278096C10084DEFF /* wordcheck-ios */ = {
 			isa = PBXGroup;
 			children = (
+				13C2DAD327942C5200AA26B7 /* Model */,
+				13C2DACF27942B9F00AA26B7 /* login */,
+				13C2DAD027942BAA00AA26B7 /* wordList */,
+				13C2DAD127942BE100AA26B7 /* wordTest */,
+				13C2DAD227942C0900AA26B7 /* wordSearch */,
 				1336DDC7278096C10084DEFF /* AppDelegate.swift */,
 				1336DDC9278096C10084DEFF /* SceneDelegate.swift */,
-				1336DDDB27809F440084DEFF /* loginViewController.swift */,
-				13F6F57A27886FA6006A33CE /* signupViewController.swift */,
-				1336DDDD2780A04B0084DEFF /* wordsListViewController.swift */,
-				1378C08C278C4B5C00BD6DBD /* wordsDetailListViewController.swift */,
-				1311AD53278D4413005325D1 /* wordsCreateViewController.swift */,
-				136DE734278EA77100C29BEC /* wordsUpdateViewController.swift */,
-				1338AC2B27911A7700121A10 /* selectTestViewController.swift */,
-				134C87D027903B3700567A5A /* wordsTestViewController.swift */,
-				1330F2C02793ECDB007D3CB3 /* wordsSearchViewController.swift */,
 				1336DDCD278096C10084DEFF /* Main.storyboard */,
-				1311AD4F278D4391005325D1 /* Words.swift */,
-				136DE732278E6A4900C29BEC /* Storage.swift */,
 				1336DDD0278096C20084DEFF /* Assets.xcassets */,
 				1336DDD2278096C20084DEFF /* LaunchScreen.storyboard */,
 				1336DDD5278096C20084DEFF /* Info.plist */,
@@ -116,6 +110,52 @@
 				13153D462791902600D875AF /* SwipeCardsDataSource.swift */,
 			);
 			path = "wordcheck-ios";
+			sourceTree = "<group>";
+		};
+		13C2DACF27942B9F00AA26B7 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				1336DDDB27809F440084DEFF /* loginViewController.swift */,
+				13F6F57A27886FA6006A33CE /* signupViewController.swift */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		13C2DAD027942BAA00AA26B7 /* wordList */ = {
+			isa = PBXGroup;
+			children = (
+				1336DDDD2780A04B0084DEFF /* wordsListViewController.swift */,
+				1378C08C278C4B5C00BD6DBD /* wordsDetailListViewController.swift */,
+				1311AD53278D4413005325D1 /* wordsCreateViewController.swift */,
+				136DE734278EA77100C29BEC /* wordsUpdateViewController.swift */,
+			);
+			path = wordList;
+			sourceTree = "<group>";
+		};
+		13C2DAD127942BE100AA26B7 /* wordTest */ = {
+			isa = PBXGroup;
+			children = (
+				1338AC2B27911A7700121A10 /* selectTestViewController.swift */,
+				134C87D027903B3700567A5A /* wordsTestViewController.swift */,
+			);
+			path = wordTest;
+			sourceTree = "<group>";
+		};
+		13C2DAD227942C0900AA26B7 /* wordSearch */ = {
+			isa = PBXGroup;
+			children = (
+				1330F2C02793ECDB007D3CB3 /* wordsSearchViewController.swift */,
+			);
+			path = wordSearch;
+			sourceTree = "<group>";
+		};
+		13C2DAD327942C5200AA26B7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1311AD4F278D4391005325D1 /* Words.swift */,
+				136DE732278E6A4900C29BEC /* Storage.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		30BA1559DAF4BB6261D0BB91 /* Frameworks */ = {

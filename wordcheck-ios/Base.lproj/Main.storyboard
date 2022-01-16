@@ -162,19 +162,19 @@
         <!--Words Create View Controller-->
         <scene sceneID="sCl-de-PUT">
             <objects>
-                <viewController id="2qW-IY-5IL" customClass="wordsCreateViewController" customModule="wordcheck_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wordsCreateViewController" id="2qW-IY-5IL" customClass="wordsCreateViewController" customModule="wordcheck_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xz7-Fb-TLi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnL-Ia-OaD">
-                                <rect key="frame" x="134" y="80" width="146" height="30"/>
+                                <rect key="frame" x="134" y="124" width="146" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="contents" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="egL-Fm-Kcs">
-                                <rect key="frame" x="117" y="190" width="180" height="34"/>
+                                <rect key="frame" x="117" y="234" width="180" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="syO-Ei-v7b"/>
                                 </constraints>
@@ -182,7 +182,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="단어" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KQf-MK-QyG">
-                                <rect key="frame" x="117" y="234" width="180" height="34"/>
+                                <rect key="frame" x="117" y="278" width="180" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="tcb-fp-R6j"/>
                                 </constraints>
@@ -190,7 +190,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="뜻" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kFX-O1-JWT">
-                                <rect key="frame" x="117" y="322" width="180" height="34"/>
+                                <rect key="frame" x="117" y="366" width="180" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="TYF-ev-Mat"/>
                                 </constraints>
@@ -198,7 +198,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzg-SW-WNk">
-                                <rect key="frame" x="169" y="406" width="76.5" height="31"/>
+                                <rect key="frame" x="169" y="450" width="76.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="단어 생성"/>
                                 <connections>
@@ -206,7 +206,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="품사" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyF-47-FQ3">
-                                <rect key="frame" x="117" y="278" width="180" height="34"/>
+                                <rect key="frame" x="117" y="322" width="180" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="c8e-Dz-lms"/>
                                 </constraints>
@@ -244,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20K-8s-YlB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4629" y="-1460"/>
+            <point key="canvasLocation" x="3583" y="-1400"/>
         </scene>
         <!--Test-->
         <scene sceneID="cTT-sH-bk6">
@@ -430,19 +430,19 @@
         <!--Words Update View Controller-->
         <scene sceneID="usy-Gj-IUm">
             <objects>
-                <viewController id="TYD-bK-EsB" customClass="wordsUpdateViewController" customModule="wordcheck_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wordsUpdateViewController" id="TYD-bK-EsB" customClass="wordsUpdateViewController" customModule="wordcheck_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MrW-QI-HEi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-oA-S3f">
-                                <rect key="frame" x="130.5" y="80" width="153" height="30"/>
+                                <rect key="frame" x="130.5" y="124" width="153" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="단어" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3U-hW-mfp">
-                                <rect key="frame" x="117" y="190" width="180" height="34"/>
+                                <rect key="frame" x="117" y="234" width="180" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="qdu-mC-9yW"/>
                                 </constraints>
@@ -450,7 +450,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="품사" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qhc-U3-gkI">
-                                <rect key="frame" x="117" y="234" width="180" height="34"/>
+                                <rect key="frame" x="117" y="278" width="180" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="zqL-Wn-82W"/>
                                 </constraints>
@@ -461,7 +461,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="뜻" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cyN-P3-F8G">
-                                <rect key="frame" x="117" y="278" width="180" height="34"/>
+                                <rect key="frame" x="117" y="322" width="180" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="11i-F3-X44"/>
                                 </constraints>
@@ -469,7 +469,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiR-2y-AyI">
-                                <rect key="frame" x="169" y="362" width="76.5" height="31"/>
+                                <rect key="frame" x="169" y="406" width="76.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="단어 수정"/>
                                 <connections>
@@ -500,7 +500,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cFF-OQ-F0i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5849" y="-672"/>
+            <point key="canvasLocation" x="4629" y="-1400"/>
         </scene>
         <!--Words-->
         <scene sceneID="PPM-Sk-SBi">
@@ -595,7 +595,6 @@
                         <outlet property="selectButton" destination="XxK-NP-tay" id="bvo-IG-98H"/>
                         <outlet property="tableView" destination="2ft-tW-5pl" id="iXC-ve-DFO"/>
                         <segue destination="00e-j8-bPI" kind="show" identifier="showDetail" id="dNh-R9-xqq"/>
-                        <segue destination="2qW-IY-5IL" kind="presentation" identifier="createWord" id="JKZ-qI-wRv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vro-4S-qkQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -696,7 +695,6 @@
                     <navigationItem key="navigationItem" id="LMZ-W1-x5u"/>
                     <connections>
                         <outlet property="tableView" destination="vbM-Ec-xHW" id="2T0-Eo-TZY"/>
-                        <segue destination="TYD-bK-EsB" kind="presentation" identifier="updateWord" id="lp9-av-g0H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hh-FZ-v6i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

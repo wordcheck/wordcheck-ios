@@ -9,6 +9,7 @@ class loginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Storage.clear(.documents)
+        Storage.clear(.caches)
     }
 
     @IBAction func nickName(_ sender: Any) {

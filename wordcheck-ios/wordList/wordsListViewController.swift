@@ -14,13 +14,7 @@ class wordsListViewController: UIViewController {
         super.viewDidLoad()
         getList()
         setSelectButton()
-//        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
     }
-    
-//    @objc func loadList(notification: Notification) {
-//        self.contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
-//        self.tableView.reloadData()
-//    }
     
     func getList() {
         let header: HTTPHeaders = [
@@ -62,10 +56,18 @@ class wordsListViewController: UIViewController {
     }
     
     @IBAction func wordsCreateButton(_ sender: Any) {
-        // ! 생성하면 갱신되게 처리
-        performSegue(withIdentifier: "createWord", sender: nil)
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "wordsCreateViewController") as? wordsCreateViewController else { return }
+        vc.modalTransitionStyle = .coverVertical
+        vc.delegate = self
+        self.present(vc, animated: true, completion: nil)
     }
-    
+}
+
+extension wordsListViewController: LoadCreateViewDelegate {
+    func loadTableView() {
+        self.contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
+        self.tableView.reloadData()
+    }
 }
 
 extension wordsListViewController: UITableViewDataSource {

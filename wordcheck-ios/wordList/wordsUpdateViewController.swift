@@ -2,6 +2,10 @@ import UIKit
 import Alamofire
 import DropDown
 
+protocol LoadUpdateViewDelegate: AnyObject {
+    func loadTableView()
+}
+
 class wordsUpdateViewController: UIViewController {
     var token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
     var index: Int!
@@ -10,6 +14,7 @@ class wordsUpdateViewController: UIViewController {
     @IBOutlet weak var spellingInput: UITextField!
     @IBOutlet weak var categoryInput: UITextField!
     @IBOutlet weak var meaningInput: UITextField!
+    weak var delegate: LoadUpdateViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +53,7 @@ class wordsUpdateViewController: UIViewController {
                 let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
                     self.wordDetail[self.index] = (response.value?.word)!
                     Storage.store(self.wordDetail, to: .caches, as: "words_detail.json")
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+                    self.delegate?.loadTableView()
                     self.dismiss(animated: true, completion: nil)
                 }
                 alert.addAction(confirm)

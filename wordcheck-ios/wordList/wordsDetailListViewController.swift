@@ -9,21 +9,13 @@ class wordsDetailListViewController: UIViewController {
     var token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
     var detailList = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "updateWord" {
-            let vc = segue.destination as? wordsUpdateViewController
-            if let index = sender as? Int {
-                vc?.index = index
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
     }
+}
 
-    @objc func loadList(notification: Notification) {
+extension wordsDetailListViewController: LoadUpdateViewDelegate {
+    func loadTableView() {
         self.detailList = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
         self.tableView.reloadData()
     }
@@ -38,13 +30,16 @@ extension wordsDetailListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "wordCell", for: indexPath) as? DetailCell else {
             return UITableViewCell()
         }
-        
         cell.spellingLabel.text = self.detailList[indexPath.row].spelling
         cell.categoryLabel.text = self.detailList[indexPath.row].category
         cell.meaningLabel.text = self.detailList[indexPath.row].meaning
         
         cell.updateButtonTapHandler = {
-            self.performSegue(withIdentifier: "updateWord", sender: indexPath.row)
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "wordsUpdateViewController") as? wordsUpdateViewController else { return }
+            vc.index = indexPath.row
+            vc.modalTransitionStyle = .coverVertical
+            vc.delegate = self
+            self.present(vc, animated: true, completion: nil)
         }
         
         cell.deleteButtonTapHandler = {
@@ -95,6 +90,7 @@ class DetailCell: UITableViewCell {
     
     @IBAction func updateButton(_ sender: Any) {
         updateButtonTapHandler?()
+        
     }
 
     @IBAction func deleteButton(_ sender: Any) {
