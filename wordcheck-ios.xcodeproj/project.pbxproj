@@ -13,6 +13,7 @@
 		13153D4327918E4400D875AF /* StackContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13153D4227918E4400D875AF /* StackContainerView.swift */; };
 		13153D4527918E9300D875AF /* SwipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13153D4427918E9300D875AF /* SwipeCardView.swift */; };
 		13153D472791902600D875AF /* SwipeCardsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13153D462791902600D875AF /* SwipeCardsDataSource.swift */; };
+		1330F2C12793ECDB007D3CB3 /* wordsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1330F2C02793ECDB007D3CB3 /* wordsSearchViewController.swift */; };
 		1336DDC8278096C10084DEFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDC7278096C10084DEFF /* AppDelegate.swift */; };
 		1336DDCA278096C10084DEFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDC9278096C10084DEFF /* SceneDelegate.swift */; };
 		1336DDCF278096C10084DEFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1336DDCD278096C10084DEFF /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		13153D4227918E4400D875AF /* StackContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackContainerView.swift; sourceTree = "<group>"; };
 		13153D4427918E9300D875AF /* SwipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardView.swift; sourceTree = "<group>"; };
 		13153D462791902600D875AF /* SwipeCardsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardsDataSource.swift; sourceTree = "<group>"; };
+		1330F2C02793ECDB007D3CB3 /* wordsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsSearchViewController.swift; sourceTree = "<group>"; };
 		1336DDC4278096C10084DEFF /* wordcheck-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wordcheck-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1336DDC7278096C10084DEFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1336DDC9278096C10084DEFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				136DE734278EA77100C29BEC /* wordsUpdateViewController.swift */,
 				1338AC2B27911A7700121A10 /* selectTestViewController.swift */,
 				134C87D027903B3700567A5A /* wordsTestViewController.swift */,
+				1330F2C02793ECDB007D3CB3 /* wordsSearchViewController.swift */,
 				1336DDCD278096C10084DEFF /* Main.storyboard */,
 				1311AD4F278D4391005325D1 /* Words.swift */,
 				136DE732278E6A4900C29BEC /* Storage.swift */,
@@ -258,6 +261,7 @@
 				1311AD50278D4391005325D1 /* Words.swift in Sources */,
 				1336DDDC27809F440084DEFF /* loginViewController.swift in Sources */,
 				134C87D127903B3700567A5A /* wordsTestViewController.swift in Sources */,
+				1330F2C12793ECDB007D3CB3 /* wordsSearchViewController.swift in Sources */,
 				13153D472791902600D875AF /* SwipeCardsDataSource.swift in Sources */,
 				13153D4327918E4400D875AF /* StackContainerView.swift in Sources */,
 				136DE735278EA77100C29BEC /* wordsUpdateViewController.swift in Sources */,

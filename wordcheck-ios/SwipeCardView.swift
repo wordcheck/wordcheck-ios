@@ -88,31 +88,6 @@ class SwipeCardView : UIView {
         //spell.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
-//    func configureImageView() {
-//        imageView = UIImageView()
-//        swipeView.addSubview(imageView)
-//        imageView.contentMode = .scaleAspectFit
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        imageView.centerXAnchor.constraint(equalTo: swipeView.centerXAnchor).isActive = true
-//        imageView.centerYAnchor.constraint(equalTo: swipeView.centerYAnchor, constant: -30).isActive = true
-//        imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-//        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-//    }
-    
-//    func configureButton() {
-//        spell.addSubview(moreButton)
-//        moreButton.translatesAutoresizingMaskIntoConstraints = false
-//        let image = UIImage(named: "plus-tab")?.withRenderingMode(.alwaysTemplate)
-//        moreButton.setImage(image, for: .normal)
-//        moreButton.tintColor = UIColor.red
-//
-//        moreButton.rightAnchor.constraint(equalTo: spell.rightAnchor, constant: -15).isActive = true
-//        moreButton.centerYAnchor.constraint(equalTo: spell.centerYAnchor).isActive = true
-//        moreButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-//        moreButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//    }
-
     func configureTapGesture() {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapGesture)))
     }

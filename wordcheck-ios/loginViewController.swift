@@ -26,21 +26,8 @@ class loginViewController: UIViewController {
                 guard let token = response.value?.account_token else { return }
                 if(token != "") {
                     Storage.store(token, to: .documents, as: "account_token.json")
-                    let header: HTTPHeaders = [
-                        "Authorization": token
-                    ]
-                    AF.request("http://52.78.37.13/api/words/", method: .get, headers: header).validate(statusCode: 200..<500).responseDecodable(of: [Content].self) { response in
-                        switch response.result {
-                        case .success:
-                            guard let list = response.value else { return }
-                            Storage.store(list, to: .caches, as: "contents_list.json")
-                                    
-                        case .failure:
-                            return
-                        }
-                        self.performSegue(withIdentifier: "getWords", sender: nil)
-                        self.dismiss(animated: false, completion: nil)
-                    }
+                    self.performSegue(withIdentifier: "getWords", sender: nil)
+                    self.dismiss(animated: false, completion: nil)
                 }
 
             case .failure:
