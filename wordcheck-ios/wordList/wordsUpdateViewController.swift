@@ -10,6 +10,7 @@ class wordsUpdateViewController: UIViewController {
     @IBOutlet weak var spellingInput: UITextField!
     @IBOutlet weak var categoryInput: UITextField!
     @IBOutlet weak var meaningInput: UITextField!
+    weak var delegate: LoadViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,6 @@ class wordsUpdateViewController: UIViewController {
         dropDown.show()
     }
     
-    // ! update되면 화면 갱신되게
     @IBAction func updateButton(_ sender: Any) {
         let header: HTTPHeaders = [
             "Authorization": self.token
@@ -48,7 +48,7 @@ class wordsUpdateViewController: UIViewController {
                 let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
                     self.wordDetail[self.index] = (response.value?.word)!
                     Storage.store(self.wordDetail, to: .caches, as: "words_detail.json")
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+                    self.delegate?.loadUpdateTableView()
                     self.dismiss(animated: true, completion: nil)
                 }
                 alert.addAction(confirm)

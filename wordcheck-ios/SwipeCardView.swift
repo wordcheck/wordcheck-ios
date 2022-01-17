@@ -1,22 +1,24 @@
 import UIKit
 
-class SwipeCardView : UIView {
+class SwipeCardView: UIView {
    
+    let token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
+    
     //MARK: - Properties
-    var swipeView : UIView!
-    var shadowView : UIView!
+    var swipeView: UIView!
+    var shadowView: UIView!
   
     var spell = UILabel()
     var category = UILabel()
     var meaning = UILabel()
 //    var moreButton = UIButton()
     
-    var delegate : SwipeCardsDelegate?
+    var delegate: SwipeCardsDelegate?
 
-    var divisor : CGFloat = 0
+    var divisor: CGFloat = 0
     let baseView = UIView()
 
-    var dataSource : WordCard? {
+    var dataSource: WordCard? {
         didSet {
             spell.text = dataSource?.spelling
             category.text = dataSource?.category
@@ -44,7 +46,6 @@ class SwipeCardView : UIView {
     }
     
     //MARK: - Configuration
-    
     func configureShadowView() {
         shadowView = UIView()
         shadowView.backgroundColor = .clear
@@ -88,31 +89,6 @@ class SwipeCardView : UIView {
         //spell.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
-//    func configureImageView() {
-//        imageView = UIImageView()
-//        swipeView.addSubview(imageView)
-//        imageView.contentMode = .scaleAspectFit
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        imageView.centerXAnchor.constraint(equalTo: swipeView.centerXAnchor).isActive = true
-//        imageView.centerYAnchor.constraint(equalTo: swipeView.centerYAnchor, constant: -30).isActive = true
-//        imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-//        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-//    }
-    
-//    func configureButton() {
-//        spell.addSubview(moreButton)
-//        moreButton.translatesAutoresizingMaskIntoConstraints = false
-//        let image = UIImage(named: "plus-tab")?.withRenderingMode(.alwaysTemplate)
-//        moreButton.setImage(image, for: .normal)
-//        moreButton.tintColor = UIColor.red
-//
-//        moreButton.rightAnchor.constraint(equalTo: spell.rightAnchor, constant: -15).isActive = true
-//        moreButton.centerYAnchor.constraint(equalTo: spell.centerYAnchor).isActive = true
-//        moreButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-//        moreButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//    }
-
     func configureTapGesture() {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapGesture)))
     }
@@ -122,11 +98,10 @@ class SwipeCardView : UIView {
         addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture)))
     }
     
-    
-    
     //MARK: - Handlers
     @objc func handlePanGesture(sender: UIPanGestureRecognizer){
         let card = sender.view as! SwipeCardView
+        let id = card.dataSource?.id
         let point = sender.translation(in: self)
         let centerOfParentContainer = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         card.center = CGPoint(x: centerOfParentContainer.x + point.x, y: centerOfParentContainer.y + point.y)
@@ -136,8 +111,8 @@ class SwipeCardView : UIView {
        
         switch sender.state {
         case .ended:
-            // right
-            if card.center.x > 370 {
+            // Right
+            if card.center.x > UIScreen.main.bounds.width + 5 {
                 delegate?.swipeDidEnd(on: card)
                 UIView.animate(withDuration: 0.2) {
                     card.center = CGPoint(x: centerOfParentContainer.x + point.x + 200, y: centerOfParentContainer.y + point.y + 75)
@@ -145,9 +120,10 @@ class SwipeCardView : UIView {
                     self.layoutIfNeeded()
                 }
                 print("Swiping Right!")
+                print(id)
                 return
-            // left
-            } else if card.center.x < -35 {
+            // Left
+            } else if card.center.x < -5 {
                 delegate?.swipeDidEnd(on: card)
                 UIView.animate(withDuration: 0.2) {
                     card.center = CGPoint(x: centerOfParentContainer.x + point.x - 200, y: centerOfParentContainer.y + point.y + 75)
@@ -155,6 +131,7 @@ class SwipeCardView : UIView {
                     self.layoutIfNeeded()
                 }
                 print("Swiping Left!")
+                print(id)
                 return
             }
             UIView.animate(withDuration: 0.2) {
@@ -172,9 +149,8 @@ class SwipeCardView : UIView {
     }
     
     @objc func handleTapGesture(sender: UITapGestureRecognizer){
-        // ! 카드 뒤집어지는 animation -> spell, category, meaning 보여주기
-        print("Tapped!\n[\(self.spell.text!), \(self.category.text!), \(self.meaning.text!)]")
+//        ! 카드 뒤집어지는 animation -> spell, category, meaning 보여주기
+//        print("Tapped!\n[\(self.spell.text!), \(self.category.text!), \(self.meaning.text!)]")
     }
     
-  
 }
