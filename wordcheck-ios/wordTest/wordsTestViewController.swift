@@ -5,12 +5,10 @@ import SwiftUI
 class wordsTestViewController: UIViewController {
     var content = ""
     let testList = Storage.retrive("words_test.json", from: .caches, as: [WordsDetail].self) ?? []
-    var wordData: [WordCard] = [
-    ]
+    var wordData: [WordCard] = []
     var stackContainer: StackContainerView!
     
     //MARK: - Init
-    
     override func loadView() {
         view = UIView()
         view.backgroundColor = .white
@@ -26,13 +24,13 @@ class wordsTestViewController: UIViewController {
         title = content
         // 좀 더 좋은 방법 찾아보기
         for i in 0..<testList.count {
-            guard let spell = testList[i].spelling, let cate = testList[i].category, let mean = testList[i].meaning else { return }
-            wordData.append(WordCard(spelling: spell, category: cate, meaning: mean))
+            guard let id = testList[i].id, let spell = testList[i].spelling, let cate = testList[i].category, let mean = testList[i].meaning else { return }
+            wordData.append(WordCard(id: id, spelling: spell, category: cate, meaning: mean))
         }
         stackContainer.dataSource = self
     }
 
-//MARK: - Configurations
+    //MARK: - Configurations
     func configureStackContainer() {
         stackContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stackContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -60).isActive = true
@@ -52,7 +50,6 @@ class wordsTestViewController: UIViewController {
 }
 
 extension wordsTestViewController : SwipeCardsDataSource {
-
     func numberOfCardsToShow() -> Int {
         return wordData.count
     }

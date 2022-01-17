@@ -40,13 +40,12 @@ class wordsListViewController: UIViewController {
     
     func setSelectButton() {
         let content = UIAction(title: "챕터") { _ in
-            // 챕터별 list 가져오기
             self.contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
             self.tableView.reloadData()
         }
         
         let wrong = UIAction(title: "틀린 횟수") { _ in
-            // 틀린 횟수별 list 가져오기
+            // ! 틀린 횟수별 list 가져오기
             self.contentsList = self.wrongList
             self.tableView.reloadData()
         }
@@ -63,8 +62,13 @@ class wordsListViewController: UIViewController {
     }
 }
 
-extension wordsListViewController: LoadCreateViewDelegate {
-    func loadTableView() {
+extension wordsListViewController: LoadViewDelegate {
+    func loadCreateTableView() {
+        self.contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
+        self.tableView.reloadData()
+    }
+    func loadUpdateTableView() {}
+    func loadDeleteTableView() {
         self.contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
         self.tableView.reloadData()
     }
@@ -100,7 +104,9 @@ extension wordsListViewController : UITableViewDelegate {
             case .success:
                 guard let detailList = response.value else { return }
                 Storage.store(detailList, to: .caches, as: "words_detail.json")
-                self.performSegue(withIdentifier: "showDetail", sender: nil)
+                guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "wordsDetailListViewController") as? wordsDetailListViewController else { return }
+                vc.delegate = self
+                self.present(vc, animated: true, completion: nil)
                 
             case .failure:
                 return

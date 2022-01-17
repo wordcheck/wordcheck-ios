@@ -2,17 +2,12 @@ import UIKit
 import Alamofire
 import DropDown
 
-protocol LoadCreateViewDelegate: AnyObject {
-    func loadTableView()
-}
-
 class wordsCreateViewController: UIViewController {
-
     @IBOutlet weak var contentsInput: UITextField!
     @IBOutlet weak var spellingInput: UITextField!
     @IBOutlet weak var categoryInput: UITextField!
     @IBOutlet weak var meaningInput: UITextField!
-    weak var delegate: LoadCreateViewDelegate?
+    weak var delegate: LoadViewDelegate?
     
     var token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
     var contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
@@ -51,9 +46,11 @@ class wordsCreateViewController: UIViewController {
                     let alert = UIAlertController(title: "알림", message: "단어 추가 성공", preferredStyle: UIAlertController.Style.alert)
                     let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
                         let content = Content(contents: self.contentsInput.text!)
-                        self.contentsList.append(content)
+                        if !self.contentsList.contains(where: { $0 == content }) {
+                            self.contentsList.append(content)
+                        }
                         Storage.store(self.contentsList, to: .caches, as: "contents_list.json")
-                        self.delegate?.loadTableView()
+                        self.delegate?.loadCreateTableView()
                         self.dismiss(animated: false, completion: nil)
                     }
                     alert.addAction(confirm)
@@ -73,3 +70,4 @@ class wordsCreateViewController: UIViewController {
     }
     
 }
+

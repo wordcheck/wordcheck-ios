@@ -23,7 +23,6 @@ class StackContainerView: UIView, SwipeCardsDelegate {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         backgroundColor = .clear
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,7 +40,6 @@ class StackContainerView: UIView, SwipeCardsDelegate {
         
         for i in 0..<min(numberOfCardsToShow,cardsToBeVisible) {
             addCardView(cardView: datasource.card(at: i), atIndex: i )
-            
         }
     }
 

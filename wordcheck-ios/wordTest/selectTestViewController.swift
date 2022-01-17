@@ -4,9 +4,10 @@ import DropDown
 
 class selectTestViewController: UIViewController {
 
-    @IBOutlet weak var testLabel: UILabel!
+    @IBOutlet weak var selectButton: UIButton!
+    
     var token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
-    let contents = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
+    var contents: [Content] = []
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "doTest" {
@@ -22,6 +23,7 @@ class selectTestViewController: UIViewController {
     }
     
     @IBAction func selectButton(_ sender: Any) {
+        contents = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
         let count = contents.count
         var test: [String] = []
         for i in 0..<count {
@@ -30,15 +32,13 @@ class selectTestViewController: UIViewController {
         }
         let dropDown = DropDown()
         DropDown.appearance().backgroundColor = UIColor.white
-        dropDown.anchorView = testLabel
+        dropDown.anchorView = selectButton
         dropDown.direction = .bottom
         dropDown.dataSource = test
         dropDown.selectionAction = { [] (index: Int, item: String) in
-            self.testLabel.text = item
             let header: HTTPHeaders = [
                 "Authorization": self.token
             ]
-            
             let parameters: Parameters = [
                 "contents": item
             ]

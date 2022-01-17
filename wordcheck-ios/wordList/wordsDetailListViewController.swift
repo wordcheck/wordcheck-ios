@@ -3,10 +3,11 @@ import SwiftUI
 import Alamofire
 
 class wordsDetailListViewController: UIViewController {
-    
     @IBOutlet weak var tableView: UITableView!
+    weak var delegate: LoadViewDelegate?
     
     var token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
+    var contentList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
     var detailList = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
     
     override func viewDidLoad() {
@@ -14,11 +15,13 @@ class wordsDetailListViewController: UIViewController {
     }
 }
 
-extension wordsDetailListViewController: LoadUpdateViewDelegate {
-    func loadTableView() {
+extension wordsDetailListViewController: LoadViewDelegate {
+    func loadCreateTableView() {}
+    func loadUpdateTableView() {
         self.detailList = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
         self.tableView.reloadData()
     }
+    func loadDeleteTableView() {}
 }
 
 extension wordsDetailListViewController: UITableViewDataSource {
@@ -47,6 +50,7 @@ extension wordsDetailListViewController: UITableViewDataSource {
                 "Authorization": self.token
             ]
             let id = self.detailList[indexPath.row].id!
+            let content = self.detailList[indexPath.row].contents!
 
             AF.request("http://52.78.37.13/api/words/\(id)/", method: .delete, headers: header).validate(statusCode: 200..<500).response { response in
                 switch response.result {
@@ -59,6 +63,13 @@ extension wordsDetailListViewController: UITableViewDataSource {
                 //        }
                         Storage.store(self.detailList, to: .caches, as: "words_detail.json")
                         self.tableView.reloadData()
+                        
+                        if self.detailList.count == 0 {
+                            self.contentList = self.contentList.filter { $0.contents != content }
+                            Storage.store(self.contentList, to: .caches, as: "contents_list.json")
+                            self.delegate?.loadDeleteTableView()
+                            self.dismiss(animated: true, completion: nil)
+                        }
                     }
                     alert.addAction(confirm)
                     self.present(alert, animated: true, completion: nil)
@@ -68,6 +79,7 @@ extension wordsDetailListViewController: UITableViewDataSource {
                 }
             }
         }
+        
         return cell
     }
     
@@ -90,7 +102,6 @@ class DetailCell: UITableViewCell {
     
     @IBAction func updateButton(_ sender: Any) {
         updateButtonTapHandler?()
-        
     }
 
     @IBAction func deleteButton(_ sender: Any) {
