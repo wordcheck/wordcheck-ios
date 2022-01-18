@@ -13,6 +13,7 @@
 		13153D4327918E4400D875AF /* StackContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13153D4227918E4400D875AF /* StackContainerView.swift */; };
 		13153D4527918E9300D875AF /* SwipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13153D4427918E9300D875AF /* SwipeCardView.swift */; };
 		13153D472791902600D875AF /* SwipeCardsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13153D462791902600D875AF /* SwipeCardsDataSource.swift */; };
+		131A135327969B8D00714616 /* wrongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A135227969B8D00714616 /* wrongViewController.swift */; };
 		1330F2C12793ECDB007D3CB3 /* wordsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1330F2C02793ECDB007D3CB3 /* wordsSearchViewController.swift */; };
 		1336DDC8278096C10084DEFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDC7278096C10084DEFF /* AppDelegate.swift */; };
 		1336DDCA278096C10084DEFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDC9278096C10084DEFF /* SceneDelegate.swift */; };
@@ -28,6 +29,7 @@
 		1378C08D278C4B5C00BD6DBD /* wordsDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378C08C278C4B5C00BD6DBD /* wordsDetailListViewController.swift */; };
 		1381D7DB27874B7C000E4DFB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1381D7DA27874B7C000E4DFB /* Alamofire */; };
 		13D2D8952795393400B5F701 /* LoadViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D2D8942795393400B5F701 /* LoadViewDelegate.swift */; };
+		13D2D897279581EC00B5F701 /* wrongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D2D896279581EC00B5F701 /* wrongListViewController.swift */; };
 		13F6F57B27886FA6006A33CE /* signupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6F57A27886FA6006A33CE /* signupViewController.swift */; };
 		9433478EA3A41CD33C6254D2 /* Pods_wordcheck_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FA73CB26E6A45F6D96F364 /* Pods_wordcheck_ios.framework */; };
 /* End PBXBuildFile section */
@@ -39,6 +41,7 @@
 		13153D4227918E4400D875AF /* StackContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackContainerView.swift; sourceTree = "<group>"; };
 		13153D4427918E9300D875AF /* SwipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardView.swift; sourceTree = "<group>"; };
 		13153D462791902600D875AF /* SwipeCardsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardsDataSource.swift; sourceTree = "<group>"; };
+		131A135227969B8D00714616 /* wrongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wrongViewController.swift; sourceTree = "<group>"; };
 		1330F2C02793ECDB007D3CB3 /* wordsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsSearchViewController.swift; sourceTree = "<group>"; };
 		1336DDC4278096C10084DEFF /* wordcheck-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wordcheck-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1336DDC7278096C10084DEFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +58,7 @@
 		136DE734278EA77100C29BEC /* wordsUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsUpdateViewController.swift; sourceTree = "<group>"; };
 		1378C08C278C4B5C00BD6DBD /* wordsDetailListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsDetailListViewController.swift; sourceTree = "<group>"; };
 		13D2D8942795393400B5F701 /* LoadViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewDelegate.swift; sourceTree = "<group>"; };
+		13D2D896279581EC00B5F701 /* wrongListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wrongListViewController.swift; sourceTree = "<group>"; };
 		13F6F57A27886FA6006A33CE /* signupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signupViewController.swift; sourceTree = "<group>"; };
 		8DD29BC621954A793F3BB6A0 /* Pods-wordcheck-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordcheck-ios.release.xcconfig"; path = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios.release.xcconfig"; sourceTree = "<group>"; };
 		CB1F3227D44C918D96E20D5A /* Pods-wordcheck-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordcheck-ios.debug.xcconfig"; path = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 				1378C08C278C4B5C00BD6DBD /* wordsDetailListViewController.swift */,
 				1311AD53278D4413005325D1 /* wordsCreateViewController.swift */,
 				136DE734278EA77100C29BEC /* wordsUpdateViewController.swift */,
+				131A135227969B8D00714616 /* wrongViewController.swift */,
+				13D2D896279581EC00B5F701 /* wrongListViewController.swift */,
 			);
 			path = wordList;
 			sourceTree = "<group>";
@@ -299,6 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				131A135327969B8D00714616 /* wrongViewController.swift in Sources */,
+				13D2D897279581EC00B5F701 /* wrongListViewController.swift in Sources */,
 				1338AC2C27911A7700121A10 /* selectTestViewController.swift in Sources */,
 				1311AD54278D4413005325D1 /* wordsCreateViewController.swift in Sources */,
 				1311AD50278D4391005325D1 /* Words.swift in Sources */,

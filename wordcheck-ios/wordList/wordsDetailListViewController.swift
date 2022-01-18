@@ -52,7 +52,7 @@ extension wordsDetailListViewController: UITableViewDataSource {
             let id = self.detailList[indexPath.row].id!
             let content = self.detailList[indexPath.row].contents!
 
-            AF.request("http://52.78.37.13/api/words/\(id)/", method: .delete, headers: header).validate(statusCode: 200..<500).response { response in
+            AF.request("http://52.78.37.13/api/words/\(id)/", method: .delete, headers: header).validate(statusCode: 200..<300).response { response in
                 switch response.result {
                 case .success:
                     let alert = UIAlertController(title: "알림", message: "단어 삭제 성공", preferredStyle: UIAlertController.Style.alert)

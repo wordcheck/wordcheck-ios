@@ -4,7 +4,6 @@ import SwiftUI
 
 class wordsListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var selectButton: UIButton!
     
     var token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
     var contentsList: [Content] = []
@@ -12,15 +11,15 @@ class wordsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "챕터"
         getList()
-        setSelectButton()
     }
     
     func getList() {
         let header: HTTPHeaders = [
             "Authorization": self.token
         ]
-        AF.request("http://52.78.37.13/api/words/", method: .get, headers: header).validate(statusCode: 200..<500).responseDecodable(of: [Content].self) { response in
+        AF.request("http://52.78.37.13/api/words/", method: .get, headers: header).validate(statusCode: 200..<300).responseDecodable(of: [Content].self) { response in
             switch response.result {
             case .success:
                 guard let list = response.value else { return }
@@ -35,23 +34,26 @@ class wordsListViewController: UIViewController {
     }
     
     func getWrongList () {
+        // 틀린 횟수 querystring으로 보내서 list 받아옴
+        let header: HTTPHeaders = [
+            "Authorization": token
+        ]
         
-    }
-    
-    func setSelectButton() {
-        let content = UIAction(title: "챕터") { _ in
-            self.contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
-            self.tableView.reloadData()
+        let parameters: Parameters = [
+            "wrong_count": 0
+        ]
+        
+        AF.request("http://52.78.37.13/api/words/detail_list/", method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).responseDecodable(of: [WordsDetail].self) { response in
+            switch response.result {
+            case .success:
+                guard let wrongList = response.value else { return }
+                Storage.store(wrongList, to: .caches, as: "wrong_list.json")
+                self.tableView.reloadData()
+                
+            case .failure:
+                return
+            }
         }
-        
-        let wrong = UIAction(title: "틀린 횟수") { _ in
-            // ! 틀린 횟수별 list 가져오기
-            self.contentsList = self.wrongList
-            self.tableView.reloadData()
-        }
-        
-        let buttonMenu = UIMenu(title: "단어장", children: [content, wrong])
-        selectButton.menu = buttonMenu
     }
     
     @IBAction func wordsCreateButton(_ sender: Any) {
@@ -99,7 +101,7 @@ extension wordsListViewController : UITableViewDelegate {
             "contents": contentsList[indexPath.row].contents!
         ]
         
-        AF.request("http://52.78.37.13/api/words/detail_list/", method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<500).responseDecodable(of: [WordsDetail].self) { response in
+        AF.request("http://52.78.37.13/api/words/detail_list/", method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).responseDecodable(of: [WordsDetail].self) { response in
             switch response.result {
             case .success:
                 guard let detailList = response.value else { return }
