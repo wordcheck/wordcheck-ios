@@ -51,7 +51,6 @@ class wordsCreateViewController: UIViewController {
                         }
                         Storage.store(self.contentsList, to: .caches, as: "contents_list.json")
                         self.delegate?.loadCreateTableView()
-                        self.dismiss(animated: false, completion: nil)
                     }
                     alert.addAction(confirm)
                     self.present(alert, animated: true, completion: nil)

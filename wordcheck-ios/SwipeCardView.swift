@@ -106,32 +106,31 @@ class SwipeCardView: UIView {
         let centerOfParentContainer = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         card.center = CGPoint(x: centerOfParentContainer.x + point.x, y: centerOfParentContainer.y + point.y)
         
-        //let distanceFromCenter = ((UIScreen.main.bounds.width / 2) - card.center.x)
         divisor = ((UIScreen.main.bounds.width / 2) / 0.61)
        
         switch sender.state {
         case .ended:
             // Right
-            if card.center.x > UIScreen.main.bounds.width + 5 {
+            if card.center.x > UIScreen.main.bounds.width - 5 {
                 delegate?.swipeDidEnd(on: card)
                 UIView.animate(withDuration: 0.2) {
                     card.center = CGPoint(x: centerOfParentContainer.x + point.x + 200, y: centerOfParentContainer.y + point.y + 75)
                     card.alpha = 0
                     self.layoutIfNeeded()
                 }
-                print("Swiping Right!")
-                print(id)
+                guard let id = id else { return }
+                print("[\(id)]--> Swiping Right!")
                 return
             // Left
-            } else if card.center.x < -5 {
+            } else if card.center.x < 5 {
                 delegate?.swipeDidEnd(on: card)
                 UIView.animate(withDuration: 0.2) {
                     card.center = CGPoint(x: centerOfParentContainer.x + point.x - 200, y: centerOfParentContainer.y + point.y + 75)
                     card.alpha = 0
                     self.layoutIfNeeded()
                 }
-                print("Swiping Left!")
-                print(id)
+                guard let id = id else { return }
+                print("[\(id)]--> Swiping Left!")
                 return
             }
             UIView.animate(withDuration: 0.2) {
