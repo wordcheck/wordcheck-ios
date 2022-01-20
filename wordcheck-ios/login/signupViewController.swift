@@ -39,7 +39,7 @@ class signupViewController: UIViewController {
             "secret_code": "980117"
         ]
         
-        AF.request("http://52.78.37.13/api/accounts/normal_signup/", method: .post, parameters: parameters).validate(statusCode: 200..<300).responseDecodable(of: loginToken.self) { response in
+        AF.request("http://52.78.37.13/api/accounts/normal_signup/", method: .post, parameters: parameters).validate(statusCode: 200..<300).responseDecodable(of: User.self) { response in
             switch response.result {
             case .success:
                 let alert = UIAlertController(title: "알림", message: "가입된 아이디로 로그인 해주세요", preferredStyle: UIAlertController.Style.alert)

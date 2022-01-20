@@ -1,5 +1,3 @@
-import UIKit
-
 struct Content: Codable, Equatable {
     let contents: String?
 }

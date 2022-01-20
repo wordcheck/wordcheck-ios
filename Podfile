@@ -7,5 +7,6 @@ target 'wordcheck-ios' do
 
   # Pods for wordcheck-ios
   pod 'DropDown', '~> 2.3.2'
+  pod 'Kingfisher', '~> 7.0'
 
 end

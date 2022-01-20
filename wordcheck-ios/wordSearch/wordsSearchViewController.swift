@@ -2,7 +2,6 @@ import UIKit
 import Alamofire
 
 class wordsSearchViewController: UIViewController {
-
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
@@ -11,12 +10,12 @@ class wordsSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "단어 검색"
     }
 
 }
 
 extension wordsSearchViewController: UISearchBarDelegate {
-    
     private func dismissKeyboard() {
         searchBar.resignFirstResponder()
     }
@@ -55,16 +54,18 @@ extension wordsSearchViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as? ResultCell else {
             return UITableViewCell()
         }
+        cell.contentLabel.text = searchList[indexPath.row].contents
         cell.spellingLabel.text = searchList[indexPath.row].spelling
         cell.categoryLabel.text = searchList[indexPath.row].category
         cell.meaningLabel.text = searchList[indexPath.row].meaning
-        cell.countLabel.text = "\(searchList[indexPath.row].wrong_count ?? 0)"
+        cell.countLabel.text = "툴린 횟수: \(searchList[indexPath.row].wrong_count ?? 0)"
         return cell
     }
     
 }
 
 class ResultCell: UITableViewCell {
+    @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var spellingLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var meaningLabel: UILabel!

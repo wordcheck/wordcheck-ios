@@ -1,7 +1,6 @@
 import UIKit
 
 class StackContainerView: UIView, SwipeCardsDelegate {
-
     //MARK: - Properties
     var numberOfCardsToShow: Int = 0
     var cardsToBeVisible: Int = 3
@@ -19,6 +18,7 @@ class StackContainerView: UIView, SwipeCardsDelegate {
             reloadData()
         }
     }
+    
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -28,7 +28,6 @@ class StackContainerView: UIView, SwipeCardsDelegate {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
     
     func reloadData() {
         removeAllCardViews()
@@ -39,7 +38,7 @@ class StackContainerView: UIView, SwipeCardsDelegate {
         remainingcards = numberOfCardsToShow
         
         for i in 0..<min(numberOfCardsToShow,cardsToBeVisible) {
-            addCardView(cardView: datasource.card(at: i), atIndex: i )
+            addCardView(cardView: datasource.card(at: i), atIndex: i)
         }
     }
 
@@ -80,8 +79,8 @@ class StackContainerView: UIView, SwipeCardsDelegate {
             addCardView(cardView: datasource.card(at: newIndex), atIndex: 2)
             for (cardIndex, cardView) in visibleCards.reversed().enumerated() {
                 UIView.animate(withDuration: 0.2, animations: {
-                cardView.center = self.center
-                  self.addCardFrame(index: cardIndex, cardView: cardView)
+                    cardView.center = self.center
+                    self.addCardFrame(index: cardIndex, cardView: cardView)
                     self.layoutIfNeeded()
                 })
             }
@@ -96,6 +95,5 @@ class StackContainerView: UIView, SwipeCardsDelegate {
             }
         }
     }
-    
 
 }

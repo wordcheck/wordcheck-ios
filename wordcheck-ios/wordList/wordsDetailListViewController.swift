@@ -25,6 +25,11 @@ extension wordsDetailListViewController: LoadViewDelegate {
 }
 
 extension wordsDetailListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 250
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.detailList.count
     }
@@ -99,6 +104,14 @@ class DetailCell: UITableViewCell {
     
     var updateButtonTapHandler: (() -> Void)?
     var deleteButtonTapHandler: (() -> Void)?
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.lightGray.cgColor
+        contentView.layer.cornerRadius = 8
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+    }
     
     @IBAction func updateButton(_ sender: Any) {
         updateButtonTapHandler?()
