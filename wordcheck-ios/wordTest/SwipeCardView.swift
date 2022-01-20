@@ -9,8 +9,8 @@ class SwipeCardView: UIView {
     var shadowView: UIView!
   
     var spell = UILabel()
-    var category = UILabel()
-    var meaning = UILabel()
+//    var category = UILabel()
+//    var meaning = UILabel()
 //    var moreButton = UIButton()
     
     var delegate: SwipeCardsDelegate?
@@ -21,8 +21,8 @@ class SwipeCardView: UIView {
     var dataSource: WordCard? {
         didSet {
             spell.text = dataSource?.spelling
-            category.text = dataSource?.category
-            meaning.text = dataSource?.meaning
+//            category.text = dataSource?.category
+//            meaning.text = dataSource?.meaning
 //            guard let image = dataSource?.image else { return }
 //            imageView.image = UIImage(named: image)
         }
@@ -149,7 +149,12 @@ class SwipeCardView: UIView {
     
     @objc func handleTapGesture(sender: UITapGestureRecognizer){
 //        ! 카드 뒤집어지는 animation -> spell, category, meaning 보여주기
-//        print("Tapped!\n[\(self.spell.text!), \(self.category.text!), \(self.meaning.text!)]")
+        if spell.text == dataSource?.spelling {
+            spell.text = dataSource?.meaning
+        } else {
+            spell.text = dataSource?.spelling
+        }
+        
     }
     
 }

@@ -1,5 +1,6 @@
 import UIKit
 import Alamofire
+import SwiftUI
 
 class loginViewController: UIViewController {
     @IBOutlet weak var nickName: UITextField!
@@ -20,12 +21,13 @@ class loginViewController: UIViewController {
             "nickname" : nickName.text!,
             "password" : passWord.text!
         ]
-        AF.request("http://52.78.37.13/api/accounts/normal_login/", method: .post, parameters: parameters).validate(statusCode: 200..<300).responseDecodable(of: loginToken.self) { response in
+        AF.request("http://52.78.37.13/api/accounts/normal_login/", method: .post, parameters: parameters).validate(statusCode: 200..<300).responseDecodable(of: User.self) { response in
             switch response.result {
             case .success:
                 guard let body = response.value else { return }
                 if(body.account_token != nil) {
                     Storage.store(body.account_token, to: .documents, as: "account_token.json")
+                    Storage.store(body, to: .documents, as: "user_info.json")
                     self.performSegue(withIdentifier: "getWords", sender: nil)
                     self.dismiss(animated: false, completion: nil)
                 }
@@ -42,11 +44,4 @@ class loginViewController: UIViewController {
     @IBAction func signupButton(_ sender: Any) {
         performSegue(withIdentifier: "signUp", sender: nil)
     }
-    
-}
-
-struct loginToken: Codable {
-    let account_token: String?
-    let msg: String?
-    let nickname: String?
 }

@@ -13,8 +13,8 @@
 		13153D4327918E4400D875AF /* StackContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13153D4227918E4400D875AF /* StackContainerView.swift */; };
 		13153D4527918E9300D875AF /* SwipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13153D4427918E9300D875AF /* SwipeCardView.swift */; };
 		13153D472791902600D875AF /* SwipeCardsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13153D462791902600D875AF /* SwipeCardsDataSource.swift */; };
-		131A135327969B8D00714616 /* wrongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A135227969B8D00714616 /* wrongViewController.swift */; };
 		1330F2C12793ECDB007D3CB3 /* wordsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1330F2C02793ECDB007D3CB3 /* wordsSearchViewController.swift */; };
+		13318E79279913E300140FE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13318E78279913E300140FE9 /* User.swift */; };
 		1336DDC8278096C10084DEFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDC7278096C10084DEFF /* AppDelegate.swift */; };
 		1336DDCA278096C10084DEFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDC9278096C10084DEFF /* SceneDelegate.swift */; };
 		1336DDCF278096C10084DEFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1336DDCD278096C10084DEFF /* Main.storyboard */; };
@@ -28,8 +28,9 @@
 		136DE735278EA77100C29BEC /* wordsUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DE734278EA77100C29BEC /* wordsUpdateViewController.swift */; };
 		1378C08D278C4B5C00BD6DBD /* wordsDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378C08C278C4B5C00BD6DBD /* wordsDetailListViewController.swift */; };
 		1381D7DB27874B7C000E4DFB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1381D7DA27874B7C000E4DFB /* Alamofire */; };
+		139909612796EB5B009871E6 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139909602796EB5B009871E6 /* TestView.xib */; };
+		139F12BD27994C9600BAB005 /* userProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F12BC27994C9600BAB005 /* userProfileViewController.swift */; };
 		13D2D8952795393400B5F701 /* LoadViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D2D8942795393400B5F701 /* LoadViewDelegate.swift */; };
-		13D2D897279581EC00B5F701 /* wrongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D2D896279581EC00B5F701 /* wrongListViewController.swift */; };
 		13F6F57B27886FA6006A33CE /* signupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6F57A27886FA6006A33CE /* signupViewController.swift */; };
 		9433478EA3A41CD33C6254D2 /* Pods_wordcheck_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FA73CB26E6A45F6D96F364 /* Pods_wordcheck_ios.framework */; };
 /* End PBXBuildFile section */
@@ -41,8 +42,8 @@
 		13153D4227918E4400D875AF /* StackContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackContainerView.swift; sourceTree = "<group>"; };
 		13153D4427918E9300D875AF /* SwipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardView.swift; sourceTree = "<group>"; };
 		13153D462791902600D875AF /* SwipeCardsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardsDataSource.swift; sourceTree = "<group>"; };
-		131A135227969B8D00714616 /* wrongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wrongViewController.swift; sourceTree = "<group>"; };
 		1330F2C02793ECDB007D3CB3 /* wordsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsSearchViewController.swift; sourceTree = "<group>"; };
+		13318E78279913E300140FE9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1336DDC4278096C10084DEFF /* wordcheck-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wordcheck-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1336DDC7278096C10084DEFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1336DDC9278096C10084DEFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,8 +58,9 @@
 		136DE732278E6A4900C29BEC /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		136DE734278EA77100C29BEC /* wordsUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsUpdateViewController.swift; sourceTree = "<group>"; };
 		1378C08C278C4B5C00BD6DBD /* wordsDetailListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsDetailListViewController.swift; sourceTree = "<group>"; };
+		139909602796EB5B009871E6 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
+		139F12BC27994C9600BAB005 /* userProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userProfileViewController.swift; sourceTree = "<group>"; };
 		13D2D8942795393400B5F701 /* LoadViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewDelegate.swift; sourceTree = "<group>"; };
-		13D2D896279581EC00B5F701 /* wrongListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wrongListViewController.swift; sourceTree = "<group>"; };
 		13F6F57A27886FA6006A33CE /* signupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signupViewController.swift; sourceTree = "<group>"; };
 		8DD29BC621954A793F3BB6A0 /* Pods-wordcheck-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordcheck-ios.release.xcconfig"; path = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios.release.xcconfig"; sourceTree = "<group>"; };
 		CB1F3227D44C918D96E20D5A /* Pods-wordcheck-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordcheck-ios.debug.xcconfig"; path = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,16 +107,14 @@
 				13C2DAD027942BAA00AA26B7 /* wordList */,
 				13C2DAD127942BE100AA26B7 /* wordTest */,
 				13C2DAD227942C0900AA26B7 /* wordSearch */,
+				139F12BC27994C9600BAB005 /* userProfileViewController.swift */,
 				1336DDC7278096C10084DEFF /* AppDelegate.swift */,
 				1336DDC9278096C10084DEFF /* SceneDelegate.swift */,
-				1336DDCD278096C10084DEFF /* Main.storyboard */,
-				1336DDD0278096C20084DEFF /* Assets.xcassets */,
 				1336DDD2278096C20084DEFF /* LaunchScreen.storyboard */,
+				1336DDCD278096C10084DEFF /* Main.storyboard */,
+				139909602796EB5B009871E6 /* TestView.xib */,
+				1336DDD0278096C20084DEFF /* Assets.xcassets */,
 				1336DDD5278096C20084DEFF /* Info.plist */,
-				13153D4027916A8C00D875AF /* WordCard.swift */,
-				13153D4227918E4400D875AF /* StackContainerView.swift */,
-				13153D4427918E9300D875AF /* SwipeCardView.swift */,
-				13153D462791902600D875AF /* SwipeCardsDataSource.swift */,
 			);
 			path = "wordcheck-ios";
 			sourceTree = "<group>";
@@ -135,8 +135,6 @@
 				1378C08C278C4B5C00BD6DBD /* wordsDetailListViewController.swift */,
 				1311AD53278D4413005325D1 /* wordsCreateViewController.swift */,
 				136DE734278EA77100C29BEC /* wordsUpdateViewController.swift */,
-				131A135227969B8D00714616 /* wrongViewController.swift */,
-				13D2D896279581EC00B5F701 /* wrongListViewController.swift */,
 			);
 			path = wordList;
 			sourceTree = "<group>";
@@ -146,6 +144,10 @@
 			children = (
 				1338AC2B27911A7700121A10 /* selectTestViewController.swift */,
 				134C87D027903B3700567A5A /* wordsTestViewController.swift */,
+				13153D4027916A8C00D875AF /* WordCard.swift */,
+				13153D4227918E4400D875AF /* StackContainerView.swift */,
+				13153D4427918E9300D875AF /* SwipeCardView.swift */,
+				13153D462791902600D875AF /* SwipeCardsDataSource.swift */,
 			);
 			path = wordTest;
 			sourceTree = "<group>";
@@ -161,6 +163,7 @@
 		13C2DAD327942C5200AA26B7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				13318E78279913E300140FE9 /* User.swift */,
 				1311AD4F278D4391005325D1 /* Words.swift */,
 				136DE732278E6A4900C29BEC /* Storage.swift */,
 			);
@@ -250,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				139909612796EB5B009871E6 /* TestView.xib in Resources */,
 				1336DDD4278096C20084DEFF /* LaunchScreen.storyboard in Resources */,
 				1336DDD1278096C20084DEFF /* Assets.xcassets in Resources */,
 				1336DDCF278096C10084DEFF /* Main.storyboard in Resources */,
@@ -305,8 +309,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				131A135327969B8D00714616 /* wrongViewController.swift in Sources */,
-				13D2D897279581EC00B5F701 /* wrongListViewController.swift in Sources */,
 				1338AC2C27911A7700121A10 /* selectTestViewController.swift in Sources */,
 				1311AD54278D4413005325D1 /* wordsCreateViewController.swift in Sources */,
 				1311AD50278D4391005325D1 /* Words.swift in Sources */,
@@ -316,6 +318,7 @@
 				13153D472791902600D875AF /* SwipeCardsDataSource.swift in Sources */,
 				13153D4327918E4400D875AF /* StackContainerView.swift in Sources */,
 				136DE735278EA77100C29BEC /* wordsUpdateViewController.swift in Sources */,
+				139F12BD27994C9600BAB005 /* userProfileViewController.swift in Sources */,
 				13D2D8952795393400B5F701 /* LoadViewDelegate.swift in Sources */,
 				1336DDC8278096C10084DEFF /* AppDelegate.swift in Sources */,
 				13F6F57B27886FA6006A33CE /* signupViewController.swift in Sources */,
@@ -325,6 +328,7 @@
 				13153D4127916A8C00D875AF /* WordCard.swift in Sources */,
 				136DE733278E6A4900C29BEC /* Storage.swift in Sources */,
 				13153D4527918E9300D875AF /* SwipeCardView.swift in Sources */,
+				13318E79279913E300140FE9 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
