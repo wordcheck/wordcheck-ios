@@ -1,6 +1,5 @@
 import UIKit
 import Alamofire
-import SwiftUI
 
 class loginViewController: UIViewController {
     @IBOutlet weak var nickName: UITextField!
@@ -8,12 +7,6 @@ class loginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Storage.clear(.documents)
-        Storage.clear(.caches)
-    }
-
-    @IBAction func nickName(_ sender: Any) {
-        // 실시간 닉네임 중복 체크
     }
     
     @IBAction func loginButton(_ sender: Any) {
@@ -21,6 +14,7 @@ class loginViewController: UIViewController {
             "nickname" : nickName.text!,
             "password" : passWord.text!
         ]
+        
         AF.request("http://52.78.37.13/api/accounts/normal_login/", method: .post, parameters: parameters).validate(statusCode: 200..<300).responseDecodable(of: User.self) { response in
             switch response.result {
             case .success:
@@ -28,8 +22,7 @@ class loginViewController: UIViewController {
                 if(body.account_token != nil) {
                     Storage.store(body.account_token, to: .documents, as: "account_token.json")
                     Storage.store(body, to: .documents, as: "user_info.json")
-                    self.performSegue(withIdentifier: "getWords", sender: nil)
-                    self.dismiss(animated: false, completion: nil)
+                    self.performSegue(withIdentifier: "startWordCheck", sender: nil)
                 }
 
             default:

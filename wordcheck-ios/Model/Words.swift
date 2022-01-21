@@ -2,7 +2,7 @@ struct Content: Codable, Equatable {
     let contents: String?
 }
 
-struct WordsDetail: Codable {
+struct WordsDetail: Codable, Equatable {
     let id: Int?
     var contents: String?
     var spelling: String?

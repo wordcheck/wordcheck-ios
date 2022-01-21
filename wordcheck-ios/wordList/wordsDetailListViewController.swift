@@ -1,17 +1,25 @@
 import UIKit
-import SwiftUI
 import Alamofire
 
 class wordsDetailListViewController: UIViewController {
+    @IBOutlet weak var wordCount: UILabel!
     @IBOutlet weak var tableView: UITableView!
     weak var delegate: LoadViewDelegate?
     
     var token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
     var contentList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
-    var detailList = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
+    var detailList: [WordsDetail] = []
+    var bookMarkList = Storage.retrive("bookmark_list.json", from: .documents, as: [WordsDetail].self) ?? []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailList = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
+        wordCount.text = "단어 수: \(detailList.count)"
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        Storage.store(self.bookMarkList, to: .documents, as: "bookmark_list.json")
     }
 }
 
@@ -25,9 +33,9 @@ extension wordsDetailListViewController: LoadViewDelegate {
 }
 
 extension wordsDetailListViewController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
+        return 320
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,9 +46,11 @@ extension wordsDetailListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "wordCell", for: indexPath) as? DetailCell else {
             return UITableViewCell()
         }
+        cell.contentLabel.text = self.detailList[indexPath.row].contents
         cell.spellingLabel.text = self.detailList[indexPath.row].spelling
         cell.categoryLabel.text = self.detailList[indexPath.row].category
         cell.meaningLabel.text = self.detailList[indexPath.row].meaning
+        cell.countLabel.text = "툴린 횟수: \(self.detailList[indexPath.row].wrong_count ?? 0)"
         
         cell.updateButtonTapHandler = {
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "wordsUpdateViewController") as? wordsUpdateViewController else { return }
@@ -79,9 +89,17 @@ extension wordsDetailListViewController: UITableViewDataSource {
                     alert.addAction(confirm)
                     self.present(alert, animated: true, completion: nil)
 
-                case .failure:
+                default:
                     return
                 }
+            }
+        }
+        
+        cell.bookMarkButtonTapHandler = {
+            cell.bookMarkButton.isSelected = !cell.bookMarkButton.isSelected
+            self.detailList[indexPath.row].remember = cell.bookMarkButton.isSelected
+            if !self.bookMarkList.contains(where: { $0 == self.detailList[indexPath.row] }) {
+                self.bookMarkList.append(self.detailList[indexPath.row])
             }
         }
         
@@ -90,34 +108,33 @@ extension wordsDetailListViewController: UITableViewDataSource {
     
 }
 
-extension wordsDetailListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       // print("[\(detailList[indexPath.row].id)]")
-    }
-}
-
-
 class DetailCell: UITableViewCell {
+    @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var spellingLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var meaningLabel: UILabel!
+    @IBOutlet weak var bookMarkButton: UIButton!
+    @IBOutlet weak var countLabel: UILabel!
     
     var updateButtonTapHandler: (() -> Void)?
     var deleteButtonTapHandler: (() -> Void)?
+    var bookMarkButtonTapHandler: (() -> Void)?
     
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.layer.borderWidth = 1
         contentView.layer.borderColor = UIColor.lightGray.cgColor
         contentView.layer.cornerRadius = 8
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10))
     }
     
     @IBAction func updateButton(_ sender: Any) {
         updateButtonTapHandler?()
     }
-
     @IBAction func deleteButton(_ sender: Any) {
         deleteButtonTapHandler?()
+    }
+    @IBAction func bookMarkButton(_ sender: Any) {
+        bookMarkButtonTapHandler?()
     }
 }
