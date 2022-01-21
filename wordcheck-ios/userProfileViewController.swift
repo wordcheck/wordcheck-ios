@@ -25,6 +25,36 @@ class userProfileViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.section), \(indexPath.row)")
+        switch indexPath.section {
+        case 1:
+            switch indexPath.row {
+            case 0:
+                print("북마크")
+                
+            case 1:
+                print("건의사항")
+                
+            default:
+                break
+            }
+            
+        case 2:
+            switch indexPath.row {
+            case 0:
+                let alert = UIAlertController(title: "알림", message: "로그아웃 되었습니다", preferredStyle: UIAlertController.Style.alert)
+                let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
+                    Storage.clear(.documents)
+                    self.presentingViewController?.dismiss(animated: true, completion: nil)
+                }
+                alert.addAction(confirm)
+                self.present(alert, animated: true, completion: nil)
+                
+            default:
+                break
+            }
+            
+        default:
+            break
+        }
     }
 }

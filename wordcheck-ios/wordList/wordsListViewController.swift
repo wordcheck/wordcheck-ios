@@ -19,14 +19,14 @@ class wordsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "내 단어장"
         setContent()
         getList()
     }
     
     func setContent() {
         let normal = UIAction(title: "그룹별") { _ in
-            self.getList()
+            self.contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
+            self.tableView.reloadData()
         }
         let wrong = UIAction(title: "틀린 횟수별") { _ in
             self.contentsList = self.wrongList
@@ -108,7 +108,6 @@ extension wordsListViewController : UITableViewDelegate {
                 "wrong_count": indexPath.row
             ]
         }
-        
         AF.request("http://52.78.37.13/api/words/detail_list/", method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).responseDecodable(of: [WordsDetail].self) { response in
             switch response.result {
             case .success:

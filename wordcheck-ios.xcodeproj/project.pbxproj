@@ -31,6 +31,7 @@
 		139909612796EB5B009871E6 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139909602796EB5B009871E6 /* TestView.xib */; };
 		139F12BD27994C9600BAB005 /* userProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F12BC27994C9600BAB005 /* userProfileViewController.swift */; };
 		13D2D8952795393400B5F701 /* LoadViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D2D8942795393400B5F701 /* LoadViewDelegate.swift */; };
+		13F3D31A279A99E100805AC8 /* wordsBookMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F3D319279A99E100805AC8 /* wordsBookMarkViewController.swift */; };
 		13F6F57B27886FA6006A33CE /* signupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6F57A27886FA6006A33CE /* signupViewController.swift */; };
 		9433478EA3A41CD33C6254D2 /* Pods_wordcheck_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FA73CB26E6A45F6D96F364 /* Pods_wordcheck_ios.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		139909602796EB5B009871E6 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		139F12BC27994C9600BAB005 /* userProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userProfileViewController.swift; sourceTree = "<group>"; };
 		13D2D8942795393400B5F701 /* LoadViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewDelegate.swift; sourceTree = "<group>"; };
+		13F3D319279A99E100805AC8 /* wordsBookMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsBookMarkViewController.swift; sourceTree = "<group>"; };
 		13F6F57A27886FA6006A33CE /* signupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signupViewController.swift; sourceTree = "<group>"; };
 		8DD29BC621954A793F3BB6A0 /* Pods-wordcheck-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordcheck-ios.release.xcconfig"; path = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios.release.xcconfig"; sourceTree = "<group>"; };
 		CB1F3227D44C918D96E20D5A /* Pods-wordcheck-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordcheck-ios.debug.xcconfig"; path = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				1378C08C278C4B5C00BD6DBD /* wordsDetailListViewController.swift */,
 				1311AD53278D4413005325D1 /* wordsCreateViewController.swift */,
 				136DE734278EA77100C29BEC /* wordsUpdateViewController.swift */,
+				13F3D319279A99E100805AC8 /* wordsBookMarkViewController.swift */,
 			);
 			path = wordList;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				134C87D127903B3700567A5A /* wordsTestViewController.swift in Sources */,
 				1330F2C12793ECDB007D3CB3 /* wordsSearchViewController.swift in Sources */,
 				13153D472791902600D875AF /* SwipeCardsDataSource.swift in Sources */,
+				13F3D31A279A99E100805AC8 /* wordsBookMarkViewController.swift in Sources */,
 				13153D4327918E4400D875AF /* StackContainerView.swift in Sources */,
 				136DE735278EA77100C29BEC /* wordsUpdateViewController.swift in Sources */,
 				139F12BD27994C9600BAB005 /* userProfileViewController.swift in Sources */,
