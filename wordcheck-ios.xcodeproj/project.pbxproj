@@ -105,11 +105,10 @@
 			children = (
 				13D2D8942795393400B5F701 /* LoadViewDelegate.swift */,
 				13C2DAD327942C5200AA26B7 /* Model */,
-				13C2DACF27942B9F00AA26B7 /* login */,
+				13C2DACF27942B9F00AA26B7 /* account */,
 				13C2DAD027942BAA00AA26B7 /* wordList */,
 				13C2DAD127942BE100AA26B7 /* wordTest */,
 				13C2DAD227942C0900AA26B7 /* wordSearch */,
-				139F12BC27994C9600BAB005 /* userProfileViewController.swift */,
 				1336DDC7278096C10084DEFF /* AppDelegate.swift */,
 				1336DDC9278096C10084DEFF /* SceneDelegate.swift */,
 				1336DDD2278096C20084DEFF /* LaunchScreen.storyboard */,
@@ -121,13 +120,14 @@
 			path = "wordcheck-ios";
 			sourceTree = "<group>";
 		};
-		13C2DACF27942B9F00AA26B7 /* login */ = {
+		13C2DACF27942B9F00AA26B7 /* account */ = {
 			isa = PBXGroup;
 			children = (
 				1336DDDB27809F440084DEFF /* loginViewController.swift */,
 				13F6F57A27886FA6006A33CE /* signupViewController.swift */,
+				139F12BC27994C9600BAB005 /* userProfileViewController.swift */,
 			);
-			path = login;
+			path = account;
 			sourceTree = "<group>";
 		};
 		13C2DAD027942BAA00AA26B7 /* wordList */ = {

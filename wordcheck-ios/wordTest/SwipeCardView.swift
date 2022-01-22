@@ -21,13 +21,8 @@ class SwipeCardView: UIView {
     var dataSource: WordCard? {
         didSet {
             spell.text = dataSource?.spelling
-//            category.text = dataSource?.category
-//            meaning.text = dataSource?.meaning
-//            guard let image = dataSource?.image else { return }
-//            imageView.image = UIImage(named: image)
         }
     }
-    
     
     //MARK: - Init
      override init(frame: CGRect) {
@@ -35,8 +30,6 @@ class SwipeCardView: UIView {
         configureShadowView()
         configureSwipeView()
         configureSpellLabelView()
-//        configureImageView()
-//        configureButton()
         addPanGestureOnCards()
         configureTapGesture()
     }
@@ -86,7 +79,6 @@ class SwipeCardView: UIView {
         spell.leftAnchor.constraint(equalTo: swipeView.leftAnchor).isActive = true
         spell.rightAnchor.constraint(equalTo: swipeView.rightAnchor).isActive = true
         spell.bottomAnchor.constraint(equalTo: swipeView.bottomAnchor).isActive = true
-        //spell.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     func configureTapGesture() {

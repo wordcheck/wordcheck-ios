@@ -37,7 +37,7 @@ class StackContainerView: UIView, SwipeCardsDelegate {
         numberOfCardsToShow = datasource.numberOfCardsToShow()
         remainingcards = numberOfCardsToShow
         
-        for i in 0..<min(numberOfCardsToShow,cardsToBeVisible) {
+        for i in 0..<min(numberOfCardsToShow, cardsToBeVisible) {
             addCardView(cardView: datasource.card(at: i), atIndex: i)
         }
     }
@@ -70,6 +70,8 @@ class StackContainerView: UIView, SwipeCardsDelegate {
         cardViews = []
     }
     
+    
+    // swipe 끝났을 때 처리
     func swipeDidEnd(on view: SwipeCardView) {
         guard let datasource = dataSource else { return }
         view.removeFromSuperview()
