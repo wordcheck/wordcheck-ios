@@ -20,10 +20,14 @@ class wordsTestViewController: UIViewController {
         stackContainer.translatesAutoresizingMaskIntoConstraints = false
         configureNavigationBarButtonItem()
         
+        
         testView.correctButtonTapHandler = {
             print("count: \(self.stackContainer.cardViews.count), numbertoshow: \(self.stackContainer.numberOfCardsToShow), remain: \(self.stackContainer.remainingcards)")
             //self.stackContainer.swipeDidEnd(on: (self.stackContainer.cardViews[0]))
             //print(self.stackContainer.cardViews[0])
+        }
+        testView.resetButtonTapHandler = {
+            
         }
     }
     
