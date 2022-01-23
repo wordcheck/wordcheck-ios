@@ -19,7 +19,6 @@ class signupViewController: UIViewController {
             switch response.result {
             case .success:
                 return
-                
             default:
                 let alert = UIAlertController(title: "알림", message: "중복된 닉네임 입니다", preferredStyle: UIAlertController.Style.alert)
                 let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
@@ -48,7 +47,6 @@ class signupViewController: UIViewController {
                 }
                 alert.addAction(confirm)
                 self.present(alert, animated: true, completion: nil)
-                
             case .failure:
                 let alert = UIAlertController(title: "알림", message: "가입 오류", preferredStyle: UIAlertController.Style.alert)
                 let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)

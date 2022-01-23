@@ -6,6 +6,7 @@ class StackContainerView: UIView, SwipeCardsDelegate {
     var cardsToBeVisible: Int = 3
     var cardViews : [SwipeCardView] = []
     var remainingcards: Int = 0
+    var correctCount: Int = 0;
     
     let horizontalInset: CGFloat = 10.0
     let verticalInset: CGFloat = 10.0
@@ -75,7 +76,7 @@ class StackContainerView: UIView, SwipeCardsDelegate {
     func swipeDidEnd(on view: SwipeCardView) {
         guard let datasource = dataSource else { return }
         view.removeFromSuperview()
-
+        
         if remainingcards > 0 {
             let newIndex = datasource.numberOfCardsToShow() - remainingcards
             addCardView(cardView: datasource.card(at: newIndex), atIndex: 2)
@@ -85,8 +86,10 @@ class StackContainerView: UIView, SwipeCardsDelegate {
                     self.addCardFrame(index: cardIndex, cardView: cardView)
                     self.layoutIfNeeded()
                 })
+                print(cardView.center.x)
             }
-
+            if visibleCards.count == 0 {
+            }
         } else {
             for (cardIndex, cardView) in visibleCards.reversed().enumerated() {
                 UIView.animate(withDuration: 0.2, animations: {

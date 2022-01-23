@@ -1,17 +1,14 @@
 import UIKit
+import Alamofire
 
 class SwipeCardView: UIView {
    
     let token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
-    
     //MARK: - Properties
     var swipeView: UIView!
     var shadowView: UIView!
   
     var spell = UILabel()
-//    var category = UILabel()
-//    var meaning = UILabel()
-//    var moreButton = UIButton()
     
     var delegate: SwipeCardsDelegate?
 
@@ -102,7 +99,7 @@ class SwipeCardView: UIView {
        
         switch sender.state {
         case .ended:
-            // Right
+            // Right (state: correct)
             if card.center.x > UIScreen.main.bounds.width - 5 {
                 delegate?.swipeDidEnd(on: card)
                 UIView.animate(withDuration: 0.2) {
@@ -110,10 +107,8 @@ class SwipeCardView: UIView {
                     card.alpha = 0
                     self.layoutIfNeeded()
                 }
-                guard let id = id else { return }
-                print("[\(id)]--> Swiping Right!")
-                return
-            // Left
+//                guard let id = id else { return }
+            // Left (state: wrong)
             } else if card.center.x < 5 {
                 delegate?.swipeDidEnd(on: card)
                 UIView.animate(withDuration: 0.2) {
@@ -121,9 +116,21 @@ class SwipeCardView: UIView {
                     card.alpha = 0
                     self.layoutIfNeeded()
                 }
+                let header: HTTPHeaders = [
+                    "Authorization": self.token
+                ]
+                let parameters: Parameters = [
+                    "state": "wrong"
+                ]
                 guard let id = id else { return }
-                print("[\(id)]--> Swiping Left!")
-                return
+                AF.request("http://52.78.37.13/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
+                    switch response.result {
+                    case .success:
+                        print("wrong")
+                    default:
+                        return
+                    }
+                }
             }
             UIView.animate(withDuration: 0.2) {
                 card.transform = .identity
@@ -133,6 +140,13 @@ class SwipeCardView: UIView {
         case .changed:
             let rotation = tan(point.x / (self.frame.width * 2.0))
             card.transform = CGAffineTransform(rotationAngle: rotation)
+            if card.center.x > UIScreen.main.bounds.width - 40 {
+                card.shadowView.layer.shadowColor = UIColor.green.cgColor
+            } else if card.center.x < 40 {
+                card.shadowView.layer.shadowColor = UIColor.red.cgColor
+            } else {
+                card.shadowView.layer.shadowColor = UIColor.black.cgColor
+            }
             
         default:
             break
@@ -146,7 +160,6 @@ class SwipeCardView: UIView {
         } else {
             spell.text = dataSource?.spelling
         }
-        
     }
     
 }

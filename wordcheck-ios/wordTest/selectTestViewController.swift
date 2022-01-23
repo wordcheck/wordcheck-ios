@@ -31,11 +31,12 @@ class selectTestViewController: UIViewController {
             test.append(list)
         }
         let dropDown = DropDown()
-        DropDown.appearance().backgroundColor = UIColor.white
+        dropDown.backgroundColor = UIColor.white
         dropDown.anchorView = selectButton
         dropDown.direction = .bottom
         dropDown.dataSource = test
         dropDown.selectionAction = { [] (index: Int, item: String) in
+            // ! 로컬로 받아놓으면 굳이 통신 안해도 될듯
             let header: HTTPHeaders = [
                 "Authorization": self.token
             ]

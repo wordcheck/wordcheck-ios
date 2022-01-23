@@ -35,9 +35,9 @@ class userProfileViewController: UITableViewController {
         case 2:
             switch indexPath.row {
             case 0:
+                Storage.clear(.documents)
                 let alert = UIAlertController(title: "알림", message: "로그아웃 되었습니다", preferredStyle: UIAlertController.Style.alert)
                 let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
-                    Storage.clear(.documents)
                     self.presentingViewController?.dismiss(animated: true, completion: nil)
                 }
                 alert.addAction(confirm)
