@@ -14,21 +14,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4s6-sg-Kza">
-                    <rect key="frame" x="267" y="756" width="40" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="40" id="IbF-vF-oQy"/>
-                        <constraint firstAttribute="height" constant="40" id="deS-je-6CK"/>
-                    </constraints>
-                    <color key="tintColor" systemColor="systemRedColor"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="xmark" catalog="system">
-                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" weight="black"/>
-                    </state>
-                    <connections>
-                        <action selector="wrongButton:" destination="-1" eventType="touchUpInside" id="UOS-NQ-Ckw"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZI-2r-AMW">
                     <rect key="frame" x="187" y="756" width="40" height="40"/>
                     <constraints>
@@ -45,7 +30,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5g-zB-MF7">
-                    <rect key="frame" x="107" y="756" width="40" height="40"/>
+                    <rect key="frame" x="267" y="756" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="4Qs-a2-07A"/>
                         <constraint firstAttribute="height" constant="40" id="yl6-In-Vc2"/>
@@ -60,15 +45,30 @@
                         <action selector="correctButton:" destination="-1" eventType="touchUpInside" id="iuH-PM-loG"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4s6-sg-Kza">
+                    <rect key="frame" x="107" y="756" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="IbF-vF-oQy"/>
+                        <constraint firstAttribute="height" constant="40" id="deS-je-6CK"/>
+                    </constraints>
+                    <color key="tintColor" systemColor="systemRedColor"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="xmark" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" weight="black"/>
+                    </state>
+                    <connections>
+                        <action selector="wrongButton:" destination="-1" eventType="touchUpInside" id="UOS-NQ-Ckw"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="2nr-Rw-3Wb"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="4s6-sg-Kza" firstAttribute="centerY" secondItem="wZI-2r-AMW" secondAttribute="centerY" id="D0J-ye-4Ho"/>
                 <constraint firstItem="Q5g-zB-MF7" firstAttribute="centerY" secondItem="wZI-2r-AMW" secondAttribute="centerY" id="KsB-h7-Fob"/>
-                <constraint firstItem="wZI-2r-AMW" firstAttribute="leading" secondItem="Q5g-zB-MF7" secondAttribute="trailing" constant="40" id="g20-Yd-wRR"/>
+                <constraint firstItem="wZI-2r-AMW" firstAttribute="leading" secondItem="4s6-sg-Kza" secondAttribute="trailing" constant="40" id="acu-bt-Ee9"/>
                 <constraint firstItem="wZI-2r-AMW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="g8x-R7-RhO"/>
-                <constraint firstItem="4s6-sg-Kza" firstAttribute="leading" secondItem="wZI-2r-AMW" secondAttribute="trailing" constant="40" id="vcx-f0-Fg5"/>
+                <constraint firstItem="Q5g-zB-MF7" firstAttribute="leading" secondItem="wZI-2r-AMW" secondAttribute="trailing" constant="40" id="m4p-ai-lvO"/>
                 <constraint firstAttribute="bottom" secondItem="wZI-2r-AMW" secondAttribute="bottom" constant="100" id="wxz-FR-asb"/>
             </constraints>
             <point key="canvasLocation" x="132" y="91"/>

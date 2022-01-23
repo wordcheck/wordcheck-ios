@@ -9,6 +9,12 @@ class loginViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? nil
+        if token != nil {
+            self.performSegue(withIdentifier: "startWordCheck", sender: nil)
+        }
+    }
     @IBAction func loginButton(_ sender: Any) {
         let parameters: Parameters = [
             "nickname" : nickName.text!,

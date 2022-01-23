@@ -18,7 +18,7 @@ class wordsCreateViewController: UIViewController {
     
     @IBAction func categoryClick(_ sender: Any) {
         let dropDown = DropDown()
-        DropDown.appearance().backgroundColor = UIColor.white
+        dropDown.backgroundColor = UIColor.white
         dropDown.anchorView = categoryInput
         dropDown.direction = .bottom
         dropDown.dataSource = ["명사", "대명사", "동사", "부사", "형용사", "전치사", "접속사", "감탄사"]
@@ -29,6 +29,9 @@ class wordsCreateViewController: UIViewController {
     }
     
     @IBAction func wordsCreateButton(_ sender: Any) {
+        if contentsInput.text == "" {
+            contentsInput.text = "그룹 미지정"
+        }
         let header: HTTPHeaders = [
             "Authorization": token
         ]
@@ -39,12 +42,16 @@ class wordsCreateViewController: UIViewController {
             "meaning": meaningInput.text!
         ]
         
-        if contentsInput.text! != "" && spellingInput.text! != "" && categoryInput.text! != "" && meaningInput.text! != "" {
+        if spellingInput.text! != "" && categoryInput.text! != "" && meaningInput.text! != "" {
             AF.request("http://52.78.37.13/api/words/", method: .post, parameters: parameters, headers: header).validate(statusCode: 200..<500).response { response in
                 switch response.result {
                 case .success:
                     let alert = UIAlertController(title: "알림", message: "단어 추가 성공", preferredStyle: UIAlertController.Style.alert)
                     let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
+                        self.contentsInput.text = ""
+                        self.spellingInput.text = ""
+                        self.categoryInput.text = ""
+                        self.meaningInput.text = ""
                         let content = Content(contents: self.contentsInput.text!)
                         if !self.contentsList.contains(where: { $0 == content }) {
                             self.contentsList.append(content)
