@@ -27,8 +27,12 @@ class wordsTestViewController: UIViewController {
         title = content
         // ! 좀 더 좋은 방법 찾아보기
         for i in 0..<testList.count {
-            guard let id = testList[i].id, let spell = testList[i].spelling, let cate = testList[i].category, let mean = testList[i].meaning else { return }
-            wordData.append(WordCard(id: id, spelling: spell, category: cate, meaning: mean))
+            guard let id = testList[i].id,
+                  let spell = testList[i].spelling,
+                  let cate = testList[i].category,
+                  let mean = testList[i].meaning,
+                  let count = testList[i].wrong_count else { return }
+            wordData.append(WordCard(id: id, spelling: spell, category: cate, meaning: mean, wrongCount: count))
         }
         stackContainer.dataSource = self
         
@@ -37,6 +41,24 @@ class wordsTestViewController: UIViewController {
             if index < self.stackContainer.cardViews.count {
                 self.stackContainer.swipeDidEnd(on: (self.stackContainer.cardViews[index]))
                 self.stackContainer.correctCount += 1
+                guard let wrongCount = self.stackContainer.cardViews[index].dataSource?.wrongCount else { return }
+                if wrongCount > 0 {
+                    let header: HTTPHeaders = [
+                        "Authorization": self.token
+                    ]
+                    let parameters: Parameters = [
+                        "state": "correct"
+                    ]
+                    guard let id = self.stackContainer.cardViews[index].dataSource?.id else { return }
+                    AF.request("http://52.78.37.13/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
+                        switch response.result {
+                        case .success:
+                            return
+                        case .failure:
+                            return
+                        }
+                    }
+                }
                 if index == self.stackContainer.cardViews.count - 1 {
                     let alert = UIAlertController(title: "시험 종료", message: "점수: \(self.stackContainer.correctCount)/\(self.stackContainer.cardViews.count)", preferredStyle: UIAlertController.Style.alert)
                     let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
@@ -62,7 +84,6 @@ class wordsTestViewController: UIViewController {
                 AF.request("http://52.78.37.13/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
                     switch response.result {
                     case .success:
-                        print(id)
                         return
                     case .failure:
                         return

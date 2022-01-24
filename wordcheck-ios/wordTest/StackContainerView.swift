@@ -86,7 +86,6 @@ class StackContainerView: UIView, SwipeCardsDelegate {
                     self.addCardFrame(index: cardIndex, cardView: cardView)
                     self.layoutIfNeeded()
                 })
-                print(cardView.center.x)
             }
             if visibleCards.count == 0 {
             }

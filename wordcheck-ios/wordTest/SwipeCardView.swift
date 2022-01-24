@@ -27,7 +27,7 @@ class SwipeCardView: UIView {
         configureShadowView()
         configureSwipeView()
         configureSpellLabelView()
-        addPanGestureOnCards()
+//        addPanGestureOnCards()
         configureTapGesture()
     }
     
@@ -81,77 +81,78 @@ class SwipeCardView: UIView {
     func configureTapGesture() {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapGesture)))
     }
-    
-    func addPanGestureOnCards() {
-        self.isUserInteractionEnabled = true
-        addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture)))
-    }
-    
-    //MARK: - Handlers
-    @objc func handlePanGesture(sender: UIPanGestureRecognizer){
-        let card = sender.view as! SwipeCardView
-        let id = card.dataSource?.id
-        let point = sender.translation(in: self)
-        let centerOfParentContainer = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
-        card.center = CGPoint(x: centerOfParentContainer.x + point.x, y: centerOfParentContainer.y + point.y)
-        
-        divisor = ((UIScreen.main.bounds.width / 2) / 0.61)
-       
-        switch sender.state {
-        case .ended:
-            // Right (state: correct)
-            if card.center.x > UIScreen.main.bounds.width - 5 {
-                delegate?.swipeDidEnd(on: card)
-                UIView.animate(withDuration: 0.2) {
-                    card.center = CGPoint(x: centerOfParentContainer.x + point.x + 200, y: centerOfParentContainer.y + point.y + 75)
-                    card.alpha = 0
-                    self.layoutIfNeeded()
-                }
+
+//    // 추후 스와이프 추가 예정
+//    func addPanGestureOnCards() {
+//        self.isUserInteractionEnabled = true
+//        addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture)))
+//    }
+//
+//    //MARK: - Handlers
+//    @objc func handlePanGesture(sender: UIPanGestureRecognizer){
+//        let card = sender.view as! SwipeCardView
+//        let id = card.dataSource?.id
+//        let point = sender.translation(in: self)
+//        let centerOfParentContainer = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
+//        card.center = CGPoint(x: centerOfParentContainer.x + point.x, y: centerOfParentContainer.y + point.y)
+//
+//        divisor = ((UIScreen.main.bounds.width / 2) / 0.61)
+//
+//        switch sender.state {
+//        case .ended:
+//            // Right (state: correct)
+//            if card.center.x > UIScreen.main.bounds.width - 5 {
+//                delegate?.swipeDidEnd(on: card)
+//                UIView.animate(withDuration: 0.2) {
+//                    card.center = CGPoint(x: centerOfParentContainer.x + point.x + 200, y: centerOfParentContainer.y + point.y + 75)
+//                    card.alpha = 0
+//                    self.layoutIfNeeded()
+//                }
+////                guard let id = id else { return }
+//            // Left (state: wrong)
+//            } else if card.center.x < 5 {
+//                delegate?.swipeDidEnd(on: card)
+//                UIView.animate(withDuration: 0.2) {
+//                    card.center = CGPoint(x: centerOfParentContainer.x + point.x - 200, y: centerOfParentContainer.y + point.y + 75)
+//                    card.alpha = 0
+//                    self.layoutIfNeeded()
+//                }
+//                let header: HTTPHeaders = [
+//                    "Authorization": self.token
+//                ]
+//                let parameters: Parameters = [
+//                    "state": "wrong"
+//                ]
 //                guard let id = id else { return }
-            // Left (state: wrong)
-            } else if card.center.x < 5 {
-                delegate?.swipeDidEnd(on: card)
-                UIView.animate(withDuration: 0.2) {
-                    card.center = CGPoint(x: centerOfParentContainer.x + point.x - 200, y: centerOfParentContainer.y + point.y + 75)
-                    card.alpha = 0
-                    self.layoutIfNeeded()
-                }
-                let header: HTTPHeaders = [
-                    "Authorization": self.token
-                ]
-                let parameters: Parameters = [
-                    "state": "wrong"
-                ]
-                guard let id = id else { return }
-                AF.request("http://52.78.37.13/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
-                    switch response.result {
-                    case .success:
-                        print("wrong")
-                    default:
-                        return
-                    }
-                }
-            }
-            UIView.animate(withDuration: 0.2) {
-                card.transform = .identity
-                card.center = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
-                self.layoutIfNeeded()
-            }
-        case .changed:
-            let rotation = tan(point.x / (self.frame.width * 2.0))
-            card.transform = CGAffineTransform(rotationAngle: rotation)
-            if card.center.x > UIScreen.main.bounds.width - 40 {
-                card.shadowView.layer.shadowColor = UIColor.green.cgColor
-            } else if card.center.x < 40 {
-                card.shadowView.layer.shadowColor = UIColor.red.cgColor
-            } else {
-                card.shadowView.layer.shadowColor = UIColor.black.cgColor
-            }
-            
-        default:
-            break
-        }
-    }
+//                AF.request("http://52.78.37.13/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
+//                    switch response.result {
+//                    case .success:
+//                        print("wrong")
+//                    default:
+//                        return
+//                    }
+//                }
+//            }
+//            UIView.animate(withDuration: 0.2) {
+//                card.transform = .identity
+//                card.center = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
+//                self.layoutIfNeeded()
+//            }
+//        case .changed:
+//            let rotation = tan(point.x / (self.frame.width * 2.0))
+//            card.transform = CGAffineTransform(rotationAngle: rotation)
+//            if card.center.x > UIScreen.main.bounds.width - 40 {
+//                card.shadowView.layer.shadowColor = UIColor.green.cgColor
+//            } else if card.center.x < 40 {
+//                card.shadowView.layer.shadowColor = UIColor.red.cgColor
+//            } else {
+//                card.shadowView.layer.shadowColor = UIColor.black.cgColor
+//            }
+//
+//        default:
+//            break
+//        }
+//    }
     
     @objc func handleTapGesture(sender: UITapGestureRecognizer){
 //        ! 카드 뒤집어지는 animation -> spell, category, meaning 보여주기
