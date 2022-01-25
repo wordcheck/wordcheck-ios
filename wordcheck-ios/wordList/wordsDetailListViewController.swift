@@ -1,15 +1,17 @@
 import UIKit
 import Alamofire
+import AVFoundation
 
 class wordsDetailListViewController: UIViewController {
     @IBOutlet weak var wordCount: UILabel!
     @IBOutlet weak var tableView: UITableView!
     weak var delegate: LoadViewDelegate?
     
-    var token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
+    let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
     var contentList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
     var detailList: [WordsDetail] = []
     var bookMarkList = Storage.retrive("bookmark_list.json", from: .documents, as: [WordsDetail].self) ?? []
+    let synthesizer = AVSpeechSynthesizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,7 @@ class wordsDetailListViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         Storage.store(self.bookMarkList, to: .documents, as: "bookmark_list.json")
+        self.tableView.reloadData()
     }
 }
 
@@ -35,23 +38,20 @@ extension wordsDetailListViewController: LoadViewDelegate {
 extension wordsDetailListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 320
-        
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.detailList.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "wordCell", for: indexPath) as? DetailCell else {
-            return UITableViewCell()
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "wordCell", for: indexPath) as? DetailCell else { return UITableViewCell() }
         cell.contentLabel.text = self.detailList[indexPath.row].contents
         cell.spellingLabel.text = self.detailList[indexPath.row].spelling
         cell.categoryLabel.text = self.detailList[indexPath.row].category
         cell.meaningLabel.text = self.detailList[indexPath.row].meaning
         cell.countLabel.text = "툴린 횟수: \(self.detailList[indexPath.row].wrong_count ?? 0)"
-        
+        if bookMarkList.contains(where: { $0.id == self.detailList[indexPath.row].id }) {
+            cell.bookMarkButton.isSelected = true
+        }
         cell.updateButtonTapHandler = {
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "wordsUpdateViewController") as? wordsUpdateViewController else { return }
             vc.index = indexPath.row
@@ -59,7 +59,6 @@ extension wordsDetailListViewController: UITableViewDataSource {
             vc.delegate = self
             self.present(vc, animated: true, completion: nil)
         }
-        
         cell.deleteButtonTapHandler = {
             let header: HTTPHeaders = [
                 "Authorization": self.token
@@ -94,18 +93,23 @@ extension wordsDetailListViewController: UITableViewDataSource {
                 }
             }
         }
-        
         cell.bookMarkButtonTapHandler = {
             cell.bookMarkButton.isSelected = !cell.bookMarkButton.isSelected
             self.detailList[indexPath.row].remember = cell.bookMarkButton.isSelected
-            if !self.bookMarkList.contains(where: { $0 == self.detailList[indexPath.row] }) {
+            
+            if cell.bookMarkButton.isSelected == true && !self.bookMarkList.contains(where: { $0 == self.detailList[indexPath.row] }) {
                 self.bookMarkList.append(self.detailList[indexPath.row])
+            } else if cell.bookMarkButton.isSelected == false {
+                self.bookMarkList = self.bookMarkList.filter({ $0.id != self.detailList[indexPath.row].id })
             }
         }
-        
+        cell.speechButtonTapHandler = {
+            let utterance = AVSpeechUtterance(string: cell.spellingLabel.text!)
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+            self.synthesizer.speak(utterance)
+        }
         return cell
     }
-    
 }
 
 class DetailCell: UITableViewCell {
@@ -119,6 +123,7 @@ class DetailCell: UITableViewCell {
     var updateButtonTapHandler: (() -> Void)?
     var deleteButtonTapHandler: (() -> Void)?
     var bookMarkButtonTapHandler: (() -> Void)?
+    var speechButtonTapHandler: (() -> Void)?
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -136,5 +141,8 @@ class DetailCell: UITableViewCell {
     }
     @IBAction func bookMarkButton(_ sender: Any) {
         bookMarkButtonTapHandler?()
+    }
+    @IBAction func speechButton(_ sender: Any) {
+        speechButtonTapHandler?()
     }
 }
