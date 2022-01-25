@@ -3,7 +3,7 @@ import Alamofire
 import DropDown
 
 class wordsUpdateViewController: UIViewController {
-    var token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
+    let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
     var index: Int!
     var wordDetail = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
     
@@ -32,7 +32,7 @@ class wordsUpdateViewController: UIViewController {
     
     @IBAction func updateButton(_ sender: Any) {
         let header: HTTPHeaders = [
-            "Authorization": self.token
+            "Authorization": token
         ]
         let parameters: Parameters = [
             "spelling": spellingInput.text!,
@@ -44,9 +44,10 @@ class wordsUpdateViewController: UIViewController {
         AF.request("http://52.78.37.13/api/words/\(id)/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<500).responseDecodable(of: WordsUpdate.self) { response in
             switch response.result {
             case .success:
-                let alert = UIAlertController(title: "알림", message: "단어 수정 성공", preferredStyle: UIAlertController.Style.alert)
-                let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
-                    self.wordDetail[self.index] = (response.value?.word)!
+                guard let word = response.value?.word else { return }
+                let alert = UIAlertController(title: "알림", message: "단어 수정 성공", preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "확인", style: .default) { action in
+                    self.wordDetail[self.index] = word
                     Storage.store(self.wordDetail, to: .caches, as: "words_detail.json")
                     self.delegate?.loadUpdateTableView()
                     self.dismiss(animated: true, completion: nil)
@@ -55,8 +56,8 @@ class wordsUpdateViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
 
             case .failure:
-                let alert = UIAlertController(title: "알림", message: "단어 수정 실패", preferredStyle: UIAlertController.Style.alert)
-                let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+                let alert = UIAlertController(title: "알림", message: "단어 수정 실패", preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "확인", style: .default)
                 alert.addAction(confirm)
                 self.present(alert, animated: true, completion: nil)
             }

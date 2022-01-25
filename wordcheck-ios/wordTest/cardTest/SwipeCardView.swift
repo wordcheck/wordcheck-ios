@@ -2,8 +2,8 @@ import UIKit
 import Alamofire
 
 class SwipeCardView: UIView {
-   
-    let token = Storage.retrive("account_token.json", from: .documents, as: String.self) ?? ""
+//    let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
+    
     //MARK: - Properties
     var swipeView: UIView!
     var shadowView: UIView!
@@ -155,7 +155,6 @@ class SwipeCardView: UIView {
 //    }
     
     @objc func handleTapGesture(sender: UITapGestureRecognizer){
-//        ! 카드 뒤집어지는 animation -> spell, category, meaning 보여주기
         if spell.text == dataSource?.spelling {
             spell.text = dataSource?.meaning
         } else {
