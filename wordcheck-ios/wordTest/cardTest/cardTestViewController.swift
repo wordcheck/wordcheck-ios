@@ -6,8 +6,8 @@ class cardTestViewController: UIViewController {
     private let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
     var content = ""
     let testList = Storage.retrive("words_test.json", from: .caches, as: [WordsDetail].self) ?? []
-    var wrongList: [WordsDetail] = []
     var correctList: [WordsDetail] = []
+    var wrongList: [WordsDetail] = []
     
     var wordData: [WordCard] = []
     var stackContainer: StackContainerView!
@@ -39,7 +39,6 @@ class cardTestViewController: UIViewController {
 
     //MARK: - Handlers
     func setCardTest() {
-        // ! 좀 더 좋은 방법 찾아보기
         for i in 0..<testList.count {
             guard let id = testList[i].id,
                   let spell = testList[i].spelling,
@@ -53,6 +52,7 @@ class cardTestViewController: UIViewController {
         testView.correctButtonTapHandler = {
             let index = self.stackContainer.cardViews.count - self.stackContainer.visibleCards.count
             if index < self.stackContainer.cardViews.count {
+                self.correctList.append(self.testList[index])
                 self.stackContainer.swipeDidEnd(on: (self.stackContainer.cardViews[index]))
                 self.stackContainer.correctCount += 1
                 guard let wrongCount = self.stackContainer.cardViews[index].dataSource?.wrongCount else { return }
@@ -74,11 +74,15 @@ class cardTestViewController: UIViewController {
                     }
                 }
                 if index == self.stackContainer.cardViews.count - 1 {
-                    let alert = UIAlertController(title: "시험 종료", message: "점수: \(self.stackContainer.correctCount)/\(self.stackContainer.cardViews.count)", preferredStyle: UIAlertController.Style.alert)
+                    let alert = UIAlertController(title: "시험 종료", message: "고생하셨습니다", preferredStyle: UIAlertController.Style.alert)
                     let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
                         self.stackContainer.correctCount = 0
                         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "testResult") as? testResultViewController else { return }
                         vc.modalTransitionStyle = .coverVertical
+                        vc.correctList = self.correctList
+                        vc.wrongList = self.wrongList
+                        self.correctList = []
+                        self.wrongList = []
                         self.present(vc, animated: true, completion: nil)
                     }
                     alert.addAction(confirm)
@@ -90,6 +94,7 @@ class cardTestViewController: UIViewController {
         testView.wrongButtonTapHandler = {
             let index = self.stackContainer.cardViews.count - self.stackContainer.visibleCards.count
             if index < self.stackContainer.cardViews.count {
+                self.wrongList.append(self.testList[index])
                 self.stackContainer.swipeDidEnd(on: (self.stackContainer.cardViews[index]))
                 let header: HTTPHeaders = [
                     "Authorization": self.token
@@ -107,10 +112,16 @@ class cardTestViewController: UIViewController {
                     }
                 }
                 if index == self.stackContainer.cardViews.count - 1 {
-                    let alert = UIAlertController(title: "시험 종료", message: "점수: \(self.stackContainer.correctCount)/\(self.stackContainer.cardViews.count)", preferredStyle: UIAlertController.Style.alert)
+                    let alert = UIAlertController(title: "시험 종료", message: "고생하셨습니다", preferredStyle: UIAlertController.Style.alert)
                     let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
                         self.stackContainer.correctCount = 0
-                        
+                        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "testResult") as? testResultViewController else { return }
+                        vc.modalTransitionStyle = .coverVertical
+                        vc.correctList = self.correctList
+                        vc.wrongList = self.wrongList
+                        self.correctList = []
+                        self.wrongList = []
+                        self.present(vc, animated: true, completion: nil)
                     }
                     alert.addAction(confirm)
                     self.present(alert, animated: true, completion: nil)
@@ -120,6 +131,8 @@ class cardTestViewController: UIViewController {
         
         testView.resetButtonTapHandler = {
             self.stackContainer.correctCount = 0
+            self.correctList = []
+            self.wrongList = []
             self.resetTapped()
         }
     }

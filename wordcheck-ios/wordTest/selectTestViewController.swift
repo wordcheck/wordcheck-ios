@@ -42,13 +42,13 @@ class selectTestViewController: UIViewController {
     
     func setTestList() {
         selectCardButton.layer.borderWidth = 1
-        selectCardButton.layer.borderColor = UIColor.systemIndigo.cgColor
+        selectCardButton.layer.borderColor = UIColor.lightGray.cgColor
         selectCardButton.layer.cornerRadius = 16
         selectFourButton.layer.borderWidth = 1
-        selectFourButton.layer.borderColor = UIColor.systemIndigo.cgColor
+        selectFourButton.layer.borderColor = UIColor.lightGray.cgColor
         selectFourButton.layer.cornerRadius = 16
         selectDictationButton.layer.borderWidth = 1
-        selectDictationButton.layer.borderColor = UIColor.systemIndigo.cgColor
+        selectDictationButton.layer.borderColor = UIColor.lightGray.cgColor
         selectDictationButton.layer.cornerRadius = 16
         
         contents = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
