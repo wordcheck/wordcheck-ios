@@ -57,6 +57,7 @@ class selectTestViewController: UIViewController {
             guard let list = contents[i].contents else { return }
             testList.append(list)
         }
+        testList = testList.sorted(by: {$0 < $1})
     }
     
     @IBAction func selectCardButton(_ sender: Any) {
@@ -105,6 +106,13 @@ class selectTestViewController: UIViewController {
                 switch response.result {
                 case .success:
                     guard let testList = response.value else { return }
+                    if testList.count < 4 {
+                        let alert = UIAlertController(title: "알림", message: "단어 수가 최소 4개 이상이어야 합니다", preferredStyle: .alert)
+                        let confirm = UIAlertAction(title: "확인", style: .default)
+                        alert.addAction(confirm)
+                        self.present(alert, animated: true, completion: nil)
+                        return
+                    }
                     Storage.store(testList, to: .caches, as: "words_test.json")
                     self.performSegue(withIdentifier: "selectFourTest", sender: item)
                 case .failure:

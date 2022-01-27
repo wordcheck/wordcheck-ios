@@ -39,9 +39,8 @@ extension wordsSearchViewController: UISearchBarDelegate {
             switch response.result {
             case .success:
                 guard let list = response.value else { return }
-                self.searchList = list
-                self.tableView.reloadData()
-                
+                self.searchList = list.sorted(by: {$0.contents! < $1.contents!})
+                self.tableView.reloadData()                
             default:
                 return
             }

@@ -47,7 +47,7 @@ class wordsListViewController: UIViewController {
             switch response.result {
             case .success:
                 guard let list = response.value else { return }
-                self.contentsList = list
+                self.contentsList = list.sorted(by: {$0.contents! < $1.contents!})
                 Storage.store(list, to: .caches, as: "contents_list.json")
                 self.tableView.reloadData()
                 
@@ -109,7 +109,8 @@ extension wordsListViewController : UITableViewDelegate {
         AF.request(wordsDetailUrl, method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).responseDecodable(of: [WordsDetail].self) { response in
             switch response.result {
             case .success:
-                guard let detailList = response.value else { return }
+                guard var detailList = response.value else { return }
+                detailList = detailList.sorted(by: {$0.spelling! < $1.spelling!})
                 Storage.store(detailList, to: .caches, as: "words_detail.json")
                 guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "wordsDetailListViewController") as? wordsDetailListViewController else { return }
                 vc.delegate = self

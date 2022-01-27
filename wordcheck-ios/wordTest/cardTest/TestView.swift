@@ -1,6 +1,8 @@
 import UIKit
 
 class TestView: UIView {
+    @IBOutlet weak var bookMarkButton: UIButton!
+    
     private let xibName = "TestView"
     
     var correctButtonTapHandler: (() -> Void)?

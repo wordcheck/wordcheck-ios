@@ -6,6 +6,8 @@ class cardTestViewController: UIViewController {
     private let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
     var content = ""
     let testList = Storage.retrive("words_test.json", from: .caches, as: [WordsDetail].self) ?? []
+    var bookMarkList = Storage.retrive("bookmark_list.json", from: .documents, as: [WordsDetail].self) ?? []
+    
     var correctList: [WordsDetail] = []
     var wrongList: [WordsDetail] = []
     
@@ -74,8 +76,8 @@ class cardTestViewController: UIViewController {
                     }
                 }
                 if index == self.stackContainer.cardViews.count - 1 {
-                    let alert = UIAlertController(title: "시험 종료", message: "고생하셨습니다", preferredStyle: UIAlertController.Style.alert)
-                    let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
+                    let alert = UIAlertController(title: "시험 종료", message: "고생하셨습니다", preferredStyle: .alert)
+                    let confirm = UIAlertAction(title: "확인", style: .default) { action in
                         self.stackContainer.correctCount = 0
                         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "testResult") as? testResultViewController else { return }
                         vc.modalTransitionStyle = .coverVertical
@@ -112,8 +114,8 @@ class cardTestViewController: UIViewController {
                     }
                 }
                 if index == self.stackContainer.cardViews.count - 1 {
-                    let alert = UIAlertController(title: "시험 종료", message: "고생하셨습니다", preferredStyle: UIAlertController.Style.alert)
-                    let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
+                    let alert = UIAlertController(title: "시험 종료", message: "고생하셨습니다", preferredStyle: .alert)
+                    let confirm = UIAlertAction(title: "확인", style: .default) { action in
                         self.stackContainer.correctCount = 0
                         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "testResult") as? testResultViewController else { return }
                         vc.modalTransitionStyle = .coverVertical
@@ -134,6 +136,28 @@ class cardTestViewController: UIViewController {
             self.correctList = []
             self.wrongList = []
             self.resetTapped()
+        }
+        
+        testView.bookMarkButtonTapHandler = {
+            let index = self.stackContainer.cardViews.count - self.stackContainer.visibleCards.count
+            let target = self.testList.filter{ $0.id == self.stackContainer.cardViews[index].dataSource?.id }
+            if !self.bookMarkList.contains(target.first!) {
+                let alert = UIAlertController(title: "알림", message: "북마크에 추가되었습니다", preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "확인", style: .default) { action in
+                    self.bookMarkList.append(target.first!)
+                    Storage.store(self.bookMarkList, to: .documents, as: "bookmark_list.json")
+                }
+                alert.addAction(confirm)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "알림", message: "북마크에서 제거되었습니다", preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "확인", style: .default) { action in
+                    self.bookMarkList = self.bookMarkList.filter{ $0 != target.first! }
+                    Storage.store(self.bookMarkList, to: .documents, as: "bookmark_list.json")
+                }
+                alert.addAction(confirm)
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
