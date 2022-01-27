@@ -33,10 +33,13 @@ class cardTestViewController: UIViewController {
 
     //MARK: - Configurations
     func configureStackContainer() {
+        let cardWidth = UIScreen.main.bounds.width * 3 / 4
+        let cardHeight = UIScreen.main.bounds.height / 2
+        
         stackContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        stackContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -60).isActive = true
-        stackContainer.widthAnchor.constraint(equalToConstant: 350).isActive = true
-        stackContainer.heightAnchor.constraint(equalToConstant: 450).isActive = true
+        stackContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50).isActive = true
+        stackContainer.widthAnchor.constraint(equalToConstant: cardWidth).isActive = true
+        stackContainer.heightAnchor.constraint(equalToConstant: cardHeight).isActive = true
     }
 
     //MARK: - Handlers

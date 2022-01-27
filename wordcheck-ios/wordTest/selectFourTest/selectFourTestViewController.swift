@@ -126,11 +126,7 @@ class selectFourTestViewController: UIViewController {
     }
     
     @IBAction func resetButton(_ sender: Any) {
-        showList = testList
-        testMeanLabel.isHidden = true
         nextButton.isEnabled = true
-        testSpellingLabel.text = showList.first?.spelling
-        testMeanLabel.text = showList.first?.meaning
         correctList = []
         wrongList = []
         setTest()

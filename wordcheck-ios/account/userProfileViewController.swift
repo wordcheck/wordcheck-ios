@@ -40,7 +40,7 @@ class userProfileViewController: UITableViewController {
         case 2:
             switch indexPath.row {
             case 0:
-                let alert = UIAlertController(title: "알림", message: "로그아웃 하시겠습니까?\n북마크 정보가 날아갑니다", preferredStyle: UIAlertController.Style.alert)
+                let alert = UIAlertController(title: "알림", message: "로그아웃 하시겠습니까?\n북마크 정보가 날아갑니다", preferredStyle: .alert)
                 let confirm = UIAlertAction(title: "확인", style: .default) { action in
                     DispatchQueue.main.async {
                         Storage.clear(.documents)
@@ -120,7 +120,7 @@ class userProfileViewController: UITableViewController {
         nickNameFix.backgroundColor = .clear
         nickNameFix.text = userInfo?.nickname
         fixButton.isHidden = true
-        self.nickNameFix.becomeFirstResponder()
+        nickNameFix.becomeFirstResponder()
     }
     
     @IBAction func confirmUpdate(_ sender: Any) {
@@ -136,8 +136,8 @@ class userProfileViewController: UITableViewController {
                 switch response.result {
                 case .success:
                     guard let nickname = response.value?.nickname else { return }
-                    let alert = UIAlertController(title: "알림", message: "닉네임이 변경되었습니다", preferredStyle: UIAlertController.Style.alert)
-                    let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
+                    let alert = UIAlertController(title: "알림", message: "닉네임이 변경되었습니다", preferredStyle: .alert)
+                    let confirm = UIAlertAction(title: "확인", style: .default) { action in
                         self.userNickname.isHidden = false
                         self.nickNameFix.isHidden = true
                         self.fixButton.isHidden = false
@@ -146,22 +146,21 @@ class userProfileViewController: UITableViewController {
                         self.userInfo?.nickname = nickname
                         Storage.store(self.userInfo, to: .documents, as: "user_info.json")
                         self.userNickname.text = nickname
-//                        self.nickNameFix.endEditing(true)
                         self.tableView.reloadData()
                     }
                     alert.addAction(confirm)
                     self.present(alert, animated: true, completion: nil)
                     
                 default:
-                    let alert = UIAlertController(title: "알림", message: "중복된 닉네임입니다", preferredStyle: UIAlertController.Style.alert)
-                    let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+                    let alert = UIAlertController(title: "알림", message: "중복된 닉네임입니다", preferredStyle: .alert)
+                    let confirm = UIAlertAction(title: "확인", style: .default)
                     alert.addAction(confirm)
                     self.present(alert, animated: true, completion: nil)
                 }
             }
         } else {
-            let alert = UIAlertController(title: "알림", message: "닉네임은 최소 한 글자 이상입니다", preferredStyle: UIAlertController.Style.alert)
-            let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+            let alert = UIAlertController(title: "알림", message: "닉네임은 최소 한 글자 이상입니다", preferredStyle: .alert)
+            let confirm = UIAlertAction(title: "확인", style: .default)
             alert.addAction(confirm)
             self.present(alert, animated: true, completion: nil)
         }
@@ -173,7 +172,7 @@ class userProfileViewController: UITableViewController {
         fixButton.isHidden = false
         confirmButton.isHidden = true
         cancelButton.isHidden = true
-        self.nickNameFix.endEditing(true)
+        nickNameFix.endEditing(true)
     }
 }
 
@@ -208,7 +207,7 @@ extension userProfileViewController: UIImagePickerControllerDelegate, UINavigati
 
 extension userProfileViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.nickNameFix.resignFirstResponder()
+        nickNameFix.resignFirstResponder()
         return true
     }
 }
