@@ -52,6 +52,7 @@ class wordsCreateViewController: UIViewController {
                         let content = Content(contents: self.contentsInput.text!)
                         if !self.contentsList.contains(where: { $0 == content }) {
                             self.contentsList.append(content)
+                            self.contentsList = self.contentsList.sorted(by: {$0.contents! < $1.contents!})
                         }
                         Storage.store(self.contentsList, to: .caches, as: "contents_list.json")
                         self.contentsInput.text = ""
