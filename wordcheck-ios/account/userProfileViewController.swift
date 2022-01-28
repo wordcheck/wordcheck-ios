@@ -21,46 +21,6 @@ class userProfileViewController: UITableViewController {
         super.viewDidLoad()
         setUser()
     }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 1:
-            switch indexPath.row {
-            case 0:
-                self.tabBarController?.selectedIndex = 2
-            case 1:
-                print("자주 틀리는 단어")
-            case 2:
-                print("나의 단어 분석")
-            case 3:
-                print("건의사항")
-            default:
-                break
-            }
-        case 2:
-            switch indexPath.row {
-            case 0:
-                let alert = UIAlertController(title: "알림", message: "로그아웃 하시겠습니까?\n북마크 정보가 날아갑니다", preferredStyle: .alert)
-                let confirm = UIAlertAction(title: "확인", style: .default) { action in
-                    DispatchQueue.main.async {
-                        Storage.clear(.documents)
-                        Storage.clear(.caches)
-                    }
-                    self.presentingViewController?.dismiss(animated: true, completion: nil)
-                }
-                let cancel = UIAlertAction(title: "취소", style: .default)
-                alert.addAction(confirm)
-                alert.addAction(cancel)
-                self.present(alert, animated: true, completion: nil)
-            case 1:
-                print("회원탈퇴")
-            default:
-                break
-            }
-        default:
-            break
-        }
-    }
     
     func setUser() {
         guard let user = userInfo else { return }
@@ -173,6 +133,44 @@ class userProfileViewController: UITableViewController {
         confirmButton.isHidden = true
         cancelButton.isHidden = true
         nickNameFix.endEditing(true)
+    }
+}
+
+extension userProfileViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 1:
+            switch indexPath.row {
+            case 0:
+                self.tabBarController?.selectedIndex = 2
+            case 4:
+                print("건의 사항")
+            default:
+                break
+            }
+        case 2:
+            switch indexPath.row {
+            case 0:
+                let alert = UIAlertController(title: "알림", message: "로그아웃 하시겠습니까?\n북마크 정보가 날아갑니다", preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "확인", style: .default) { action in
+                    DispatchQueue.main.async {
+                        Storage.clear(.documents)
+                        Storage.clear(.caches)
+                    }
+                    self.presentingViewController?.dismiss(animated: true, completion: nil)
+                }
+                let cancel = UIAlertAction(title: "취소", style: .default)
+                alert.addAction(confirm)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
+            case 1:
+                print("회원탈퇴")
+            default:
+                break
+            }
+        default:
+            break
+        }
     }
 }
 

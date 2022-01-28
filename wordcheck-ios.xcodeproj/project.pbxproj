@@ -32,6 +32,8 @@
 		139909612796EB5B009871E6 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139909602796EB5B009871E6 /* TestView.xib */; };
 		139F12BD27994C9600BAB005 /* userProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F12BC27994C9600BAB005 /* userProfileViewController.swift */; };
 		13D2D8952795393400B5F701 /* LoadViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D2D8942795393400B5F701 /* LoadViewDelegate.swift */; };
+		13DCD15B27A42DE600BE3F5F /* papagoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DCD15A27A42DE600BE3F5F /* papagoViewController.swift */; };
+		13DCD15D27A43A3300BE3F5F /* Papago.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DCD15C27A43A3300BE3F5F /* Papago.swift */; };
 		13E52366279FB3CB00D8A458 /* selectFourTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E52365279FB3CB00D8A458 /* selectFourTestViewController.swift */; };
 		13E52368279FB3E600D8A458 /* dictationTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E52367279FB3E600D8A458 /* dictationTestViewController.swift */; };
 		13E5236A279FB57E00D8A458 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E52369279FB57E00D8A458 /* TestView.swift */; };
@@ -67,6 +69,8 @@
 		139909602796EB5B009871E6 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		139F12BC27994C9600BAB005 /* userProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userProfileViewController.swift; sourceTree = "<group>"; };
 		13D2D8942795393400B5F701 /* LoadViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewDelegate.swift; sourceTree = "<group>"; };
+		13DCD15A27A42DE600BE3F5F /* papagoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = papagoViewController.swift; sourceTree = "<group>"; };
+		13DCD15C27A43A3300BE3F5F /* Papago.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Papago.swift; sourceTree = "<group>"; };
 		13E52365279FB3CB00D8A458 /* selectFourTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectFourTestViewController.swift; sourceTree = "<group>"; };
 		13E52367279FB3E600D8A458 /* dictationTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dictationTestViewController.swift; sourceTree = "<group>"; };
 		13E52369279FB57E00D8A458 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				13C2DAD027942BAA00AA26B7 /* wordList */,
 				13C2DAD127942BE100AA26B7 /* wordTest */,
 				13C2DAD227942C0900AA26B7 /* wordSearch */,
+				13DCD15A27A42DE600BE3F5F /* papagoViewController.swift */,
 				1336DDC7278096C10084DEFF /* AppDelegate.swift */,
 				1336DDC9278096C10084DEFF /* SceneDelegate.swift */,
 				1336DDD2278096C20084DEFF /* LaunchScreen.storyboard */,
@@ -176,6 +181,7 @@
 				13318E78279913E300140FE9 /* User.swift */,
 				1311AD4F278D4391005325D1 /* Words.swift */,
 				136DE732278E6A4900C29BEC /* Storage.swift */,
+				13DCD15C27A43A3300BE3F5F /* Papago.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -348,6 +354,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13DCD15D27A43A3300BE3F5F /* Papago.swift in Sources */,
+				13DCD15B27A42DE600BE3F5F /* papagoViewController.swift in Sources */,
 				1338AC2C27911A7700121A10 /* selectTestViewController.swift in Sources */,
 				1311AD54278D4413005325D1 /* wordsCreateViewController.swift in Sources */,
 				1311AD50278D4391005325D1 /* Words.swift in Sources */,
