@@ -5,8 +5,8 @@ class signupViewController: UIViewController {
     @IBOutlet weak var nickName: UITextField!
     @IBOutlet weak var passWord: UITextField!
     
-    private let nickNameCheckURL = "http://52.78.37.13/api/accounts/nickname_check/"
-    private let signUpURL = "http://52.78.37.13/api/accounts/normal_signup/"
+    private let nickNameCheckURL = "https://wordcheck.sulrae.com/api/accounts/nickname_check/"
+    private let signUpURL = "https://wordcheck.sulrae.com/api/accounts/normal_signup/"
     
     override func viewDidLoad() {
         super.viewDidLoad()

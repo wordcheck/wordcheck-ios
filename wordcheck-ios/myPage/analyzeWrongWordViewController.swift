@@ -2,84 +2,77 @@ import UIKit
 import Alamofire
 import AVFoundation
 
-class wordsSearchViewController: UIViewController {
-    @IBOutlet weak var searchBar: UISearchBar!
+class analyzeWrongWordViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    let searchUrl = "https://wordcheck.sulrae.com/api/words/search/"
-    let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
-    var searchList: [WordsDetail] = []
+    private let wordsDetailUrl = "https://wordcheck.sulrae.com/api/words/detail_list/"
+    private let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
+    let wrongList = Storage.retrive("wrong_list.json", from: .caches, as: [Int].self) ?? []
+    var detailList: [WordsDetail] = []
     var bookMarkList = Storage.retrive("bookmark_list.json", from: .documents, as: [WordsDetail].self) ?? []
     let synthesizer = AVSpeechSynthesizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "단어 검색"
-    }
-
-}
-
-extension wordsSearchViewController: UISearchBarDelegate {
-    private func dismissKeyboard() {
-        searchBar.resignFirstResponder()
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        dismissKeyboard()
-        
-        guard let searchTerm = searchBar.text, searchTerm.isEmpty == false else { return }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setList()
+    }
+    
+    func setList() {
         let header: HTTPHeaders = [
             "Authorization": token
         ]
-        let parameters: Parameters = [
-            "target": searchTerm
+        let parameters = [
+            "wrong_count": "\(wrongList.last!)"
         ]
-        
-        AF.request(searchUrl, method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).responseDecodable(of: [WordsDetail].self) { response in
+        AF.request(wordsDetailUrl, method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).responseDecodable(of: [WordsDetail].self) { response in
             switch response.result {
             case .success:
-                guard let list = response.value else { return }
-                self.searchList = list.sorted(by: {$0.contents! < $1.contents!})
-                self.tableView.reloadData()                
-            default:
+                guard let detailList = response.value else { return }
+                self.detailList = detailList.sorted(by: {$0.spelling! < $1.spelling!})
+                Storage.store(self.detailList, to: .caches, as: "analyze_wrong.json")
+                self.detailList = Storage.retrive("analyze_wrong.json", from: .caches, as: [WordsDetail].self) ?? []
+                self.tableView.reloadData()
+                
+            case .failure:
                 return
             }
         }
     }
 }
 
-extension wordsSearchViewController: UITableViewDataSource {
+extension analyzeWrongWordViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 320
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.searchList.count
+        return self.detailList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as? ResultCell else { return UITableViewCell() }
-        cell.contentLabel.text = searchList[indexPath.row].contents
-        cell.spellingLabel.text = searchList[indexPath.row].spelling
-        cell.categoryLabel.text = searchList[indexPath.row].category
-        cell.meaningLabel.text = searchList[indexPath.row].meaning
-        cell.countLabel.text = "툴린 횟수: \(searchList[indexPath.row].wrong_count ?? 0)"
-        
-        if bookMarkList.contains(where: { $0.id == self.searchList[indexPath.row].id }) {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "wrongCell", for: indexPath) as? WrongCell else { return UITableViewCell() }
+        cell.contentLabel.text = detailList[indexPath.row].contents
+        cell.spellingLabel.text = detailList[indexPath.row].spelling
+        cell.categoryLabel.text = detailList[indexPath.row].category
+        cell.meaningLabel.text = detailList[indexPath.row].meaning
+        cell.countLabel.text = "툴린 횟수: \(detailList[indexPath.row].wrong_count!)"
+        if bookMarkList.contains(self.detailList[indexPath.row]) {
             cell.bookMarkButton.isSelected = true
         }
-        
         cell.bookMarkButtonTapHandler = {
             cell.bookMarkButton.isSelected = !cell.bookMarkButton.isSelected
-            //self.searchList[indexPath.row].remember = cell.bookMarkButton.isSelected
+            self.detailList[indexPath.row].remember = cell.bookMarkButton.isSelected
             
-            if cell.bookMarkButton.isSelected == true && !self.bookMarkList.contains(self.searchList[indexPath.row]) {
-                self.bookMarkList.append(self.searchList[indexPath.row])
+            if cell.bookMarkButton.isSelected == true && !self.bookMarkList.contains(self.detailList[indexPath.row]) {
+                self.bookMarkList.append(self.detailList[indexPath.row])
                 cell.bookMarkButton.isSelected = false
             } else if cell.bookMarkButton.isSelected == false {
-                self.bookMarkList = self.bookMarkList.filter({ $0.id != self.searchList[indexPath.row].id })
+                self.bookMarkList = self.bookMarkList.filter({ $0.id != self.detailList[indexPath.row].id })
             }
             Storage.store(self.bookMarkList, to: .documents, as: "bookmark_list.json")
         }
-        
         cell.speechButtonTapHandler = {
             let utterance = AVSpeechUtterance(string: cell.spellingLabel.text!)
             utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
@@ -89,7 +82,7 @@ extension wordsSearchViewController: UITableViewDataSource {
     }
 }
 
-class ResultCell: UITableViewCell {
+class WrongCell: UITableViewCell {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var spellingLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!

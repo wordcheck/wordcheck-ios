@@ -12,9 +12,12 @@ class wordsCreateViewController: UIViewController {
     private let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
     var contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
     let detailList = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
+    var spelling = ""
+    let category = ["명사", "대명사", "동사", "부사", "형용사", "전치사", "접속사", "감탄사"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        spellingInput.text = spelling
     }
     
     @IBAction func categoryClick(_ sender: Any) {
@@ -22,29 +25,35 @@ class wordsCreateViewController: UIViewController {
         dropDown.backgroundColor = UIColor.white
         dropDown.anchorView = categoryInput
         dropDown.direction = .bottom
-        dropDown.dataSource = ["명사", "대명사", "동사", "부사", "형용사", "전치사", "접속사", "감탄사"]
+        dropDown.dataSource = category
         dropDown.selectionAction = { [] (index: Int, item: String) in
             self.categoryInput.text = item
         }
         dropDown.show()
+    }
+    @IBAction func categoryCheck(_ sender: Any) {
+        if !category.contains(categoryInput.text ?? "") {
+            categoryInput.text = ""
+        }
     }
     
     @IBAction func wordsCreateButton(_ sender: Any) {
         if contentsInput.text == "" {
             contentsInput.text = "그룹 미지정"
         }
+        spelling = spellingInput.text!
         let header: HTTPHeaders = [
             "Authorization": token
         ]
         let parameters: Parameters = [
             "contents": contentsInput.text!,
-            "spelling": spellingInput.text!,
+            "spelling": spelling,
             "category": categoryInput.text!,
             "meaning": meaningInput.text!
         ]
         
         if spellingInput.text! != "" && categoryInput.text! != "" && meaningInput.text! != "" && !detailList.contains(where: { $0.spelling == spellingInput.text }) {
-            AF.request("http://52.78.37.13/api/words/", method: .post, parameters: parameters, headers: header).validate(statusCode: 200..<300).response { response in
+            AF.request("https://wordcheck.sulrae.com/api/words/", method: .post, parameters: parameters, headers: header).validate(statusCode: 200..<300).response { response in
                 switch response.result {
                 case .success:
                     let alert = UIAlertController(title: "알림", message: "단어 추가 성공", preferredStyle: UIAlertController.Style.alert)
@@ -85,5 +94,8 @@ class wordsCreateViewController: UIViewController {
         
     }
     
+    @IBAction func touchView(_ sender: Any) {
+        spellingInput.resignFirstResponder()
+    }
 }
 

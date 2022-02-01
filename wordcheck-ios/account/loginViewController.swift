@@ -5,7 +5,7 @@ class loginViewController: UIViewController {
     @IBOutlet weak var nickName: UITextField!
     @IBOutlet weak var passWord: UITextField!
     
-    private let loginURL = "http://52.78.37.13/api/accounts/normal_login/"
+    private let loginURL = "https://wordcheck.sulrae.com/api/accounts/normal_login/"
     
     override func viewDidLoad() {
         super.viewDidLoad()

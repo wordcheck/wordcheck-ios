@@ -3,17 +3,20 @@ import Alamofire
 import DropDown
 
 class wordsUpdateViewController: UIViewController {
-    let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
-    var index: Int!
-    var wordDetail = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
-    
+    @IBOutlet weak var contentsInput: UITextField!
     @IBOutlet weak var spellingInput: UITextField!
     @IBOutlet weak var categoryInput: UITextField!
     @IBOutlet weak var meaningInput: UITextField!
     weak var delegate: LoadViewDelegate?
     
+    let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
+    var index: Int!
+    var wordDetail = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
+    let category = ["명사", "대명사", "동사", "부사", "형용사", "전치사", "접속사", "감탄사"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        contentsInput.text = wordDetail[index].contents
         spellingInput.text = wordDetail[index].spelling
         meaningInput.text = wordDetail[index].meaning
     }
@@ -23,11 +26,16 @@ class wordsUpdateViewController: UIViewController {
         DropDown.appearance().backgroundColor = UIColor.white
         dropDown.anchorView = categoryInput
         dropDown.direction = .bottom
-        dropDown.dataSource = ["명사", "대명사", "동사", "부사", "형용사", "전치사", "접속사", "감탄사"]
+        dropDown.dataSource = category
         dropDown.selectionAction = { [] (index: Int, item: String) in
             self.categoryInput.text = item
         }
         dropDown.show()
+    }
+    @IBAction func categoryCheck(_ sender: Any) {
+        if !category.contains(categoryInput.text ?? "") {
+            categoryInput.text = ""
+        }
     }
     
     @IBAction func updateButton(_ sender: Any) {
@@ -35,13 +43,14 @@ class wordsUpdateViewController: UIViewController {
             "Authorization": token
         ]
         let parameters: Parameters = [
+            "contents": contentsInput.text!,
             "spelling": spellingInput.text!,
             "category": categoryInput.text!,
             "meaning": meaningInput.text!
         ]
         let id = self.wordDetail[index].id!
         
-        AF.request("http://52.78.37.13/api/words/\(id)/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<500).responseDecodable(of: WordsUpdate.self) { response in
+        AF.request("https://wordcheck.sulrae.com/api/words/\(id)/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<500).responseDecodable(of: WordsUpdate.self) { response in
             switch response.result {
             case .success:
                 guard let word = response.value?.word else { return }
@@ -65,4 +74,7 @@ class wordsUpdateViewController: UIViewController {
         
     }
     
+    @IBAction func touchView(_ sender: Any) {
+        spellingInput.resignFirstResponder()
+    }
 }

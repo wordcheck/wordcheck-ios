@@ -24,10 +24,14 @@ class selectFourTestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         title = content
         setTest()
     }
-
+    
     func setTest() {
         showList = testList
         testMeanLabel.isHidden = true
@@ -77,9 +81,39 @@ class selectFourTestViewController: UIViewController {
         if quiz[index].id == showList.first?.id {
             button.layer.borderColor = UIColor.green.cgColor
             correctList.append(showList.first!)
+            if showList.first!.wrong_count! > 0 {
+                let header: HTTPHeaders = [
+                    "Authorization": self.token
+                ]
+                let parameters: Parameters = [
+                    "state": "correct"
+                ]
+                AF.request("https://wordcheck.sulrae.com/api/words/\(showList.first!.id!)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
+                    switch response.result {
+                    case .success:
+                        return
+                    case .failure:
+                        return
+                    }
+                }
+            }
         } else {
             button.layer.borderColor = UIColor.red.cgColor
             wrongList.append(showList.first!)
+            let header: HTTPHeaders = [
+                "Authorization": self.token
+            ]
+            let parameters: Parameters = [
+                "state": "wrong"
+            ]
+            AF.request("https://wordcheck.sulrae.com/api/words/\(showList.first!.id!)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
+                switch response.result {
+                case .success:
+                    return
+                case .failure:
+                    return
+                }
+            }
         }
         if testMeanLabel.isHidden == false {
             
@@ -126,11 +160,7 @@ class selectFourTestViewController: UIViewController {
     }
     
     @IBAction func resetButton(_ sender: Any) {
-        showList = testList
-        testMeanLabel.isHidden = true
         nextButton.isEnabled = true
-        testSpellingLabel.text = showList.first?.spelling
-        testMeanLabel.text = showList.first?.meaning
         correctList = []
         wrongList = []
         setTest()

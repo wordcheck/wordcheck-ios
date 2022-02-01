@@ -6,6 +6,11 @@
 	<string>사진 찍기</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>앨범 사용</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

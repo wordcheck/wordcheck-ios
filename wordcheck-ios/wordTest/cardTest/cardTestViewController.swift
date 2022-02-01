@@ -33,10 +33,13 @@ class cardTestViewController: UIViewController {
 
     //MARK: - Configurations
     func configureStackContainer() {
+        let cardWidth = UIScreen.main.bounds.width * 3 / 4
+        let cardHeight = UIScreen.main.bounds.height / 2
+        
         stackContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        stackContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -60).isActive = true
-        stackContainer.widthAnchor.constraint(equalToConstant: 350).isActive = true
-        stackContainer.heightAnchor.constraint(equalToConstant: 450).isActive = true
+        stackContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50).isActive = true
+        stackContainer.widthAnchor.constraint(equalToConstant: cardWidth).isActive = true
+        stackContainer.heightAnchor.constraint(equalToConstant: cardHeight).isActive = true
     }
 
     //MARK: - Handlers
@@ -66,7 +69,7 @@ class cardTestViewController: UIViewController {
                         "state": "correct"
                     ]
                     guard let id = self.stackContainer.cardViews[index].dataSource?.id else { return }
-                    AF.request("http://52.78.37.13/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
+                    AF.request("https://wordcheck.sulrae.com/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
                         switch response.result {
                         case .success:
                             return
@@ -105,7 +108,7 @@ class cardTestViewController: UIViewController {
                     "state": "wrong"
                 ]
                 guard let id = self.stackContainer.cardViews[index].dataSource?.id else { return }
-                AF.request("http://52.78.37.13/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
+                AF.request("https://wordcheck.sulrae.com/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
                     switch response.result {
                     case .success:
                         return

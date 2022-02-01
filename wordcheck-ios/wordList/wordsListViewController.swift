@@ -6,22 +6,19 @@ class wordsListViewController: UIViewController {
     @IBOutlet weak var contentButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    private let contentUrl = "http://52.78.37.13/api/words/"
-    private let wordsDetailUrl = "http://52.78.37.13/api/words/detail_list/"
+    private let contentUrl = "https://wordcheck.sulrae.com/api/words/"
+    private let wordsDetailUrl = "https://wordcheck.sulrae.com/api/words/detail_list/"
     private let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
     
     var contentsList: [Content] = []
-    let wrongList: [Content] = [
-        Content(contents: "0회"),
-        Content(contents: "1회"),
-        Content(contents: "2회"),
-        Content(contents: "3회"),
-        Content(contents: "4회"),
-        Content(contents: "5회 이상")
-    ]
+    var wrongList: [Content] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setContent()
         getList()
     }
@@ -29,10 +26,15 @@ class wordsListViewController: UIViewController {
     func setContent() {
         let normal = UIAction(title: "그룹별") { _ in
             self.contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
+            self.contentsList = self.contentsList.sorted(by: {$0.contents! < $1.contents!})
             self.tableView.reloadData()
         }
         let wrong = UIAction(title: "틀린 횟수별") { _ in
-            self.contentsList = self.wrongList
+            self.contentsList = Storage.retrive("wrong_content.json", from: .caches, as: [Content].self) ?? []
+            self.contentsList = self.contentsList.sorted(by: {$0.contents! < $1.contents!})
+            for i in 0..<self.contentsList.count {
+                // 빈 단어장은 삭제
+            }
             self.tableView.reloadData()
         }
         let buttonMenu = UIMenu(title: "보기 선택", children: [normal, wrong])
@@ -50,9 +52,47 @@ class wordsListViewController: UIViewController {
                 self.contentsList = list.sorted(by: {$0.contents! < $1.contents!})
                 Storage.store(list, to: .caches, as: "contents_list.json")
                 self.tableView.reloadData()
+                self.setWrongList()
                 
             case .failure:
                 return
+            }
+        }
+    }
+    
+    func setWrongList() {
+        var wrongCount: [Int] = []
+        let header: HTTPHeaders = [
+            "Authorization": token
+        ]
+        var parameters: Parameters = [:]
+        if self.contentButton.currentTitle != "틀린 횟수별" {
+            for i in 0..<contentsList.count {
+                parameters = [
+                    "contents": contentsList[i].contents!
+                ]
+                AF.request(wordsDetailUrl, method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).responseDecodable(of: [WordsDetail].self) { response in
+                    switch response.result {
+                    case .success:
+                        guard let detailList = response.value else { return }
+                        for i in 0..<detailList.count {
+                            if !wrongCount.contains(detailList[i].wrong_count ?? 0) {
+                                wrongCount.append(detailList[i].wrong_count ?? 0)
+                            }
+                        }
+                        wrongCount = wrongCount.sorted(by: {$0 < $1})
+                        for i in 0..<wrongCount.count {
+                            if !self.wrongList.contains(Content(contents: "\(wrongCount[i])회")) {
+                                self.wrongList.append(Content(contents: "\(wrongCount[i])회"))
+                            }
+                        }
+                        self.wrongList = self.wrongList.sorted(by: {$0.contents! < $1.contents!})
+                        Storage.store(self.wrongList, to: .caches, as: "wrong_content.json")
+                        Storage.store(wrongCount, to: .caches, as: "wrong_list.json")
+                    case .failure:
+                        return
+                    }
+                }
             }
         }
     }
@@ -102,8 +142,9 @@ extension wordsListViewController : UITableViewDelegate {
                 "contents": contentsList[indexPath.row].contents!
             ]
         } else {
+            let wrongCount = wrongList[indexPath.row].contents!.split(separator: "회")
             parameters = [
-                "wrong_count": indexPath.row
+                "wrong_count": wrongCount[0]
             ]
         }
         AF.request(wordsDetailUrl, method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).responseDecodable(of: [WordsDetail].self) { response in
