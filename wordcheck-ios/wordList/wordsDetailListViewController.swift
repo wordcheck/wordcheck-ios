@@ -18,7 +18,6 @@ class wordsDetailListViewController: UIViewController {
         detailList = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
         wordCount.text = "단어 수: \(detailList.count)"
     }
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         Storage.store(self.bookMarkList, to: .documents, as: "bookmark_list.json")
@@ -66,15 +65,12 @@ extension wordsDetailListViewController: UITableViewDataSource {
             let id = self.detailList[indexPath.row].id!
             let content = self.detailList[indexPath.row].contents!
 
-            AF.request("http://52.78.37.13/api/words/\(id)/", method: .delete, headers: header).validate(statusCode: 200..<300).response { response in
+            AF.request("https://wordcheck.sulrae.com/api/words/\(id)/", method: .delete, headers: header).validate(statusCode: 200..<300).response { response in
                 switch response.result {
                 case .success:
                     let alert = UIAlertController(title: "알림", message: "단어 삭제 성공", preferredStyle: UIAlertController.Style.alert)
                     let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
                         self.detailList = self.detailList.filter { $0.id != id }
-                //        if let index = detailList.firstIndex(of: WordsDetail) {
-                //            detailList.remove(at: index)
-                //        }
                         Storage.store(self.detailList, to: .caches, as: "words_detail.json")
                         self.tableView.reloadData()
                         
@@ -95,8 +91,6 @@ extension wordsDetailListViewController: UITableViewDataSource {
         }
         cell.bookMarkButtonTapHandler = {
             cell.bookMarkButton.isSelected = !cell.bookMarkButton.isSelected
-            self.detailList[indexPath.row].remember = cell.bookMarkButton.isSelected
-            
             if cell.bookMarkButton.isSelected == true && !self.bookMarkList.contains(where: { $0 == self.detailList[indexPath.row] }) {
                 self.bookMarkList.append(self.detailList[indexPath.row])
             } else if cell.bookMarkButton.isSelected == false {

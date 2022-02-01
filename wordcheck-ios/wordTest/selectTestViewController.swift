@@ -8,7 +8,7 @@ class selectTestViewController: UIViewController {
     @IBOutlet weak var selectFourButton: UIButton!
     @IBOutlet weak var selectDictationButton: UIButton!
     
-    private let wordsDetailUrl = "http://52.78.37.13/api/words/detail_list/"
+    private let wordsDetailUrl = "https://wordcheck.sulrae.com/api/words/detail_list/"
     private let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
     var contents: [Content] = []
     var testList: [String] = []

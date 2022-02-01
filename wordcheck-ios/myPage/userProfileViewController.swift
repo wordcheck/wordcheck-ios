@@ -10,10 +10,10 @@ class userProfileViewController: UITableViewController {
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
-    private let updateProfileUrl = "http://52.78.37.13/api/accounts/profile/"
+    private let updateProfileUrl = "https://wordcheck.sulrae.com/api/accounts/profile/"
+    private let deleteAccountUrl = "https://wordcheck.sulrae.com/api/accounts/"
     private var userInfo = Storage.retrive("user_info.json", from: .documents, as: User.self) ?? nil
     
-    let normalMenu = ["북마크 단어", "건의사항"]
     let accountMenu = ["로그아웃"]
     let imagePickerController = UIImagePickerController()
     
@@ -141,9 +141,9 @@ extension userProfileViewController {
         switch indexPath.section {
         case 1:
             switch indexPath.row {
-            case 0:
+            case 1:
                 self.tabBarController?.selectedIndex = 2
-            case 4:
+            case 3:
                 print("건의 사항")
             default:
                 break
@@ -164,7 +164,32 @@ extension userProfileViewController {
                 alert.addAction(cancel)
                 self.present(alert, animated: true, completion: nil)
             case 1:
-                print("회원탈퇴")
+                let alert = UIAlertController(title: "알림", message: "회원탈퇴 하시겠습니까?\n단어가 모두 날아갑니다", preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "확인", style: .default) { action in
+                    let header: HTTPHeaders = [
+                        "Authorization": self.userInfo!.account_token!
+                    ]
+                    AF.request("\(self.deleteAccountUrl)\(self.userInfo!.nickname!)/", method: .delete, headers: header).validate(statusCode: 200..<300).response { response in
+                        switch response.result {
+                        case .success:
+                            Storage.clear(.documents)
+                            Storage.clear(.caches)
+                            let alert = UIAlertController(title: "알림", message: "계정이 삭제되었습니다", preferredStyle: .alert)
+                            let confirm = UIAlertAction(title: "확인", style: .default) { action in
+                                self.presentingViewController?.dismiss(animated: true, completion: nil)
+                            }
+                            alert.addAction(confirm)
+                            self.present(alert, animated: true, completion: nil)
+                        default:
+                            return
+                        }
+                        
+                    }
+                }
+                let cancel = UIAlertAction(title: "취소", style: .default)
+                alert.addAction(confirm)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
             default:
                 break
             }

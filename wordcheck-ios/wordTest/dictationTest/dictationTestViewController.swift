@@ -1,5 +1,6 @@
 import UIKit
 import DropDown
+import Alamofire
 
 class dictationTestViewController: UIViewController {
     @IBOutlet weak var testSpellingLabel: UILabel!
@@ -128,10 +129,40 @@ extension dictationTestViewController: UITextFieldDelegate {
                 answerInput.layer.borderColor = UIColor.green.cgColor
                 testMeanLabel.isHidden = false
                 correctList.append(showList.first!)
+                if showList.first!.wrong_count! > 0 {
+                    let header: HTTPHeaders = [
+                        "Authorization": self.token
+                    ]
+                    let parameters: Parameters = [
+                        "state": "correct"
+                    ]
+                    AF.request("https://wordcheck.sulrae.com/api/words/\(showList.first!.id!)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
+                        switch response.result {
+                        case .success:
+                            return
+                        case .failure:
+                            return
+                        }
+                    }
+                }
             } else {
                 answerInput.layer.borderColor = UIColor.red.cgColor
                 testMeanLabel.isHidden = false
                 wrongList.append(showList.first!)
+                let header: HTTPHeaders = [
+                    "Authorization": self.token
+                ]
+                let parameters: Parameters = [
+                    "state": "wrong"
+                ]
+                AF.request("https://wordcheck.sulrae.com/api/words/\(showList.first!.id!)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
+                    switch response.result {
+                    case .success:
+                        return
+                    case .failure:
+                        return
+                    }
+                }
             }
         }
         return true

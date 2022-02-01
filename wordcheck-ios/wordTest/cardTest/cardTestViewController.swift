@@ -69,7 +69,7 @@ class cardTestViewController: UIViewController {
                         "state": "correct"
                     ]
                     guard let id = self.stackContainer.cardViews[index].dataSource?.id else { return }
-                    AF.request("http://52.78.37.13/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
+                    AF.request("https://wordcheck.sulrae.com/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
                         switch response.result {
                         case .success:
                             return
@@ -108,7 +108,7 @@ class cardTestViewController: UIViewController {
                     "state": "wrong"
                 ]
                 guard let id = self.stackContainer.cardViews[index].dataSource?.id else { return }
-                AF.request("http://52.78.37.13/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
+                AF.request("https://wordcheck.sulrae.com/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
                     switch response.result {
                     case .success:
                         return
