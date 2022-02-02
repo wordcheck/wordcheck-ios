@@ -37,6 +37,10 @@ class selectTestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setTestList()
     }
     
@@ -55,7 +59,9 @@ class selectTestViewController: UIViewController {
         let count = contents.count
         for i in 0..<count {
             guard let list = contents[i].contents else { return }
-            testList.append(list)
+            if !testList.contains(list) {
+                testList.append(list)
+            }
         }
         testList = testList.sorted(by: {$0 < $1})
     }
@@ -78,6 +84,9 @@ class selectTestViewController: UIViewController {
                 switch response.result {
                 case .success:
                     guard let testList = response.value else { return }
+                    if testList.count == 0 {
+                        
+                    }
                     Storage.store(testList, to: .caches, as: "words_test.json")
                     self.performSegue(withIdentifier: "cardTest", sender: item)
                 case .failure:
