@@ -17,6 +17,9 @@ class wordsSearchViewController: UIViewController {
         title = "단어 검색"
     }
 
+    @IBAction func touchView(_ sender: Any) {
+        searchBar.resignFirstResponder()
+    }
 }
 
 extension wordsSearchViewController: UISearchBarDelegate {
@@ -40,7 +43,13 @@ extension wordsSearchViewController: UISearchBarDelegate {
             case .success:
                 guard let list = response.value else { return }
                 self.searchList = list.sorted(by: {$0.contents! < $1.contents!})
-                self.tableView.reloadData()                
+                self.tableView.reloadData()
+                if list.count == 0 {
+                    let alert = UIAlertController(title: "알림", message: "검색 결과가 없습니다", preferredStyle: .alert)
+                    let confirm = UIAlertAction(title: "확인", style: .default)
+                    alert.addAction(confirm)
+                    self.present(alert, animated: true, completion: nil)
+                }
             default:
                 return
             }

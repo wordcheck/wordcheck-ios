@@ -23,7 +23,12 @@ class wordsListViewController: UIViewController {
         getList()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     func setContent() {
+        contentsList = []
         let normal = UIAction(title: "그룹별") { _ in
             self.contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
             self.contentsList = self.contentsList.sorted(by: {$0.contents! < $1.contents!})
@@ -32,9 +37,6 @@ class wordsListViewController: UIViewController {
         let wrong = UIAction(title: "틀린 횟수별") { _ in
             self.contentsList = Storage.retrive("wrong_content.json", from: .caches, as: [Content].self) ?? []
             self.contentsList = self.contentsList.sorted(by: {$0.contents! < $1.contents!})
-            for i in 0..<self.contentsList.count {
-                // 빈 단어장은 삭제
-            }
             self.tableView.reloadData()
         }
         let buttonMenu = UIMenu(title: "보기 선택", children: [normal, wrong])
@@ -53,6 +55,12 @@ class wordsListViewController: UIViewController {
                 Storage.store(list, to: .caches, as: "contents_list.json")
                 self.tableView.reloadData()
                 self.setWrongList()
+                if self.contentsList.count == 0 {
+                    let alert = UIAlertController(title: "알림", message: "단어가 없습니다 단어를 추가해주세요", preferredStyle: .alert)
+                    let confirm = UIAlertAction(title: "확인", style: .default)
+                    alert.addAction(confirm)
+                    self.present(alert, animated: true, completion: nil)
+                }
                 
             case .failure:
                 return
@@ -61,6 +69,7 @@ class wordsListViewController: UIViewController {
     }
     
     func setWrongList() {
+        wrongList = []
         var wrongCount: [Int] = []
         let header: HTTPHeaders = [
             "Authorization": token
@@ -88,7 +97,6 @@ class wordsListViewController: UIViewController {
                         }
                         self.wrongList = self.wrongList.sorted(by: {$0.contents! < $1.contents!})
                         Storage.store(self.wrongList, to: .caches, as: "wrong_content.json")
-                        Storage.store(wrongCount, to: .caches, as: "wrong_list.json")
                     case .failure:
                         return
                     }

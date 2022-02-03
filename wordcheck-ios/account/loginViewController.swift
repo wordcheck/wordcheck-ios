@@ -4,6 +4,7 @@ import Alamofire
 class loginViewController: UIViewController {
     @IBOutlet weak var nickName: UITextField!
     @IBOutlet weak var passWord: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     private let loginURL = "https://wordcheck.sulrae.com/api/accounts/normal_login/"
     
@@ -13,11 +14,13 @@ class loginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         let userInfo = Storage.retrive("user_info.json", from: .documents, as: User.self) ?? nil
+        loginButton.isEnabled = true
         guard userInfo?.account_token != nil else { return }
         self.performSegue(withIdentifier: "startWordCheck", sender: nil)
     }
     
     @IBAction func loginButton(_ sender: Any) {
+        loginButton.isEnabled = false
         let parameters: Parameters = [
             "nickname" : nickName.text!,
             "password" : passWord.text!
@@ -32,15 +35,21 @@ class loginViewController: UIViewController {
                     self.performSegue(withIdentifier: "startWordCheck", sender: nil)
                 }
             default:
-                let alert = UIAlertController(title: "알림", message: "아이디 또는 비밀번호 오류", preferredStyle: UIAlertController.Style.alert)
-                let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+                let alert = UIAlertController(title: "알림", message: "아이디 또는 비밀번호 오류", preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "확인", style: .default)
                 alert.addAction(confirm)
                 self.present(alert, animated: true, completion: nil)
+                self.loginButton.isEnabled = true
             }
         }
     }
     
     @IBAction func signupButton(_ sender: Any) {
         performSegue(withIdentifier: "signUp", sender: nil)
+    }
+    
+    @IBAction func touchView(_ sender: Any) {
+        nickName.resignFirstResponder()
+        passWord.resignFirstResponder()
     }
 }

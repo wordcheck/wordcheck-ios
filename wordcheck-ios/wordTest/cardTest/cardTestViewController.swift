@@ -10,7 +10,6 @@ class cardTestViewController: UIViewController {
     
     var correctList: [WordsDetail] = []
     var wrongList: [WordsDetail] = []
-    
     var wordData: [WordCard] = []
     var stackContainer: StackContainerView!
     let testView = TestView()
@@ -59,29 +58,9 @@ class cardTestViewController: UIViewController {
             if index < self.stackContainer.cardViews.count {
                 self.correctList.append(self.testList[index])
                 self.stackContainer.swipeDidEnd(on: (self.stackContainer.cardViews[index]))
-                self.stackContainer.correctCount += 1
-                guard let wrongCount = self.stackContainer.cardViews[index].dataSource?.wrongCount else { return }
-                if wrongCount > 0 {
-                    let header: HTTPHeaders = [
-                        "Authorization": self.token
-                    ]
-                    let parameters: Parameters = [
-                        "state": "correct"
-                    ]
-                    guard let id = self.stackContainer.cardViews[index].dataSource?.id else { return }
-                    AF.request("https://wordcheck.sulrae.com/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
-                        switch response.result {
-                        case .success:
-                            return
-                        case .failure:
-                            return
-                        }
-                    }
-                }
                 if index == self.stackContainer.cardViews.count - 1 {
                     let alert = UIAlertController(title: "시험 종료", message: "고생하셨습니다", preferredStyle: .alert)
                     let confirm = UIAlertAction(title: "확인", style: .default) { action in
-                        self.stackContainer.correctCount = 0
                         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "testResult") as? testResultViewController else { return }
                         vc.modalTransitionStyle = .coverVertical
                         vc.correctList = self.correctList
@@ -101,25 +80,9 @@ class cardTestViewController: UIViewController {
             if index < self.stackContainer.cardViews.count {
                 self.wrongList.append(self.testList[index])
                 self.stackContainer.swipeDidEnd(on: (self.stackContainer.cardViews[index]))
-                let header: HTTPHeaders = [
-                    "Authorization": self.token
-                ]
-                let parameters: Parameters = [
-                    "state": "wrong"
-                ]
-                guard let id = self.stackContainer.cardViews[index].dataSource?.id else { return }
-                AF.request("https://wordcheck.sulrae.com/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
-                    switch response.result {
-                    case .success:
-                        return
-                    case .failure:
-                        return
-                    }
-                }
                 if index == self.stackContainer.cardViews.count - 1 {
-                    let alert = UIAlertController(title: "시험 종료", message: "고생하셨습니다", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "알림", message: "시험 종료", preferredStyle: .alert)
                     let confirm = UIAlertAction(title: "확인", style: .default) { action in
-                        self.stackContainer.correctCount = 0
                         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "testResult") as? testResultViewController else { return }
                         vc.modalTransitionStyle = .coverVertical
                         vc.correctList = self.correctList
@@ -135,7 +98,6 @@ class cardTestViewController: UIViewController {
         }
         
         testView.resetButtonTapHandler = {
-            self.stackContainer.correctCount = 0
             self.correctList = []
             self.wrongList = []
             self.resetTapped()

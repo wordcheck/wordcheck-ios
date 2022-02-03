@@ -22,6 +22,15 @@ class userProfileViewController: UITableViewController {
         setUser()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        userNickname.isHidden = false
+        nickNameFix.isHidden = true
+        fixButton.isHidden = false
+        confirmButton.isHidden = true
+        cancelButton.isHidden = true
+    }
+    
     func setUser() {
         guard let user = userInfo else { return }
         userImage.layer.borderWidth = 1
@@ -134,6 +143,10 @@ class userProfileViewController: UITableViewController {
         cancelButton.isHidden = true
         nickNameFix.endEditing(true)
     }
+    
+    @IBAction func touchView(_ sender: Any) {
+        nickNameFix.resignFirstResponder()
+    }
 }
 
 extension userProfileViewController {
@@ -143,8 +156,6 @@ extension userProfileViewController {
             switch indexPath.row {
             case 1:
                 self.tabBarController?.selectedIndex = 2
-            case 3:
-                print("건의 사항")
             default:
                 break
             }

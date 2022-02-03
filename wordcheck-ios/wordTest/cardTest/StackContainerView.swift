@@ -6,7 +6,6 @@ class StackContainerView: UIView, SwipeCardsDelegate {
     var cardsToBeVisible: Int = 3
     var cardViews : [SwipeCardView] = []
     var remainingcards: Int = 0
-    var correctCount: Int = 0;
     
     let horizontalInset: CGFloat = 10.0
     let verticalInset: CGFloat = 10.0
