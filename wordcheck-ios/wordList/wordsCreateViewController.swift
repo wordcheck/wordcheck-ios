@@ -31,6 +31,7 @@ class wordsCreateViewController: UIViewController {
         }
         dropDown.show()
     }
+    
     @IBAction func categoryCheck(_ sender: Any) {
         if !category.contains(categoryInput.text ?? "") {
             categoryInput.text = ""
@@ -56,8 +57,8 @@ class wordsCreateViewController: UIViewController {
             AF.request("https://wordcheck.sulrae.com/api/words/", method: .post, parameters: parameters, headers: header).validate(statusCode: 200..<300).response { response in
                 switch response.result {
                 case .success:
-                    let alert = UIAlertController(title: "알림", message: "단어 추가 성공", preferredStyle: UIAlertController.Style.alert)
-                    let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
+                    let alert = UIAlertController(title: "알림", message: "단어 추가 성공", preferredStyle: .alert)
+                    let confirm = UIAlertAction(title: "확인", style: .default) { action in
                         let content = Content(contents: self.contentsInput.text!)
                         if !self.contentsList.contains(where: { $0 == content }) {
                             self.contentsList.append(content)
@@ -74,20 +75,20 @@ class wordsCreateViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                     
                 case .failure:
-                    let alert = UIAlertController(title: "알림", message: "오류", preferredStyle: UIAlertController.Style.alert)
-                    let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+                    let alert = UIAlertController(title: "알림", message: "오류", preferredStyle: .alert)
+                    let confirm = UIAlertAction(title: "확인", style: .default)
                     alert.addAction(confirm)
                     self.present(alert, animated: true, completion: nil)
                 }
             }
         } else if detailList.contains(where: { $0.spelling == spellingInput.text}) {
-            let alert = UIAlertController(title: "경고", message: "중복된 단어입니다", preferredStyle: UIAlertController.Style.alert)
-            let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+            let alert = UIAlertController(title: "경고", message: "중복된 단어입니다", preferredStyle: .alert)
+            let confirm = UIAlertAction(title: "확인", style: .default)
             alert.addAction(confirm)
             self.present(alert, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "경고", message: "빈칸 없이 입력해주세요", preferredStyle: UIAlertController.Style.alert)
-            let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+            let alert = UIAlertController(title: "경고", message: "빈칸 없이 입력해주세요", preferredStyle: .alert)
+            let confirm = UIAlertAction(title: "확인", style: .default)
             alert.addAction(confirm)
             self.present(alert, animated: true, completion: nil)
         }
@@ -95,7 +96,10 @@ class wordsCreateViewController: UIViewController {
     }
     
     @IBAction func touchView(_ sender: Any) {
+        contentsInput.resignFirstResponder()
         spellingInput.resignFirstResponder()
+        categoryInput.resignFirstResponder()
+        meaningInput.resignFirstResponder()
     }
 }
 

@@ -75,6 +75,9 @@ class wordsUpdateViewController: UIViewController {
     }
     
     @IBAction func touchView(_ sender: Any) {
+        contentsInput.resignFirstResponder()
         spellingInput.resignFirstResponder()
+        categoryInput.resignFirstResponder()
+        meaningInput.resignFirstResponder()
     }
 }

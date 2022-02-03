@@ -4,6 +4,7 @@ import Alamofire
 class signupViewController: UIViewController {
     @IBOutlet weak var nickName: UITextField!
     @IBOutlet weak var passWord: UITextField!
+    @IBOutlet weak var signupButton: UIButton!
     
     private let nickNameCheckURL = "https://wordcheck.sulrae.com/api/accounts/nickname_check/"
     private let signUpURL = "https://wordcheck.sulrae.com/api/accounts/normal_signup/"
@@ -22,8 +23,8 @@ class signupViewController: UIViewController {
             case .success:
                 return
             default:
-                let alert = UIAlertController(title: "알림", message: "중복된 닉네임 입니다", preferredStyle: UIAlertController.Style.alert)
-                let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+                let alert = UIAlertController(title: "알림", message: "중복된 닉네임 입니다", preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "확인", style: .default)
                 alert.addAction(confirm)
                 self.present(alert, animated: true, completion: nil)
             }
@@ -31,6 +32,7 @@ class signupViewController: UIViewController {
     }
     
     @IBAction func signUpButton(_ sender: Any) {
+        signupButton.isEnabled = false
         let parameters: Parameters = [
             "nickname": self.nickName.text!,
             "password": self.passWord.text!,
@@ -40,19 +42,25 @@ class signupViewController: UIViewController {
         AF.request(signUpURL, method: .post, parameters: parameters).validate(statusCode: 200..<300).responseDecodable(of: User.self) { response in
             switch response.result {
             case .success:
-                let alert = UIAlertController(title: "알림", message: "가입된 아이디로 로그인 해주세요", preferredStyle: UIAlertController.Style.alert)
-                let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
+                let alert = UIAlertController(title: "알림", message: "가입된 아이디로 로그인 해주세요", preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "확인", style: .default) { action in
                     self.dismiss(animated: true, completion: nil)
                 }
                 alert.addAction(confirm)
                 self.present(alert, animated: true, completion: nil)
+                self.signupButton.isEnabled = true
             case .failure:
-                let alert = UIAlertController(title: "알림", message: "가입 오류", preferredStyle: UIAlertController.Style.alert)
-                let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+                let alert = UIAlertController(title: "알림", message: "가입 오류", preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "확인", style: .default)
                 alert.addAction(confirm)
                 self.present(alert, animated: true, completion: nil)
+                self.signupButton.isEnabled = true
             }
         }
     }
     
+    @IBAction func touchView(_ sender: Any) {
+        nickName.resignFirstResponder()
+        passWord.resignFirstResponder()
+    }
 }

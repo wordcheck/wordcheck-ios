@@ -1,4 +1,5 @@
 import UIKit
+import Alamofire
 
 class testResultViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
@@ -7,6 +8,7 @@ class testResultViewController: UIViewController {
     @IBOutlet weak var wrongWords: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    private let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
     var allList = Storage.retrive("words_test.json", from: .caches, as: [WordsDetail].self) ?? []
     var correctList: [WordsDetail] = []
     var wrongList: [WordsDetail] = []
@@ -14,7 +16,14 @@ class testResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setScore()
+    }
+    
+    func setScore() {
         let score = Int(Float(correctList.count) / Float(allList.count) * 100)
         scoreLabel.text = "\(score)점"
         allWords.isSelected = true
@@ -22,9 +31,40 @@ class testResultViewController: UIViewController {
         correctWords.setTitle("정답(\(correctList.count))", for: .normal)
         wrongWords.setTitle("오답(\(wrongList.count))", for: .normal)
         visibleList = allList
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
+        
+        for word in correctList {
+            let wrongCount = word.wrong_count!
+            if wrongCount > 0 {
+                let header: HTTPHeaders = [
+                    "Authorization": self.token
+                ]
+                let parameters: Parameters = [
+                    "state": "correct"
+                ]
+                guard let id = word.id else { return }
+                AF.request("https://wordcheck.sulrae.com/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
+                    switch response.result {
+                    case .success: return
+                    case .failure: return
+                    }
+                }
+            }
+        }
+        for word in wrongList {
+            let header: HTTPHeaders = [
+                "Authorization": self.token
+            ]
+            let parameters: Parameters = [
+                "state": "wrong"
+            ]
+            guard let id = word.id else { return }
+            AF.request("https://wordcheck.sulrae.com/api/words/\(id)/test/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<300).response { response in
+                switch response.result {
+                case .success: return
+                case .failure: return
+                }
+            }
+        }
     }
     
     @IBAction func allWords(_ sender: Any) {
