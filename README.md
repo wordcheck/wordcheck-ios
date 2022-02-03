@@ -5,7 +5,14 @@
 >  2. AppStore 배포 경험
 >  3. API 경험
 >  4. CRUD 경험
+>  5. Life Cycle에 대한 이해
+>  6. Design Pattern 경험
  
+> ## 라이브러리
+>  1. Alamofire
+>  2. Kingfisher
+>  3. DropDown
+>  4. AVFoundation
 > ## 생각 중인 것들
 > * 단어 
 >   1. 단어사진(직관적으로 알 수 있게), ~~발음 읽기(coreML?), 북마크(Storage)~~  
