@@ -1,4 +1,5 @@
 # wordcheck-ios 
+  - 추후 Notion 생성 예정
 ## 2022/01/02 ~
 > ## 목표
 >  1. iOS develop 경험
