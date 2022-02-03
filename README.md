@@ -13,6 +13,7 @@
 >  2. Kingfisher
 >  3. DropDown
 >  4. AVFoundation
+ 
 > ## 생각 중인 것들
 > * 단어 
 >   1. 단어사진(직관적으로 알 수 있게), ~~발음 읽기(coreML?), 북마크(Storage)~~  
