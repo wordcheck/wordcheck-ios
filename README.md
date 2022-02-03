@@ -1,9 +1,9 @@
 # wordcheck-ios 
 ## 2022/01/02 ~
 > ## 목표
->  1. iOS develope 경험 쌓기
->  2. AppStore에 배포해보기
->  3. Api 경험
+>  1. iOS develop 경험
+>  2. AppStore 배포 경험
+>  3. API 경험
 >  4. CRUD 경험
  
 > ## 생각 중인 것들
