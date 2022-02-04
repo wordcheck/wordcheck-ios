@@ -1,6 +1,6 @@
 # wordcheck-ios 
-  - 추후 Notion 생성 예정
-  - https://apps.apple.com/kor/app/wordcheck/id1608211521
+  [![Notion Badge](https://img.shields.io/badge/-Notion-white?style=flat&logo=Notion&logoColor=black)](https://www.notion.so/WordCheck-43b78f5f3a0e4a7e9c75cc1d9be90314)  
+  [![Appstore Badge](https://img.shields.io/badge/-Appstore-white?style=flat&logo=Appstore&logoColor=#0D96F6)](https://apps.apple.com/kor/app/wordcheck/id1608211521)
 ## 2022/01/02 ~
 ## 목표
 >  1. iOS develop 경험
