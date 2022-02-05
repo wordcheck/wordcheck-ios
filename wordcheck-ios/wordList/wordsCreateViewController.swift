@@ -25,6 +25,15 @@ class wordsCreateViewController: UIViewController {
         categoryInput.layer.borderColor = UIColor.systemGray5.cgColor
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.traitCollection.userInterfaceStyle == .dark {
+            categoryInput.backgroundColor = .black
+        } else {
+            categoryInput.backgroundColor = .white
+        }
+    }
+    
     @IBAction func contentsCheck(_ sender: Any) {
         contentsLength.text = "\(contentsInput.text!.count)/20"
         limitLength(textField: contentsInput, maxLength: 20)
@@ -35,7 +44,9 @@ class wordsCreateViewController: UIViewController {
     }
     
     @IBAction func categoryClick(_ sender: Any) {
+        contentsInput.resignFirstResponder()
         spellingInput.resignFirstResponder()
+        meaningInput.resignFirstResponder()
         let dropDown = DropDown()
         dropDown.backgroundColor = UIColor.white
         dropDown.anchorView = categoryInput
@@ -119,6 +130,8 @@ extension wordsCreateViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         if textField == contentsInput {
             spellingInput.becomeFirstResponder()
+        } else if textField == spellingInput {
+            categoryClick(0)
         }
         return true
     }

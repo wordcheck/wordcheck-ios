@@ -114,7 +114,7 @@ extension dictationTestViewController: UITextFieldDelegate {
             buttonBottom.constant = answerInputBottom.constant + answerInput.frame.height + 20
         } else {
             answerInputBottom.constant = 120
-            buttonBottom.constant = 370
+            buttonBottom.constant = 200
         }
     }
     
