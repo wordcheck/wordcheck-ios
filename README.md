@@ -1,6 +1,7 @@
-# wordcheck-ios 
-  [![Notion Badge](https://img.shields.io/badge/-Notion-white?style=flat&logo=Notion&logoColor=black)](https://www.notion.so/WordCheck-43b78f5f3a0e4a7e9c75cc1d9be90314)  
-  [![Appstore Badge](https://img.shields.io/badge/-Appstore-white?style=flat&logo=Appstore&logoColor=#0D96F6)](https://apps.apple.com/kor/app/wordcheck/id1608211521)
+# WordCheck - iOS 
+### AppStore 출시일: 2022/02/03  
+[![Notion Badge](https://img.shields.io/badge/-Notion-white?style=flat&logo=Notion&logoColor=black)](https://www.notion.so/WordCheck-43b78f5f3a0e4a7e9c75cc1d9be90314)  
+[![Appstore Badge](https://img.shields.io/badge/-Appstore-white?style=flat&logo=Appstore&logoColor=#0D96F6)](https://apps.apple.com/kor/app/wordcheck/id1608211521)  
 ## 2022/01/02 ~
 ## 목표
 >  1. iOS develop 경험
@@ -17,30 +18,30 @@
 >  4. AVFoundation
  
 ## 생각 중인 것들
-> * 단어 
->   1. 단어사진(직관적으로 알 수 있게)
->   2. ~~발음 읽기(coreML?)~~
->   3. ~~북마크(Storage)~~  
->   4. ~~contents 입력 안하면 "그룹 미지정"으로 넣기~~
-> * 퀴즈  
->   1. 단어카드
+> 1. 단어  
+>    * 단어사진(직관적으로 알 수 있게)
+>    * ~~발음 읽기(coreML?)~~
+>    * ~~북마크(Storage)~~  
+>    * ~~contents 입력 안하면 "그룹 미지정"으로 넣기~~
+> 2. 퀴즈  
+>    * 단어카드
 >       * ~~탭하면 뜻 보이게(Handler처리)~~
 >       * ~~북마크 버튼~~
 >       * 현재 페이지 번호
 >       * 정답 여부에 따라 View변화(Custom View)
->   2. 사지선다
+>    * 사지선다
 >       * ~~최소 단어수 제한~~
->   3. 받아쓰기
+>    * 받아쓰기
 >       * View 조정
-> * 내 정보
->   1. ~~파파고 번역추가 (api 사용 경험을 위함)~~
+> 3. 내 정보
+>    * ~~파파고 번역추가 (api 사용 경험을 위함)~~
 
-## testflight 피드백
->   1. ~~단어 삭제 후 퀴즈 선택 목록 갱신~~
->   2. 단어 생성할 때 이미 생성한 contents 목록 선택할 수 있게
->   3. ~~퀴즈 후 마이페이지 > 자주 틀리는 단어 갱신~~
->   4. ~~단어장 없으면 단어 생성하라 알림~~
->   5. ~~검색결과 없으면 알림~~
+## TestFlight 피드백
+>   * ~~단어 삭제 후 퀴즈 선택 목록 갱신~~
+>   * 단어 생성할 때 이미 생성한 contents 목록 선택할 수 있게
+>   * ~~퀴즈 후 마이페이지 > 자주 틀리는 단어 갱신~~
+>   * ~~단어장 없으면 단어 생성하라 알림~~
+>   * ~~검색결과 없으면 알림~~
 
 ## 시연 영상
 > ---
