@@ -18,7 +18,7 @@ class loginViewController: UIViewController {
         guard userInfo?.account_token != nil else { return }
         self.performSegue(withIdentifier: "startWordCheck", sender: nil)
     }
-    
+
     @IBAction func loginButton(_ sender: Any) {
         loginButton.isEnabled = false
         let parameters: Parameters = [
@@ -51,5 +51,15 @@ class loginViewController: UIViewController {
     @IBAction func touchView(_ sender: Any) {
         nickName.resignFirstResponder()
         passWord.resignFirstResponder()
+    }
+}
+
+extension loginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField == nickName {
+            passWord.becomeFirstResponder()
+        }
+        return true
     }
 }

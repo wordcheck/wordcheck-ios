@@ -40,10 +40,12 @@
 		13E5236A279FB57E00D8A458 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E52369279FB57E00D8A458 /* TestView.swift */; };
 		13F3D31A279A99E100805AC8 /* wordsBookMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F3D319279A99E100805AC8 /* wordsBookMarkViewController.swift */; };
 		13F6F57B27886FA6006A33CE /* signupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6F57A27886FA6006A33CE /* signupViewController.swift */; };
-		9433478EA3A41CD33C6254D2 /* Pods_wordcheck_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FA73CB26E6A45F6D96F364 /* Pods_wordcheck_ios.framework */; };
+		71DABEC3005C04DA7BAB6E03 /* Pods_wordcheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1DB794157EF0CCDB48018B7 /* Pods_wordcheck.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B267785807C6E13DB7CAD3C /* Pods-wordcheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordcheck.debug.xcconfig"; path = "Target Support Files/Pods-wordcheck/Pods-wordcheck.debug.xcconfig"; sourceTree = "<group>"; };
+		0F00D17A7D570F00091149BA /* Pods-wordcheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordcheck.release.xcconfig"; path = "Target Support Files/Pods-wordcheck/Pods-wordcheck.release.xcconfig"; sourceTree = "<group>"; };
 		1311AD4F278D4391005325D1 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
 		1311AD53278D4413005325D1 /* wordsCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsCreateViewController.swift; sourceTree = "<group>"; };
 		13153D4027916A8C00D875AF /* WordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCard.swift; sourceTree = "<group>"; };
@@ -78,9 +80,7 @@
 		13E52369279FB57E00D8A458 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		13F3D319279A99E100805AC8 /* wordsBookMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsBookMarkViewController.swift; sourceTree = "<group>"; };
 		13F6F57A27886FA6006A33CE /* signupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signupViewController.swift; sourceTree = "<group>"; };
-		8DD29BC621954A793F3BB6A0 /* Pods-wordcheck-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordcheck-ios.release.xcconfig"; path = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios.release.xcconfig"; sourceTree = "<group>"; };
-		CB1F3227D44C918D96E20D5A /* Pods-wordcheck-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordcheck-ios.debug.xcconfig"; path = "Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios.debug.xcconfig"; sourceTree = "<group>"; };
-		F2FA73CB26E6A45F6D96F364 /* Pods_wordcheck_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wordcheck_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1DB794157EF0CCDB48018B7 /* Pods_wordcheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wordcheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1381D7DB27874B7C000E4DFB /* Alamofire in Frameworks */,
-				9433478EA3A41CD33C6254D2 /* Pods_wordcheck_ios.framework in Frameworks */,
+				71DABEC3005C04DA7BAB6E03 /* Pods_wordcheck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,8 +101,8 @@
 			children = (
 				1336DDC6278096C10084DEFF /* wordcheck-ios */,
 				1336DDC5278096C10084DEFF /* Products */,
-				8E3D5D219CD890864DFFA1C9 /* Pods */,
 				30BA1559DAF4BB6261D0BB91 /* Frameworks */,
+				604F9257032D246DADA292CC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -237,16 +237,16 @@
 		30BA1559DAF4BB6261D0BB91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F2FA73CB26E6A45F6D96F364 /* Pods_wordcheck_ios.framework */,
+				B1DB794157EF0CCDB48018B7 /* Pods_wordcheck.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8E3D5D219CD890864DFFA1C9 /* Pods */ = {
+		604F9257032D246DADA292CC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CB1F3227D44C918D96E20D5A /* Pods-wordcheck-ios.debug.xcconfig */,
-				8DD29BC621954A793F3BB6A0 /* Pods-wordcheck-ios.release.xcconfig */,
+				0B267785807C6E13DB7CAD3C /* Pods-wordcheck.debug.xcconfig */,
+				0F00D17A7D570F00091149BA /* Pods-wordcheck.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -262,7 +262,7 @@
 				1336DDC0278096C10084DEFF /* Sources */,
 				1336DDC1278096C10084DEFF /* Frameworks */,
 				1336DDC2278096C10084DEFF /* Resources */,
-				7774D247809113E73154360E /* [CP] Embed Pods Frameworks */,
+				12C45B21ADAD0902D3E4CAB4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -327,6 +327,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		12C45B21ADAD0902D3E4CAB4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-wordcheck/Pods-wordcheck-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-wordcheck/Pods-wordcheck-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-wordcheck/Pods-wordcheck-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		74D47C7937872D649FDBEF1A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -342,28 +359,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-wordcheck-ios-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-wordcheck-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7774D247809113E73154360E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-wordcheck-ios/Pods-wordcheck-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -477,7 +477,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -532,7 +532,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -544,7 +544,7 @@
 		};
 		1336DDD9278096C20084DEFF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB1F3227D44C918D96E20D5A /* Pods-wordcheck-ios.debug.xcconfig */;
+			baseConfigurationReference = 0B267785807C6E13DB7CAD3C /* Pods-wordcheck.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -561,12 +561,12 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.44;
+				MARKETING_VERSION = 1.0.52;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiho.wordcheck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -577,7 +577,7 @@
 		};
 		1336DDDA278096C20084DEFF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DD29BC621954A793F3BB6A0 /* Pods-wordcheck-ios.release.xcconfig */;
+			baseConfigurationReference = 0F00D17A7D570F00091149BA /* Pods-wordcheck.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -594,12 +594,12 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.44;
+				MARKETING_VERSION = 1.0.52;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiho.wordcheck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -1,6 +1,5 @@
 import UIKit
 import Alamofire
-import SwiftUI
 
 class wordsListViewController: UIViewController {
     @IBOutlet weak var contentButton: UIButton!
@@ -15,6 +14,7 @@ class wordsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = .systemBackground
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,11 +32,13 @@ class wordsListViewController: UIViewController {
         let normal = UIAction(title: "그룹별") { _ in
             self.contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
             self.contentsList = self.contentsList.sorted(by: {$0.contents! < $1.contents!})
+            self.contentButton.setTitle("그룹별", for: .normal)
             self.tableView.reloadData()
         }
         let wrong = UIAction(title: "틀린 횟수별") { _ in
             self.contentsList = Storage.retrive("wrong_content.json", from: .caches, as: [Content].self) ?? []
             self.contentsList = self.contentsList.sorted(by: {$0.contents! < $1.contents!})
+            self.contentButton.setTitle("틀린 횟수별", for: .normal)
             self.tableView.reloadData()
         }
         let buttonMenu = UIMenu(title: "보기 선택", children: [normal, wrong])
@@ -61,7 +63,6 @@ class wordsListViewController: UIViewController {
                     alert.addAction(confirm)
                     self.present(alert, animated: true, completion: nil)
                 }
-                
             case .failure:
                 return
             }

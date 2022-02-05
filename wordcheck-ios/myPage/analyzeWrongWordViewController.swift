@@ -4,11 +4,12 @@ import AVFoundation
 
 class analyzeWrongWordViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var wordsCount: UILabel!
     
     private let wordsDetailUrl = "https://wordcheck.sulrae.com/api/words/detail_list/"
     private let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
     let contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
-    var allList = Storage.retrive("wrong_list.json", from: .caches, as: [WordsDetail].self) ?? []
+    var allList: [WordsDetail] = []
     var bookMarkList = Storage.retrive("bookmark_list.json", from: .documents, as: [WordsDetail].self) ?? []
     let synthesizer = AVSpeechSynthesizer()
     
@@ -22,7 +23,6 @@ class analyzeWrongWordViewController: UIViewController {
     }
     
     func setList() {
-        allList = []
         let header: HTTPHeaders = [
             "Authorization": token
         ]
@@ -43,13 +43,17 @@ class analyzeWrongWordViewController: UIViewController {
                             self.allList.append(word)
                         }
                     }
-                    Storage.store(self.allList, to: .caches, as: "wrong_list.json")
                     if i == self.contentsList.count - 1 {
-                        self.allList = Storage.retrive("wrong_list.json", from: .caches, as: [WordsDetail].self) ?? []
                         self.allList = self.allList.sorted(by: {$0.wrong_count! > $1.wrong_count!})
                         let countWrong = self.allList.first?.wrong_count
-                        self.allList = self.allList.filter({$0.wrong_count == countWrong})
-                        self.tableView.reloadData()
+                        if countWrong == 0 {
+                            self.wordsCount.text = "단어 수: 0"
+                            return
+                        } else {
+                            self.allList = self.allList.filter({$0.wrong_count == countWrong})
+                            self.tableView.reloadData()
+                            self.wordsCount.text = "단어 수: \(self.allList.count)"
+                        }
                     }
                 case .failure:
                     return

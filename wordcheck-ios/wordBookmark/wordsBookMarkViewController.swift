@@ -35,7 +35,6 @@ extension wordsBookMarkViewController: UITableViewDataSource {
         cell.countLabel.text = "툴린 횟수: \(bookMarkList[indexPath.row].wrong_count ?? 0)"
         
         cell.bookMarkButtonTapHandler = {
-            //self.bookMarkList[indexPath.row].remember = cell.bookMarkButton.isSelected
             self.bookMarkList = self.bookMarkList.filter { $0.id != self.bookMarkList[indexPath.row].id }
             Storage.store(self.bookMarkList, to: .documents, as: "bookmark_list.json")
             self.tableView.reloadData()

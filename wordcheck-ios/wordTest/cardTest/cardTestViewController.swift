@@ -1,6 +1,5 @@
 import UIKit
 import Alamofire
-import SwiftUI
 
 class cardTestViewController: UIViewController {
     private let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
@@ -59,7 +58,7 @@ class cardTestViewController: UIViewController {
                 self.correctList.append(self.testList[index])
                 self.stackContainer.swipeDidEnd(on: (self.stackContainer.cardViews[index]))
                 if index == self.stackContainer.cardViews.count - 1 {
-                    let alert = UIAlertController(title: "시험 종료", message: "고생하셨습니다", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "알림", message: "시험 종료", preferredStyle: .alert)
                     let confirm = UIAlertAction(title: "확인", style: .default) { action in
                         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "testResult") as? testResultViewController else { return }
                         vc.modalTransitionStyle = .coverVertical

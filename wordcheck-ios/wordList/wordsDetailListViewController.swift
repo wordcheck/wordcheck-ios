@@ -76,6 +76,7 @@ extension wordsDetailListViewController: UITableViewDataSource {
                         
                         if self.detailList.count == 0 {
                             self.contentList = self.contentList.filter { $0.contents != content }
+                            self.contentList = self.contentList.sorted(by: { $0.contents! < $1.contents! })
                             Storage.store(self.contentList, to: .caches, as: "contents_list.json")
                             self.delegate?.loadDeleteTableView()
                             self.dismiss(animated: true, completion: nil)
