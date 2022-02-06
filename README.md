@@ -52,16 +52,16 @@
 ## 시연 영상
 > ---
 > ### 로그인
-> ![RPReplay_Final1643957276](https://user-images.githubusercontent.com/49361214/152498972-0eca8d96-c9fb-4d3d-ba3e-d56fccbfb932.gif)
->  
+> ![RPReplay_Final1644124143](https://user-images.githubusercontent.com/49361214/152668731-6c2fbdb8-8c69-4507-a927-fd0aa5e07c59.gif)
+>
 > ---
 > ### 단어 생성
-> ![RPReplay_Final1643958340](https://user-images.githubusercontent.com/49361214/152499510-b8cfa9ec-c76b-450a-81c0-17c08d05e4a5.gif)
->   
+> ![RPReplay_Final1644123678](https://user-images.githubusercontent.com/49361214/152668692-57463379-e93c-46b1-b33d-19d3eb0e5f69.gif)
+>
 > ---
 > ### 단어 수정
-> ![RPReplay_Final1643957659](https://user-images.githubusercontent.com/49361214/152499471-03f7a927-e335-48d7-84af-09461c1e8a38.gif)
->   
+> ![RPReplay_Final1644123728](https://user-images.githubusercontent.com/49361214/152668691-a560c5da-0359-4fb1-96da-9eb4bc617191.gif)
+>
 > ---   
 > ### 단어 삭제
 > ![RPReplay_Final1643957715](https://user-images.githubusercontent.com/49361214/152499668-89c21932-5006-42df-9e06-228c44a6059c.gif)
