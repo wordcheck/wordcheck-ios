@@ -9,7 +9,7 @@ class wordsSearchViewController: UIViewController {
     let searchUrl = "https://wordcheck.sulrae.com/api/words/search/"
     let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
     var searchList: [WordsDetail] = []
-    var bookMarkList = Storage.retrive("bookmark_list.json", from: .documents, as: [WordsDetail].self) ?? []
+    var bookMarkList: [WordsDetail] = []
     let synthesizer = AVSpeechSynthesizer()
     
     override func viewDidLoad() {
@@ -42,6 +42,7 @@ extension wordsSearchViewController: UISearchBarDelegate {
             switch response.result {
             case .success:
                 guard let list = response.value else { return }
+                self.bookMarkList = Storage.retrive("bookmark_list.json", from: .documents, as: [WordsDetail].self) ?? []
                 self.searchList = list.sorted(by: {$0.contents! < $1.contents!})
                 self.tableView.reloadData()
                 if list.count == 0 {
@@ -58,9 +59,6 @@ extension wordsSearchViewController: UISearchBarDelegate {
 }
 
 extension wordsSearchViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 320
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.searchList.count
     }
@@ -74,17 +72,19 @@ extension wordsSearchViewController: UITableViewDataSource {
         
         if bookMarkList.contains(where: { $0.id == self.searchList[indexPath.row].id }) {
             cell.bookMarkButton.isSelected = true
+            cell.bookMarkButton.tintColor = .yellowGreen
+        } else {
+            cell.bookMarkButton.isSelected = false
+            cell.bookMarkButton.tintColor = .lightGray
         }
-        
         cell.bookMarkButtonTapHandler = {
             cell.bookMarkButton.isSelected = !cell.bookMarkButton.isSelected
-            //self.searchList[indexPath.row].remember = cell.bookMarkButton.isSelected
-            
             if cell.bookMarkButton.isSelected == true && !self.bookMarkList.contains(self.searchList[indexPath.row]) {
                 self.bookMarkList.append(self.searchList[indexPath.row])
-                cell.bookMarkButton.isSelected = false
+                cell.bookMarkButton.tintColor = .yellowGreen
             } else if cell.bookMarkButton.isSelected == false {
                 self.bookMarkList = self.bookMarkList.filter({ $0.id != self.searchList[indexPath.row].id })
+                cell.bookMarkButton.tintColor = .lightGray
             }
             Storage.store(self.bookMarkList, to: .documents, as: "bookmark_list.json")
         }
@@ -95,6 +95,12 @@ extension wordsSearchViewController: UITableViewDataSource {
             self.synthesizer.speak(utterance)
         }
         return cell
+    }
+}
+
+extension wordsSearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180
     }
 }
 

@@ -34,6 +34,7 @@ class selectFourTestViewController: UIViewController {
     
     func setTest() {
         showList = testList
+        showList.shuffle()
         testMeanLabel.isHidden = true
         testSpellingLabel.text = showList.first!.spelling
         testMeanLabel.text = showList.first!.meaning

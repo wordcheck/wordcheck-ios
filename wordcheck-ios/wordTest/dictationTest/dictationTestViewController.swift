@@ -31,12 +31,13 @@ class dictationTestViewController: UIViewController {
     
     func setTest() {
         answerInput.layer.borderWidth = 1
-        answerInput.layer.borderColor = UIColor.systemIndigo.cgColor
+        answerInput.layer.borderColor = UIColor.lightGray.cgColor
         answerInput.layer.cornerRadius = 16
         
         testMeanLabel.isHidden = true
         
         showList = testList
+        showList.shuffle()
         testSpellingLabel.text = showList.first?.spelling
         testMeanLabel.text = showList.first?.meaning
         testMeanLabel.isHidden = true
@@ -56,7 +57,7 @@ class dictationTestViewController: UIViewController {
         }
         testMeanLabel.isHidden = true
         answerInput.text = ""
-        answerInput.layer.borderColor = UIColor.systemIndigo.cgColor
+        answerInput.layer.borderColor = UIColor.lightGray.cgColor
         
         if showList.count > 1 {
             showList.removeFirst()
@@ -114,7 +115,7 @@ extension dictationTestViewController: UITextFieldDelegate {
             buttonBottom.constant = answerInputBottom.constant + answerInput.frame.height + 20
         } else {
             answerInputBottom.constant = 120
-            buttonBottom.constant = 370
+            buttonBottom.constant = 200
         }
     }
     

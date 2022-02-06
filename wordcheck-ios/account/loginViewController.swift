@@ -16,9 +16,13 @@ class loginViewController: UIViewController {
         let userInfo = Storage.retrive("user_info.json", from: .documents, as: User.self) ?? nil
         loginButton.isEnabled = true
         guard userInfo?.account_token != nil else { return }
-        self.performSegue(withIdentifier: "startWordCheck", sender: nil)
+        Storage.store(userInfo, to: .documents, as: "user_info.json")
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "startWordCheck") else { return }
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil)
     }
-    
+
     @IBAction func loginButton(_ sender: Any) {
         loginButton.isEnabled = false
         let parameters: Parameters = [
@@ -32,7 +36,10 @@ class loginViewController: UIViewController {
                 guard let user = response.value else { return }
                 if(user.account_token != nil) {
                     Storage.store(user, to: .documents, as: "user_info.json")
-                    self.performSegue(withIdentifier: "startWordCheck", sender: nil)
+                    guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "startWordCheck") else { return }
+                    vc.modalPresentationStyle = .fullScreen
+                    vc.modalTransitionStyle = .crossDissolve
+                    self.present(vc, animated: true, completion: nil)
                 }
             default:
                 let alert = UIAlertController(title: "알림", message: "아이디 또는 비밀번호 오류", preferredStyle: .alert)
@@ -51,5 +58,15 @@ class loginViewController: UIViewController {
     @IBAction func touchView(_ sender: Any) {
         nickName.resignFirstResponder()
         passWord.resignFirstResponder()
+    }
+}
+
+extension loginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField == nickName {
+            passWord.becomeFirstResponder()
+        }
+        return true
     }
 }

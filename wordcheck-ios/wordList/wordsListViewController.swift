@@ -1,6 +1,5 @@
 import UIKit
 import Alamofire
-import SwiftUI
 
 class wordsListViewController: UIViewController {
     @IBOutlet weak var contentButton: UIButton!
@@ -15,16 +14,8 @@ class wordsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         setContent()
         getList()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     func setContent() {
@@ -32,11 +23,13 @@ class wordsListViewController: UIViewController {
         let normal = UIAction(title: "그룹별") { _ in
             self.contentsList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
             self.contentsList = self.contentsList.sorted(by: {$0.contents! < $1.contents!})
+            self.contentButton.setTitle("그룹별", for: .normal)
             self.tableView.reloadData()
         }
         let wrong = UIAction(title: "틀린 횟수별") { _ in
             self.contentsList = Storage.retrive("wrong_content.json", from: .caches, as: [Content].self) ?? []
             self.contentsList = self.contentsList.sorted(by: {$0.contents! < $1.contents!})
+            self.contentButton.setTitle("틀린 횟수별", for: .normal)
             self.tableView.reloadData()
         }
         let buttonMenu = UIMenu(title: "보기 선택", children: [normal, wrong])
@@ -61,7 +54,6 @@ class wordsListViewController: UIViewController {
                     alert.addAction(confirm)
                     self.present(alert, animated: true, completion: nil)
                 }
-                
             case .failure:
                 return
             }
@@ -126,9 +118,6 @@ extension wordsListViewController: LoadViewDelegate {
 }
 
 extension wordsListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.contentsList.count
     }
@@ -140,6 +129,9 @@ extension wordsListViewController: UITableViewDataSource {
 }
 
 extension wordsListViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let header: HTTPHeaders = [
             "Authorization": token
