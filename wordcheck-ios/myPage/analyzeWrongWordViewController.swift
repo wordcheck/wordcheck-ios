@@ -64,9 +64,6 @@ class analyzeWrongWordViewController: UIViewController {
 }
 
 extension analyzeWrongWordViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 320
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.allList.count
     }
@@ -77,8 +74,12 @@ extension analyzeWrongWordViewController: UITableViewDataSource {
         cell.categoryLabel.text = allList[indexPath.row].category
         cell.meaningLabel.text = allList[indexPath.row].meaning
         cell.countLabel.text = "툴린 횟수: \(allList[indexPath.row].wrong_count!)"
-        if bookMarkList.contains(self.allList[indexPath.row]) {
+        if bookMarkList.contains(where: { $0.id == self.allList[indexPath.row].id }) {
             cell.bookMarkButton.isSelected = true
+            cell.bookMarkButton.tintColor = .yellowGreen
+        } else {
+            cell.bookMarkButton.isSelected = false
+            cell.bookMarkButton.tintColor = .lightGray
         }
         cell.bookMarkButtonTapHandler = {
             cell.bookMarkButton.isSelected = !cell.bookMarkButton.isSelected
@@ -86,9 +87,10 @@ extension analyzeWrongWordViewController: UITableViewDataSource {
             
             if cell.bookMarkButton.isSelected == true && !self.bookMarkList.contains(self.allList[indexPath.row]) {
                 self.bookMarkList.append(self.allList[indexPath.row])
-                cell.bookMarkButton.isSelected = false
+                cell.bookMarkButton.tintColor = .yellowGreen
             } else if cell.bookMarkButton.isSelected == false {
                 self.bookMarkList = self.bookMarkList.filter({ $0.id != self.allList[indexPath.row].id })
+                cell.bookMarkButton.tintColor = .lightGray
             }
             Storage.store(self.bookMarkList, to: .documents, as: "bookmark_list.json")
         }
@@ -101,6 +103,11 @@ extension analyzeWrongWordViewController: UITableViewDataSource {
     }
 }
 
+extension analyzeWrongWordViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180
+    }
+}
 class WrongCell: UITableViewCell {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var spellingLabel: UILabel!

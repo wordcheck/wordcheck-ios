@@ -59,9 +59,6 @@ extension wordsSearchViewController: UISearchBarDelegate {
 }
 
 extension wordsSearchViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 320
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.searchList.count
     }
@@ -75,16 +72,19 @@ extension wordsSearchViewController: UITableViewDataSource {
         
         if bookMarkList.contains(where: { $0.id == self.searchList[indexPath.row].id }) {
             cell.bookMarkButton.isSelected = true
+            cell.bookMarkButton.tintColor = .yellowGreen
         } else {
             cell.bookMarkButton.isSelected = false
+            cell.bookMarkButton.tintColor = .lightGray
         }
         cell.bookMarkButtonTapHandler = {
             cell.bookMarkButton.isSelected = !cell.bookMarkButton.isSelected
             if cell.bookMarkButton.isSelected == true && !self.bookMarkList.contains(self.searchList[indexPath.row]) {
                 self.bookMarkList.append(self.searchList[indexPath.row])
-                cell.bookMarkButton.isSelected = false
+                cell.bookMarkButton.tintColor = .yellowGreen
             } else if cell.bookMarkButton.isSelected == false {
                 self.bookMarkList = self.bookMarkList.filter({ $0.id != self.searchList[indexPath.row].id })
+                cell.bookMarkButton.tintColor = .lightGray
             }
             Storage.store(self.bookMarkList, to: .documents, as: "bookmark_list.json")
         }
@@ -95,6 +95,12 @@ extension wordsSearchViewController: UITableViewDataSource {
             self.synthesizer.speak(utterance)
         }
         return cell
+    }
+}
+
+extension wordsSearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180
     }
 }
 

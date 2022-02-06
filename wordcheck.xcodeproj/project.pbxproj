@@ -13,6 +13,7 @@
 		13153D4327918E4400D875AF /* StackContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13153D4227918E4400D875AF /* StackContainerView.swift */; };
 		13153D4527918E9300D875AF /* SwipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13153D4427918E9300D875AF /* SwipeCardView.swift */; };
 		13153D472791902600D875AF /* SwipeCardsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13153D462791902600D875AF /* SwipeCardsDataSource.swift */; };
+		132CB9EC27B035DF005D258E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CB9EB27B035DF005D258E /* UIColor.swift */; };
 		132EE84D279FE3DD009B5B3C /* testResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132EE84C279FE3DD009B5B3C /* testResultViewController.swift */; };
 		1330F2C12793ECDB007D3CB3 /* wordsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1330F2C02793ECDB007D3CB3 /* wordsSearchViewController.swift */; };
 		13318E79279913E300140FE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13318E78279913E300140FE9 /* User.swift */; };
@@ -52,6 +53,7 @@
 		13153D4227918E4400D875AF /* StackContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackContainerView.swift; sourceTree = "<group>"; };
 		13153D4427918E9300D875AF /* SwipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardView.swift; sourceTree = "<group>"; };
 		13153D462791902600D875AF /* SwipeCardsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardsDataSource.swift; sourceTree = "<group>"; };
+		132CB9EB27B035DF005D258E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		132EE84C279FE3DD009B5B3C /* testResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testResultViewController.swift; sourceTree = "<group>"; };
 		1330F2C02793ECDB007D3CB3 /* wordsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsSearchViewController.swift; sourceTree = "<group>"; };
 		13318E78279913E300140FE9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				139909602796EB5B009871E6 /* TestView.xib */,
 				1336DDD0278096C20084DEFF /* Assets.xcassets */,
 				1336DDD5278096C20084DEFF /* Info.plist */,
+				132CB9EB27B035DF005D258E /* UIColor.swift */,
 			);
 			path = "wordcheck-ios";
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				13DCD15B27A42DE600BE3F5F /* papagoViewController.swift in Sources */,
 				1338AC2C27911A7700121A10 /* selectTestViewController.swift in Sources */,
 				1311AD54278D4413005325D1 /* wordsCreateViewController.swift in Sources */,
+				132CB9EC27B035DF005D258E /* UIColor.swift in Sources */,
 				1311AD50278D4391005325D1 /* Words.swift in Sources */,
 				1336DDDC27809F440084DEFF /* loginViewController.swift in Sources */,
 				134C87D127903B3700567A5A /* cardTestViewController.swift in Sources */,
@@ -566,7 +570,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.53;
+				MARKETING_VERSION = 1.0.56;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiho.wordcheck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -599,7 +603,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.53;
+				MARKETING_VERSION = 1.0.56;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiho.wordcheck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

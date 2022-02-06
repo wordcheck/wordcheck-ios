@@ -9,6 +9,7 @@ class wordsUpdateViewController: UIViewController {
     @IBOutlet weak var meaningInput: UITextField!
     @IBOutlet weak var contentsLength: UILabel!
     @IBOutlet weak var spellingLength: UILabel!
+    @IBOutlet weak var meaningLength: UILabel!
     weak var delegate: LoadViewDelegate?
     
     let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
@@ -43,7 +44,10 @@ class wordsUpdateViewController: UIViewController {
         spellingLength.text = "\(spellingInput.text!.count)/30"
         limitLength(textField: spellingInput, maxLength: 30)
     }
-    
+    @IBAction func meaningCheck(_ sender: Any) {
+        meaningLength.text = "\(meaningInput.text!.count)/50"
+        limitLength(textField: meaningInput, maxLength: 50)
+    }
     
     @IBAction func categoryClick(_ sender: Any) {
         contentsInput.resignFirstResponder()

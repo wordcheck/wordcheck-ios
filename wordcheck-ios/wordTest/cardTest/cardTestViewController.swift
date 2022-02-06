@@ -25,10 +25,13 @@ class cardTestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = content
         setCardTest()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = content
+    }
     //MARK: - Configurations
     func configureStackContainer() {
         let cardWidth = UIScreen.main.bounds.width * 3 / 4
@@ -50,6 +53,7 @@ class cardTestViewController: UIViewController {
                   let count = testList[i].wrong_count else { return }
             wordData.append(WordCard(id: id, spelling: spell, category: cate, meaning: mean, wrongCount: count))
         }
+        wordData.shuffle()
         stackContainer.dataSource = self
         
         testView.correctButtonTapHandler = {

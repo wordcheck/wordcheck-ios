@@ -22,6 +22,11 @@ class userProfileViewController: UITableViewController {
         setUser()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.topItem?.title = "내 정보"
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         userNickname.isHidden = false
@@ -50,6 +55,10 @@ class userProfileViewController: UITableViewController {
     
     @objc func photoClick(sender: UITapGestureRecognizer) {
         let alert = UIAlertController(title: "프로필 사진 변경", message: "", preferredStyle: .actionSheet)
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = userImage
+            popoverController.sourceRect = userImage.bounds
+        }
         let library = UIAlertAction(title: "앨범에서 선택", style: .default) { action in
             self.imagePickerController.sourceType = .photoLibrary
             self.present(self.imagePickerController, animated: true)
@@ -155,7 +164,7 @@ extension userProfileViewController {
         case 1:
             switch indexPath.row {
             case 1:
-                self.tabBarController?.selectedIndex = 2
+                self.tabBarController?.selectedIndex = 1
             default:
                 break
             }

@@ -12,15 +12,13 @@ class wordsBookMarkViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.topItem?.title = "나의 북마크"
         bookMarkList = Storage.retrive("bookmark_list.json", from: .documents, as: [WordsDetail].self) ?? []
         self.tableView.reloadData()
     }
 }
 
 extension wordsBookMarkViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 320
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.bookMarkList.count
     }
@@ -39,18 +37,21 @@ extension wordsBookMarkViewController: UITableViewDataSource {
             Storage.store(self.bookMarkList, to: .documents, as: "bookmark_list.json")
             self.tableView.reloadData()
         }
-        
         cell.speechButtonTapHandler = {
             let utterance = AVSpeechUtterance(string: cell.spellingLabel.text!)
             utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
             self.synthesizer.speak(utterance)
         }
-        
         return cell
     }
     
 }
 
+extension wordsBookMarkViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180
+    }
+}
 class BookMarkCell: UITableViewCell {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var spellingLabel: UILabel!
