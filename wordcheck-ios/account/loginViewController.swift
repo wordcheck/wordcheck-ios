@@ -10,11 +10,12 @@ class loginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nickName.becomeFirstResponder()
+        loginButton.isEnabled = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
         let userInfo = Storage.retrive("user_info.json", from: .documents, as: User.self) ?? nil
-        loginButton.isEnabled = true
         guard userInfo?.account_token != nil else { return }
         Storage.store(userInfo, to: .documents, as: "user_info.json")
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "startWordCheck") else { return }
@@ -23,6 +24,17 @@ class loginViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
 
+    @IBAction func nicknameChange(_ sender: Any) {
+        if nickName.text != "" && passWord.text != "" { loginButton.isEnabled = true
+        } else { loginButton.isEnabled = false }
+    }
+    
+    @IBAction func passwordChange(_ sender: Any) {
+        if nickName.text != "" && passWord.text != "" {
+            loginButton.isEnabled = true
+        } else {  loginButton.isEnabled = false }
+    }
+    
     @IBAction func loginButton(_ sender: Any) {
         loginButton.isEnabled = false
         let parameters: Parameters = [

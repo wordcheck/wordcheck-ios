@@ -3,6 +3,7 @@ import Alamofire
 import AVFoundation
 
 class wordsDetailListViewController: UIViewController {
+    @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var wordCount: UILabel!
     @IBOutlet weak var tableView: UITableView!
     weak var delegate: LoadViewDelegate?
@@ -10,14 +11,21 @@ class wordsDetailListViewController: UIViewController {
     let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
     var contentList = Storage.retrive("contents_list.json", from: .caches, as: [Content].self) ?? []
     var detailList: [WordsDetail] = []
-    var bookMarkList = Storage.retrive("bookmark_list.json", from: .documents, as: [WordsDetail].self) ?? []
+    var bookMarkList: [WordsDetail] = []
+    var contentName = ""
     var editStatus = false
     let synthesizer = AVSpeechSynthesizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        contentLabel.text = contentName
         detailList = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
         wordCount.text = "단어 수: \(detailList.count)"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        bookMarkList = Storage.retrive("bookmark_list.json", from: .documents, as: [WordsDetail].self) ?? []
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -36,6 +44,7 @@ extension wordsDetailListViewController: LoadViewDelegate {
     func loadCreateTableView() {}
     func loadUpdateTableView() {
         self.detailList = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
+        self.bookMarkList = Storage.retrive("bookmark_list.json", from: .documents, as: [WordsDetail].self) ?? []
         self.tableView.reloadData()
     }
     func loadDeleteTableView() {}
@@ -48,7 +57,6 @@ extension wordsDetailListViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "wordCell", for: indexPath) as? DetailCell else { return UITableViewCell() }
-        cell.contentLabel.text = self.detailList[indexPath.row].contents
         cell.spellingLabel.text = self.detailList[indexPath.row].spelling
         cell.categoryLabel.text = self.detailList[indexPath.row].category
         cell.meaningLabel.text = self.detailList[indexPath.row].meaning
@@ -85,6 +93,7 @@ extension wordsDetailListViewController: UITableViewDataSource {
                         let confirm = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { action in
                             self.detailList = self.detailList.filter { $0.id != id }
                             Storage.store(self.detailList, to: .caches, as: "words_detail.json")
+                            self.wordCount.text = "단어 수: \(self.detailList.count)"
                             self.tableView.reloadData()
                             
                             if self.detailList.count == 0 {
@@ -129,12 +138,11 @@ extension wordsDetailListViewController: UITableViewDataSource {
 
 extension wordsDetailListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return 240
     }
 }
 
 class DetailCell: UITableViewCell {
-    @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var spellingLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var meaningLabel: UILabel!
@@ -153,7 +161,7 @@ class DetailCell: UITableViewCell {
         contentView.layer.borderWidth = 1
         contentView.layer.borderColor = UIColor.lightGray.cgColor
         contentView.layer.cornerRadius = 8
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10))
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20))
     }
     
     @IBAction func updateButton(_ sender: Any) {

@@ -90,6 +90,7 @@ class userProfileViewController: UITableViewController {
         alert.addAction(cancle)
         present(alert, animated: true, completion: nil)
     }
+    
     @IBAction func updateNickname(_ sender: Any) {
         userNickname.isHidden = true
         nickNameFix.isHidden = false

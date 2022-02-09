@@ -24,6 +24,10 @@ class wordsCreateViewController: UIViewController {
         categoryInput.layer.borderWidth = 1
         categoryInput.layer.cornerRadius = 5
         categoryInput.layer.borderColor = UIColor.systemGray5.cgColor
+        
+        contentsLength.text = "\(contentsInput.text!.count)/20"
+        spellingLength.text = "\(spellingInput.text!.count)/30"
+        meaningLength.text = "\(meaningInput.text!.count)/50"
     }
     
     override func viewWillAppear(_ animated: Bool) {
