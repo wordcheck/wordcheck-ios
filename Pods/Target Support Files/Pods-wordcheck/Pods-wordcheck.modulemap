@@ -1,0 +1,6 @@
+framework module Pods_wordcheck {
+  umbrella header "Pods-wordcheck-umbrella.h"
+
+  export *
+  module * { export * }
+}

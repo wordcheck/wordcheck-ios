@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		130FE69D27B41D2D00D1287C /* BaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130FE69C27B41D2D00D1287C /* BaseTableCell.swift */; };
+		130FE6A127B4263C00D1287C /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130FE6A027B4263C00D1287C /* DetailCell.swift */; };
+		130FE6A327B426CC00D1287C /* BookMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130FE6A227B426CC00D1287C /* BookMarkCell.swift */; };
+		130FE6A527B4276D00D1287C /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130FE6A427B4276D00D1287C /* ContentCell.swift */; };
+		130FE6A727B428B700D1287C /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130FE6A627B428B700D1287C /* SearchCell.swift */; };
+		130FE6AA27B4298600D1287C /* WrongWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130FE6A927B4298600D1287C /* WrongWordCell.swift */; };
+		130FE6AD27B42BA600D1287C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130FE6AC27B42BA600D1287C /* BaseViewController.swift */; };
 		1311AD50278D4391005325D1 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311AD4F278D4391005325D1 /* Words.swift */; };
 		1311AD54278D4413005325D1 /* wordsCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311AD53278D4413005325D1 /* wordsCreateViewController.swift */; };
 		13153D4127916A8C00D875AF /* WordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13153D4027916A8C00D875AF /* WordCard.swift */; };
@@ -15,21 +22,21 @@
 		13153D472791902600D875AF /* SwipeCardsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13153D462791902600D875AF /* SwipeCardsDataSource.swift */; };
 		132CB9EC27B035DF005D258E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CB9EB27B035DF005D258E /* UIColor.swift */; };
 		132EE84D279FE3DD009B5B3C /* testResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132EE84C279FE3DD009B5B3C /* testResultViewController.swift */; };
-		1330F2C12793ECDB007D3CB3 /* wordsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1330F2C02793ECDB007D3CB3 /* wordsSearchViewController.swift */; };
+		1330F2C12793ECDB007D3CB3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1330F2C02793ECDB007D3CB3 /* SearchViewController.swift */; };
 		13318E79279913E300140FE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13318E78279913E300140FE9 /* User.swift */; };
 		1336DDC8278096C10084DEFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDC7278096C10084DEFF /* AppDelegate.swift */; };
 		1336DDCA278096C10084DEFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDC9278096C10084DEFF /* SceneDelegate.swift */; };
 		1336DDCF278096C10084DEFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1336DDCD278096C10084DEFF /* Main.storyboard */; };
 		1336DDD1278096C20084DEFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1336DDD0278096C20084DEFF /* Assets.xcassets */; };
 		1336DDD4278096C20084DEFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1336DDD2278096C20084DEFF /* LaunchScreen.storyboard */; };
-		1336DDDC27809F440084DEFF /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDDB27809F440084DEFF /* loginViewController.swift */; };
-		1336DDDE2780A04B0084DEFF /* wordsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDDD2780A04B0084DEFF /* wordsListViewController.swift */; };
+		1336DDDC27809F440084DEFF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDDB27809F440084DEFF /* LoginViewController.swift */; };
+		1336DDDE2780A04B0084DEFF /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DDDD2780A04B0084DEFF /* ContentsViewController.swift */; };
 		1338AC2C27911A7700121A10 /* selectTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1338AC2B27911A7700121A10 /* selectTestViewController.swift */; };
 		134C87D127903B3700567A5A /* cardTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134C87D027903B3700567A5A /* cardTestViewController.swift */; };
-		13514D1227A59E39007EBF34 /* analyzeWrongWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13514D1127A59E39007EBF34 /* analyzeWrongWordViewController.swift */; };
+		13514D1227A59E39007EBF34 /* AnalyzeWrongWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13514D1127A59E39007EBF34 /* AnalyzeWrongWordViewController.swift */; };
 		136DE733278E6A4900C29BEC /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DE732278E6A4900C29BEC /* Storage.swift */; };
 		136DE735278EA77100C29BEC /* wordsUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DE734278EA77100C29BEC /* wordsUpdateViewController.swift */; };
-		1378C08D278C4B5C00BD6DBD /* wordsDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378C08C278C4B5C00BD6DBD /* wordsDetailListViewController.swift */; };
+		1378C08D278C4B5C00BD6DBD /* WordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378C08C278C4B5C00BD6DBD /* WordListViewController.swift */; };
 		1381D7DB27874B7C000E4DFB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1381D7DA27874B7C000E4DFB /* Alamofire */; };
 		139909612796EB5B009871E6 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139909602796EB5B009871E6 /* TestView.xib */; };
 		139F12BD27994C9600BAB005 /* userProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F12BC27994C9600BAB005 /* userProfileViewController.swift */; };
@@ -40,13 +47,20 @@
 		13E52368279FB3E600D8A458 /* dictationTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E52367279FB3E600D8A458 /* dictationTestViewController.swift */; };
 		13E5236A279FB57E00D8A458 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E52369279FB57E00D8A458 /* TestView.swift */; };
 		13F3D31A279A99E100805AC8 /* wordsBookMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F3D319279A99E100805AC8 /* wordsBookMarkViewController.swift */; };
-		13F6F57B27886FA6006A33CE /* signupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6F57A27886FA6006A33CE /* signupViewController.swift */; };
+		13F6F57B27886FA6006A33CE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6F57A27886FA6006A33CE /* SignupViewController.swift */; };
 		71DABEC3005C04DA7BAB6E03 /* Pods_wordcheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1DB794157EF0CCDB48018B7 /* Pods_wordcheck.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0B267785807C6E13DB7CAD3C /* Pods-wordcheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordcheck.debug.xcconfig"; path = "Target Support Files/Pods-wordcheck/Pods-wordcheck.debug.xcconfig"; sourceTree = "<group>"; };
 		0F00D17A7D570F00091149BA /* Pods-wordcheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wordcheck.release.xcconfig"; path = "Target Support Files/Pods-wordcheck/Pods-wordcheck.release.xcconfig"; sourceTree = "<group>"; };
+		130FE69C27B41D2D00D1287C /* BaseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableCell.swift; sourceTree = "<group>"; };
+		130FE6A027B4263C00D1287C /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		130FE6A227B426CC00D1287C /* BookMarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkCell.swift; sourceTree = "<group>"; };
+		130FE6A427B4276D00D1287C /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
+		130FE6A627B428B700D1287C /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		130FE6A927B4298600D1287C /* WrongWordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongWordCell.swift; sourceTree = "<group>"; };
+		130FE6AC27B42BA600D1287C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1311AD4F278D4391005325D1 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
 		1311AD53278D4413005325D1 /* wordsCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsCreateViewController.swift; sourceTree = "<group>"; };
 		13153D4027916A8C00D875AF /* WordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCard.swift; sourceTree = "<group>"; };
@@ -55,7 +69,7 @@
 		13153D462791902600D875AF /* SwipeCardsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCardsDataSource.swift; sourceTree = "<group>"; };
 		132CB9EB27B035DF005D258E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		132EE84C279FE3DD009B5B3C /* testResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testResultViewController.swift; sourceTree = "<group>"; };
-		1330F2C02793ECDB007D3CB3 /* wordsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsSearchViewController.swift; sourceTree = "<group>"; };
+		1330F2C02793ECDB007D3CB3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		13318E78279913E300140FE9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1336DDC4278096C10084DEFF /* wordcheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wordcheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1336DDC7278096C10084DEFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,14 +78,14 @@
 		1336DDD0278096C20084DEFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1336DDD3278096C20084DEFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1336DDD5278096C20084DEFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1336DDDB27809F440084DEFF /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
-		1336DDDD2780A04B0084DEFF /* wordsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsListViewController.swift; sourceTree = "<group>"; };
+		1336DDDB27809F440084DEFF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1336DDDD2780A04B0084DEFF /* ContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
 		1338AC2B27911A7700121A10 /* selectTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectTestViewController.swift; sourceTree = "<group>"; };
 		134C87D027903B3700567A5A /* cardTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardTestViewController.swift; sourceTree = "<group>"; };
-		13514D1127A59E39007EBF34 /* analyzeWrongWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = analyzeWrongWordViewController.swift; sourceTree = "<group>"; };
+		13514D1127A59E39007EBF34 /* AnalyzeWrongWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeWrongWordViewController.swift; sourceTree = "<group>"; };
 		136DE732278E6A4900C29BEC /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		136DE734278EA77100C29BEC /* wordsUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsUpdateViewController.swift; sourceTree = "<group>"; };
-		1378C08C278C4B5C00BD6DBD /* wordsDetailListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsDetailListViewController.swift; sourceTree = "<group>"; };
+		1378C08C278C4B5C00BD6DBD /* WordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListViewController.swift; sourceTree = "<group>"; };
 		139909602796EB5B009871E6 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		139F12BC27994C9600BAB005 /* userProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userProfileViewController.swift; sourceTree = "<group>"; };
 		13D2D8942795393400B5F701 /* LoadViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewDelegate.swift; sourceTree = "<group>"; };
@@ -81,7 +95,7 @@
 		13E52367279FB3E600D8A458 /* dictationTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dictationTestViewController.swift; sourceTree = "<group>"; };
 		13E52369279FB57E00D8A458 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		13F3D319279A99E100805AC8 /* wordsBookMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordsBookMarkViewController.swift; sourceTree = "<group>"; };
-		13F6F57A27886FA6006A33CE /* signupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signupViewController.swift; sourceTree = "<group>"; };
+		13F6F57A27886FA6006A33CE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		B1DB794157EF0CCDB48018B7 /* Pods_wordcheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wordcheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,6 +112,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		130FE69E27B4260600D1287C /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				1336DDDD2780A04B0084DEFF /* ContentsViewController.swift */,
+				130FE6A427B4276D00D1287C /* ContentCell.swift */,
+			);
+			path = Contents;
+			sourceTree = "<group>";
+		};
+		130FE69F27B4260F00D1287C /* WordList */ = {
+			isa = PBXGroup;
+			children = (
+				1378C08C278C4B5C00BD6DBD /* WordListViewController.swift */,
+				130FE6A027B4263C00D1287C /* DetailCell.swift */,
+			);
+			path = WordList;
+			sourceTree = "<group>";
+		};
+		130FE6A827B4295F00D1287C /* AnalyzeWrongWord */ = {
+			isa = PBXGroup;
+			children = (
+				13514D1127A59E39007EBF34 /* AnalyzeWrongWordViewController.swift */,
+				130FE6A927B4298600D1287C /* WrongWordCell.swift */,
+			);
+			path = AnalyzeWrongWord;
+			sourceTree = "<group>";
+		};
+		130FE6AB27B429F600D1287C /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				130FE6AC27B42BA600D1287C /* BaseViewController.swift */,
+				130FE69C27B41D2D00D1287C /* BaseTableCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		1336DDBB278096C10084DEFF = {
 			isa = PBXGroup;
 			children = (
@@ -120,13 +170,14 @@
 			isa = PBXGroup;
 			children = (
 				13D2D8942795393400B5F701 /* LoadViewDelegate.swift */,
+				130FE6AB27B429F600D1287C /* Base */,
 				13C2DAD327942C5200AA26B7 /* Model */,
-				13C2DACF27942B9F00AA26B7 /* account */,
-				13C2DAD027942BAA00AA26B7 /* wordList */,
-				13C2DAD227942C0900AA26B7 /* wordSearch */,
-				13514D0F27A59D0E007EBF34 /* wordBookmark */,
+				13C2DACF27942B9F00AA26B7 /* Account */,
+				13C2DAD027942BAA00AA26B7 /* Word */,
+				13C2DAD227942C0900AA26B7 /* Search */,
+				13514D0F27A59D0E007EBF34 /* BookMark */,
 				13C2DAD127942BE100AA26B7 /* wordTest */,
-				13514D1027A59D7C007EBF34 /* myPage */,
+				13514D1027A59D7C007EBF34 /* MyPage */,
 				1336DDC7278096C10084DEFF /* AppDelegate.swift */,
 				1336DDC9278096C10084DEFF /* SceneDelegate.swift */,
 				1336DDD2278096C20084DEFF /* LaunchScreen.storyboard */,
@@ -139,42 +190,43 @@
 			path = "wordcheck-ios";
 			sourceTree = "<group>";
 		};
-		13514D0F27A59D0E007EBF34 /* wordBookmark */ = {
+		13514D0F27A59D0E007EBF34 /* BookMark */ = {
 			isa = PBXGroup;
 			children = (
 				13F3D319279A99E100805AC8 /* wordsBookMarkViewController.swift */,
+				130FE6A227B426CC00D1287C /* BookMarkCell.swift */,
 			);
-			path = wordBookmark;
+			path = BookMark;
 			sourceTree = "<group>";
 		};
-		13514D1027A59D7C007EBF34 /* myPage */ = {
+		13514D1027A59D7C007EBF34 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
 				139F12BC27994C9600BAB005 /* userProfileViewController.swift */,
 				13DCD15A27A42DE600BE3F5F /* papagoViewController.swift */,
-				13514D1127A59E39007EBF34 /* analyzeWrongWordViewController.swift */,
+				130FE6A827B4295F00D1287C /* AnalyzeWrongWord */,
 			);
-			path = myPage;
+			path = MyPage;
 			sourceTree = "<group>";
 		};
-		13C2DACF27942B9F00AA26B7 /* account */ = {
+		13C2DACF27942B9F00AA26B7 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				1336DDDB27809F440084DEFF /* loginViewController.swift */,
-				13F6F57A27886FA6006A33CE /* signupViewController.swift */,
+				1336DDDB27809F440084DEFF /* LoginViewController.swift */,
+				13F6F57A27886FA6006A33CE /* SignupViewController.swift */,
 			);
-			path = account;
+			path = Account;
 			sourceTree = "<group>";
 		};
-		13C2DAD027942BAA00AA26B7 /* wordList */ = {
+		13C2DAD027942BAA00AA26B7 /* Word */ = {
 			isa = PBXGroup;
 			children = (
-				1336DDDD2780A04B0084DEFF /* wordsListViewController.swift */,
-				1378C08C278C4B5C00BD6DBD /* wordsDetailListViewController.swift */,
+				130FE69E27B4260600D1287C /* Contents */,
+				130FE69F27B4260F00D1287C /* WordList */,
 				1311AD53278D4413005325D1 /* wordsCreateViewController.swift */,
 				136DE734278EA77100C29BEC /* wordsUpdateViewController.swift */,
 			);
-			path = wordList;
+			path = Word;
 			sourceTree = "<group>";
 		};
 		13C2DAD127942BE100AA26B7 /* wordTest */ = {
@@ -189,12 +241,13 @@
 			path = wordTest;
 			sourceTree = "<group>";
 		};
-		13C2DAD227942C0900AA26B7 /* wordSearch */ = {
+		13C2DAD227942C0900AA26B7 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				1330F2C02793ECDB007D3CB3 /* wordsSearchViewController.swift */,
+				1330F2C02793ECDB007D3CB3 /* SearchViewController.swift */,
+				130FE6A627B428B700D1287C /* SearchCell.swift */,
 			);
-			path = wordSearch;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		13C2DAD327942C5200AA26B7 /* Model */ = {
@@ -379,31 +432,38 @@
 				13DCD15D27A43A3300BE3F5F /* Papago.swift in Sources */,
 				13DCD15B27A42DE600BE3F5F /* papagoViewController.swift in Sources */,
 				1338AC2C27911A7700121A10 /* selectTestViewController.swift in Sources */,
+				130FE6AA27B4298600D1287C /* WrongWordCell.swift in Sources */,
+				130FE6A327B426CC00D1287C /* BookMarkCell.swift in Sources */,
+				130FE6AD27B42BA600D1287C /* BaseViewController.swift in Sources */,
 				1311AD54278D4413005325D1 /* wordsCreateViewController.swift in Sources */,
 				132CB9EC27B035DF005D258E /* UIColor.swift in Sources */,
 				1311AD50278D4391005325D1 /* Words.swift in Sources */,
-				1336DDDC27809F440084DEFF /* loginViewController.swift in Sources */,
+				1336DDDC27809F440084DEFF /* LoginViewController.swift in Sources */,
+				130FE69D27B41D2D00D1287C /* BaseTableCell.swift in Sources */,
 				134C87D127903B3700567A5A /* cardTestViewController.swift in Sources */,
-				1330F2C12793ECDB007D3CB3 /* wordsSearchViewController.swift in Sources */,
+				1330F2C12793ECDB007D3CB3 /* SearchViewController.swift in Sources */,
 				13E52366279FB3CB00D8A458 /* selectFourTestViewController.swift in Sources */,
+				130FE6A527B4276D00D1287C /* ContentCell.swift in Sources */,
 				13153D472791902600D875AF /* SwipeCardsDataSource.swift in Sources */,
 				13F3D31A279A99E100805AC8 /* wordsBookMarkViewController.swift in Sources */,
+				130FE6A727B428B700D1287C /* SearchCell.swift in Sources */,
 				13153D4327918E4400D875AF /* StackContainerView.swift in Sources */,
 				136DE735278EA77100C29BEC /* wordsUpdateViewController.swift in Sources */,
 				139F12BD27994C9600BAB005 /* userProfileViewController.swift in Sources */,
 				13E5236A279FB57E00D8A458 /* TestView.swift in Sources */,
 				13D2D8952795393400B5F701 /* LoadViewDelegate.swift in Sources */,
 				1336DDC8278096C10084DEFF /* AppDelegate.swift in Sources */,
-				13F6F57B27886FA6006A33CE /* signupViewController.swift in Sources */,
-				1378C08D278C4B5C00BD6DBD /* wordsDetailListViewController.swift in Sources */,
-				13514D1227A59E39007EBF34 /* analyzeWrongWordViewController.swift in Sources */,
+				13F6F57B27886FA6006A33CE /* SignupViewController.swift in Sources */,
+				1378C08D278C4B5C00BD6DBD /* WordListViewController.swift in Sources */,
+				13514D1227A59E39007EBF34 /* AnalyzeWrongWordViewController.swift in Sources */,
 				13E52368279FB3E600D8A458 /* dictationTestViewController.swift in Sources */,
-				1336DDDE2780A04B0084DEFF /* wordsListViewController.swift in Sources */,
+				1336DDDE2780A04B0084DEFF /* ContentsViewController.swift in Sources */,
 				1336DDCA278096C10084DEFF /* SceneDelegate.swift in Sources */,
 				13153D4127916A8C00D875AF /* WordCard.swift in Sources */,
 				136DE733278E6A4900C29BEC /* Storage.swift in Sources */,
 				13153D4527918E9300D875AF /* SwipeCardView.swift in Sources */,
 				132EE84D279FE3DD009B5B3C /* testResultViewController.swift in Sources */,
+				130FE6A127B4263C00D1287C /* DetailCell.swift in Sources */,
 				13318E79279913E300140FE9 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

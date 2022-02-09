@@ -1,7 +1,7 @@
 import UIKit
 import Alamofire
 
-class signupViewController: UIViewController {
+class SignupViewController: UIViewController {
     @IBOutlet weak var nickName: UITextField!
     @IBOutlet weak var passWord: UITextField!
     @IBOutlet weak var nickNameLength: UILabel!
@@ -40,6 +40,7 @@ class signupViewController: UIViewController {
             }
         }
     }
+    
     @IBAction func nickNameLength(_ sender: Any) {
         nickNameLength.text = "\(nickName.text!.count)/20"
         limitLength(textField: nickName, maxLength: 20)
@@ -62,9 +63,14 @@ class signupViewController: UIViewController {
         AF.request(signUpURL, method: .post, parameters: parameters).validate(statusCode: 200..<300).responseDecodable(of: User.self) { response in
             switch response.result {
             case .success:
-                let alert = UIAlertController(title: "알림", message: "가입된 아이디로 로그인 해주세요", preferredStyle: .alert)
+                guard let userInfo = response.value else { return }
+                let alert = UIAlertController(title: "알림", message: "가입 완료", preferredStyle: .alert)
                 let confirm = UIAlertAction(title: "확인", style: .default) { action in
-                    self.dismiss(animated: true, completion: nil)
+                    Storage.store(userInfo, to: .documents, as: "user_info.json")
+                    guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "startWordCheck") else { return }
+                    vc.modalPresentationStyle = .fullScreen
+                    vc.modalTransitionStyle = .crossDissolve
+                    self.present(vc, animated: true, completion: nil)
                 }
                 alert.addAction(confirm)
                 self.present(alert, animated: true, completion: nil)
@@ -85,7 +91,7 @@ class signupViewController: UIViewController {
     }
 }
 
-extension signupViewController: UITextFieldDelegate {
+extension SignupViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if textField == nickName {

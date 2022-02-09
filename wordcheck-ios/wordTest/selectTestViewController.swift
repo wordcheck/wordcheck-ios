@@ -88,9 +88,6 @@ class selectTestViewController: UIViewController {
                 switch response.result {
                 case .success:
                     guard let testList = response.value else { return }
-                    if testList.count == 0 {
-                        
-                    }
                     Storage.store(testList, to: .caches, as: "words_test.json")
                     self.performSegue(withIdentifier: "cardTest", sender: item)
                 case .failure:

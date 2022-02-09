@@ -1,7 +1,7 @@
 import UIKit
 import Alamofire
 
-class loginViewController: UIViewController {
+class LoginViewController: UIViewController {
     @IBOutlet weak var nickName: UITextField!
     @IBOutlet weak var passWord: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -10,11 +10,11 @@ class loginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nickName.becomeFirstResponder()
         loginButton.isEnabled = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        nickName.becomeFirstResponder()
         let userInfo = Storage.retrive("user_info.json", from: .documents, as: User.self) ?? nil
         guard userInfo?.account_token != nil else { return }
         Storage.store(userInfo, to: .documents, as: "user_info.json")
@@ -25,14 +25,19 @@ class loginViewController: UIViewController {
     }
 
     @IBAction func nicknameChange(_ sender: Any) {
-        if nickName.text != "" && passWord.text != "" { loginButton.isEnabled = true
-        } else { loginButton.isEnabled = false }
+        if nickName.text != "" && passWord.text != "" {
+            loginButton.isEnabled = true
+        } else {
+            loginButton.isEnabled = false
+        }
     }
     
     @IBAction func passwordChange(_ sender: Any) {
         if nickName.text != "" && passWord.text != "" {
             loginButton.isEnabled = true
-        } else {  loginButton.isEnabled = false }
+        } else {
+            loginButton.isEnabled = false
+        }
     }
     
     @IBAction func loginButton(_ sender: Any) {
@@ -73,7 +78,7 @@ class loginViewController: UIViewController {
     }
 }
 
-extension loginViewController: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if textField == nickName {
