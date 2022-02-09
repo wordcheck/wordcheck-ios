@@ -155,6 +155,7 @@ extension wordsListViewController : UITableViewDelegate {
                 Storage.store(detailList, to: .caches, as: "words_detail.json")
                 guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "wordsDetailListViewController") as? wordsDetailListViewController else { return }
                 vc.delegate = self
+                vc.contentName = self.contentsList[indexPath.row].contents!
                 self.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             case .failure:

@@ -15,16 +15,22 @@ class wordsUpdateViewController: UIViewController {
     let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
     var index: Int!
     var detailList = Storage.retrive("words_detail.json", from: .caches, as: [WordsDetail].self) ?? []
+    var bookMarkList: [WordsDetail] = []
     let category = ["명사", "대명사", "동사", "부사", "형용사", "전치사", "접속사", "감탄사"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         contentsInput.text = detailList[index].contents
         spellingInput.text = detailList[index].spelling
+        categoryInput.setTitle(detailList[index].category, for: .normal)
         meaningInput.text = detailList[index].meaning
         categoryInput.layer.borderWidth = 1
         categoryInput.layer.cornerRadius = 5
         categoryInput.layer.borderColor = UIColor.systemGray5.cgColor
+        
+        contentsLength.text = "\(contentsInput.text!.count)/20"
+        spellingLength.text = "\(spellingInput.text!.count)/30"
+        meaningLength.text = "\(meaningInput.text!.count)/50"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +40,7 @@ class wordsUpdateViewController: UIViewController {
         } else {
             categoryInput.backgroundColor = .white
         }
+        bookMarkList = Storage.retrive("bookmark_list.json", from: .documents, as: [WordsDetail].self) ?? []
     }
     
     @IBAction func contentsCheck(_ sender: Any) {
@@ -60,7 +67,6 @@ class wordsUpdateViewController: UIViewController {
         dropDown.dataSource = category
         dropDown.selectionAction = { [] (index: Int, item: String) in
             self.categoryInput.setTitle(item, for: .normal)
-            self.categoryInput.setTitleColor(.label, for: .normal)
             self.meaningInput.becomeFirstResponder()
         }
         dropDown.show()
@@ -78,35 +84,32 @@ class wordsUpdateViewController: UIViewController {
         ]
         let id = self.detailList[index].id!
         
-        if categoryInput.currentTitle != "품사" {
-            AF.request("https://wordcheck.sulrae.com/api/words/\(id)/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<500).responseDecodable(of: WordsUpdate.self) { response in
-                switch response.result {
-                case .success:
-                    guard let word = response.value?.word else { return }
-                    let alert = UIAlertController(title: "알림", message: "단어 수정 성공", preferredStyle: .alert)
-                    let confirm = UIAlertAction(title: "확인", style: .default) { action in
-                        self.detailList[self.index] = word
-                        Storage.store(self.detailList, to: .caches, as: "words_detail.json")
-                        self.delegate?.loadUpdateTableView()
-                        self.dismiss(animated: true, completion: nil)
+        AF.request("https://wordcheck.sulrae.com/api/words/\(id)/", method: .patch, parameters: parameters, encoding: URLEncoding.queryString, headers: header).validate(statusCode: 200..<500).responseDecodable(of: WordsUpdate.self) { response in
+            switch response.result {
+            case .success:
+                guard let word = response.value?.word else { return }
+                let alert = UIAlertController(title: "알림", message: "단어 수정 성공", preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "확인", style: .default) { action in
+                    if(self.bookMarkList.contains(where: { $0.id == self.detailList[self.index].id })) {
+                        self.bookMarkList = self.bookMarkList.filter({ $0.id != self.detailList[self.index].id })
+                        self.bookMarkList.append(word)
+                        Storage.store(self.bookMarkList, to: .documents, as: "bookmark_list.json")
                     }
-                    alert.addAction(confirm)
-                    self.present(alert, animated: true, completion: nil)
-                    
-                case .failure:
-                    let alert = UIAlertController(title: "알림", message: "단어 수정 실패", preferredStyle: .alert)
-                    let confirm = UIAlertAction(title: "확인", style: .default)
-                    alert.addAction(confirm)
-                    self.present(alert, animated: true, completion: nil)
+                    self.detailList[self.index] = word
+                    Storage.store(self.detailList, to: .caches, as: "words_detail.json")
+                    self.delegate?.loadUpdateTableView()
+                    self.dismiss(animated: true, completion: nil)
                 }
+                alert.addAction(confirm)
+                self.present(alert, animated: true, completion: nil)
+                
+            case .failure:
+                let alert = UIAlertController(title: "알림", message: "단어 수정 실패", preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "확인", style: .default)
+                alert.addAction(confirm)
+                self.present(alert, animated: true, completion: nil)
             }
-        } else {
-            let alert = UIAlertController(title: "알림", message: "품사를 선택해주세요", preferredStyle: .alert)
-            let confirm = UIAlertAction(title: "확인", style: .default)
-            alert.addAction(confirm)
-            self.present(alert, animated: true, completion: nil)
         }
-        
     }
     
     @IBAction func touchView(_ sender: Any) {

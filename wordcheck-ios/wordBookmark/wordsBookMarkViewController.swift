@@ -2,6 +2,7 @@ import UIKit
 import AVFoundation
 
 class wordsBookMarkViewController: UIViewController {
+    @IBOutlet weak var wordCount: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var bookMarkList: [WordsDetail] = []
@@ -14,7 +15,9 @@ class wordsBookMarkViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.topItem?.title = "나의 북마크"
         bookMarkList = Storage.retrive("bookmark_list.json", from: .documents, as: [WordsDetail].self) ?? []
-        self.tableView.reloadData()
+        bookMarkList = bookMarkList.sorted(by: { $0.contents! < $1.contents! })
+        wordCount.text = "단어 수: \(bookMarkList.count)"
+        tableView.reloadData()
     }
 }
 
@@ -35,6 +38,7 @@ extension wordsBookMarkViewController: UITableViewDataSource {
         cell.bookMarkButtonTapHandler = {
             self.bookMarkList = self.bookMarkList.filter { $0.id != self.bookMarkList[indexPath.row].id }
             Storage.store(self.bookMarkList, to: .documents, as: "bookmark_list.json")
+            self.wordCount.text = "단어 수: \(self.bookMarkList.count)"
             self.tableView.reloadData()
         }
         cell.speechButtonTapHandler = {
@@ -49,7 +53,7 @@ extension wordsBookMarkViewController: UITableViewDataSource {
 
 extension wordsBookMarkViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return 240
     }
 }
 class BookMarkCell: UITableViewCell {
@@ -69,7 +73,7 @@ class BookMarkCell: UITableViewCell {
         contentView.layer.borderWidth = 1
         contentView.layer.borderColor = UIColor.lightGray.cgColor
         contentView.layer.cornerRadius = 8
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10))
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20))
     }
     
     @IBAction func bookMarkButton(_ sender: Any) {

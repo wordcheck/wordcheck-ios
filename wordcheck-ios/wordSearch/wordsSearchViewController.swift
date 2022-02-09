@@ -100,7 +100,7 @@ extension wordsSearchViewController: UITableViewDataSource {
 
 extension wordsSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return 240
     }
 }
 
@@ -121,7 +121,7 @@ class ResultCell: UITableViewCell {
         contentView.layer.borderWidth = 1
         contentView.layer.borderColor = UIColor.lightGray.cgColor
         contentView.layer.cornerRadius = 8
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10))
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20))
     }
     
     @IBAction func bookMarkButton(_ sender: Any) {

@@ -5,11 +5,11 @@ class selectFourTestViewController: UIViewController {
     @IBOutlet weak var testSpellingLabel: UILabel!
     @IBOutlet weak var testMeanLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var answer1: UIButton!
-    @IBOutlet weak var answer2: UIButton!
-    @IBOutlet weak var answer3: UIButton!
-    @IBOutlet weak var answer4: UIButton!
     @IBOutlet weak var bookMarkButton: UIButton!
+    @IBOutlet weak var answer1: UILabel!
+    @IBOutlet weak var answer2: UILabel!
+    @IBOutlet weak var answer3: UILabel!
+    @IBOutlet weak var answer4: UILabel!
     
     private let token = Storage.retrive("user_info.json", from: .documents, as: User.self)!.account_token!
     var content = ""
@@ -72,18 +72,33 @@ class selectFourTestViewController: UIViewController {
             }
         }
         quiz = quiz.shuffled()
-        answer1.setTitle(quiz[0].meaning, for: .normal)
-        answer2.setTitle(quiz[1].meaning, for: .normal)
-        answer3.setTitle(quiz[2].meaning, for: .normal)
-        answer4.setTitle(quiz[3].meaning, for: .normal)
+        answer1.text = quiz[0].meaning
+        answer2.text = quiz[1].meaning
+        answer3.text = quiz[2].meaning
+        answer4.text = quiz[3].meaning
+        
+        answer1.isUserInteractionEnabled = true
+        answer2.isUserInteractionEnabled = true
+        answer3.isUserInteractionEnabled = true
+        answer4.isUserInteractionEnabled = true
+        
+        let clickAnswer1 = UITapGestureRecognizer(target: self, action: #selector(select1))
+        let clickAnswer2 = UITapGestureRecognizer(target: self, action: #selector(select2))
+        let clickAnswer3 = UITapGestureRecognizer(target: self, action: #selector(select3))
+        let clickAnswer4 = UITapGestureRecognizer(target: self, action: #selector(select4))
+        
+        answer1.addGestureRecognizer(clickAnswer1)
+        answer2.addGestureRecognizer(clickAnswer2)
+        answer3.addGestureRecognizer(clickAnswer3)
+        answer4.addGestureRecognizer(clickAnswer4)
     }
     
-    func quizSolve(_ button: UIButton, _ index: Int) {
+    func quizSolve(_ label: UILabel, _ index: Int) {
         if quiz[index].id == showList.first?.id {
-            button.layer.borderColor = UIColor.green.cgColor
+            label.layer.borderColor = UIColor.green.cgColor
             correctList.append(showList.first!)
         } else {
-            button.layer.borderColor = UIColor.red.cgColor
+            label.layer.borderColor = UIColor.red.cgColor
             wrongList.append(showList.first!)
         }
     }
@@ -139,30 +154,20 @@ class selectFourTestViewController: UIViewController {
         answer4.layer.borderColor = UIColor.lightGray.cgColor
     }
     
-    @IBAction func select1(_ sender: Any) {
-        if testMeanLabel.isHidden == true {
-            quizSolve(answer1, 0)
-        }
+    @objc func select1(sender: UITapGestureRecognizer) {
+        if testMeanLabel.isHidden == true { quizSolve(answer1, 0) }
         testMeanLabel.isHidden = false
     }
-    @IBAction func select2(_ sender: Any) {
-        if testMeanLabel.isHidden == true {
-            quizSolve(answer2, 1)
-        }
+    @objc func select2(sender: UITapGestureRecognizer) {
+        if testMeanLabel.isHidden == true { quizSolve(answer2, 1) }
         testMeanLabel.isHidden = false
-        
     }
-    @IBAction func select3(_ sender: Any) {
-        if testMeanLabel.isHidden == true {
-            quizSolve(answer3, 2)
-        }
+    @objc func select3(sender: UITapGestureRecognizer) {
+        if testMeanLabel.isHidden == true { quizSolve(answer3, 2) }
         testMeanLabel.isHidden = false
-        
     }
-    @IBAction func select4(_ sender: Any) {
-        if testMeanLabel.isHidden == true {
-            quizSolve(answer4, 3)
-        }
+    @objc func select4(sender: UITapGestureRecognizer) {
+        if testMeanLabel.isHidden == true { quizSolve(answer4, 3) }
         testMeanLabel.isHidden = false
     }
     

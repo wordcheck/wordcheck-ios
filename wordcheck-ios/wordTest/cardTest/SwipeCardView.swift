@@ -68,6 +68,8 @@ class SwipeCardView: UIView {
     func configureSpellLabelView() {
         swipeView.addSubview(spell)
         spell.backgroundColor = .white
+        spell.numberOfLines = 2
+        spell.adjustsFontSizeToFitWidth = true
         spell.textColor = .black
         spell.textAlignment = .center
         spell.font = UIFont.systemFont(ofSize: 40, weight: .bold)
