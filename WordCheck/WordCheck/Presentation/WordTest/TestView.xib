@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestView" customModule="wordcheck_ios" customModuleProvider="target">
+            <connections>
+                <outlet property="bookMarkButton" destination="IVE-mt-0ut" id="ajc-lj-HWg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZI-2r-AMW">
+                    <rect key="frame" x="147" y="756" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="eoc-yd-7en"/>
+                        <constraint firstAttribute="height" constant="40" id="nwn-gB-hYF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="repeat" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" weight="black"/>
+                    </state>
+                    <connections>
+                        <action selector="resetButton:" destination="-1" eventType="touchUpInside" id="4uV-52-OWT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4s6-sg-Kza">
+                    <rect key="frame" x="77" y="756" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="IbF-vF-oQy"/>
+                        <constraint firstAttribute="height" constant="40" id="deS-je-6CK"/>
+                    </constraints>
+                    <color key="tintColor" systemColor="systemRedColor"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="xmark" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" weight="black"/>
+                    </state>
+                    <connections>
+                        <action selector="wrongButton:" destination="-1" eventType="touchUpInside" id="UOS-NQ-Ckw"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDR-Ub-hTK">
+                    <rect key="frame" x="168" y="668" width="67" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVE-mt-0ut">
+                    <rect key="frame" x="217" y="756" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="EEV-gH-TyF"/>
+                        <constraint firstAttribute="width" constant="40" id="tUS-x6-yMa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="tintColor" systemColor="systemYellowColor"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="star" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" weight="black"/>
+                    </state>
+                    <state key="selected" image="star.fill" catalog="system"/>
+                    <connections>
+                        <action selector="bookMarkButton:" destination="-1" eventType="touchUpInside" id="HWZ-6C-hZ9"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5g-zB-MF7">
+                    <rect key="frame" x="287" y="756" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="4Qs-a2-07A"/>
+                        <constraint firstAttribute="height" constant="40" id="yl6-In-Vc2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="tintColor" systemColor="systemGreenColor"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="circle" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" weight="black"/>
+                    </state>
+                    <connections>
+                        <action selector="correctButton:" destination="-1" eventType="touchUpInside" id="iuH-PM-loG"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="2nr-Rw-3Wb"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="IVE-mt-0ut" firstAttribute="centerY" secondItem="wZI-2r-AMW" secondAttribute="centerY" id="A7q-eq-5E8"/>
+                <constraint firstItem="4s6-sg-Kza" firstAttribute="centerY" secondItem="wZI-2r-AMW" secondAttribute="centerY" id="D0J-ye-4Ho"/>
+                <constraint firstItem="Q5g-zB-MF7" firstAttribute="centerY" secondItem="wZI-2r-AMW" secondAttribute="centerY" id="KsB-h7-Fob"/>
+                <constraint firstItem="wZI-2r-AMW" firstAttribute="leading" secondItem="4s6-sg-Kza" secondAttribute="trailing" constant="30" id="acu-bt-Ee9"/>
+                <constraint firstItem="wZI-2r-AMW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-40" id="g8x-R7-RhO"/>
+                <constraint firstItem="Q5g-zB-MF7" firstAttribute="leading" secondItem="IVE-mt-0ut" secondAttribute="trailing" constant="30" id="u07-eb-Z0p"/>
+                <constraint firstItem="IVE-mt-0ut" firstAttribute="leading" secondItem="wZI-2r-AMW" secondAttribute="trailing" constant="30" id="wwQ-EH-7dQ"/>
+                <constraint firstAttribute="bottom" secondItem="wZI-2r-AMW" secondAttribute="bottom" constant="100" id="wxz-FR-asb"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="91"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="repeat" catalog="system" width="128" height="98"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
